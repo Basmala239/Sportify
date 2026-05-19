@@ -17,6 +17,7 @@
 		FC2A2F692FBC8A95008A39E3 /* SportifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F682FBC8A95008A39E3 /* SportifyTests.swift */; };
 		FC2A2F732FBC8A95008A39E3 /* SportifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F722FBC8A95008A39E3 /* SportifyUITests.swift */; };
 		FC2A2F752FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F742FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift */; };
+		FC2A2F832FBC9BF9008A39E3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC2A2F822FBC9BF9008A39E3 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2A2F832FBC9BF9008A39E3 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +148,9 @@
 			dependencies = (
 			);
 			name = Sportify;
+			packageProductDependencies = (
+				FC2A2F822FBC9BF9008A39E3 /* Alamofire */,
+			);
 			productName = Sportify;
 			productReference = FC2A2F4B2FBC8A93008A39E3 /* Sportify.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +223,9 @@
 				Base,
 			);
 			mainGroup = FC2A2F422FBC8A93008A39E3;
+			packageReferences = (
+				FC2A2F812FBC9BF9008A39E3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = FC2A2F4C2FBC8A93008A39E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -602,6 +610,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC2A2F812FBC9BF9008A39E3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC2A2F822FBC9BF9008A39E3 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC2A2F812FBC9BF9008A39E3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FC2A2F572FBC8A93008A39E3 /* Sportify.xcdatamodeld */ = {
