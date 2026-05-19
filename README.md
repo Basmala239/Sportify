@@ -44,7 +44,7 @@ An advanced, multi-sectioned view tracking everything happening within a specifi
 
 * **Language:** Swift 5
 * **Framework:** UIKit (Storyboard / Programmatic UI)
-* **Architecture:** MVC / MVVM *(Choose whichever you used)*
+* **Architecture:** MVP
 * **Local Database:** CoreData (for caching favorite leagues)
 * **Networking:** URLSession / Alamofire (for fetching data from TheSportsDB API)
 * **Image Caching:** Kingfisher / SDWebImage (to handle smooth circular image loading and asynchronous caching)
@@ -71,13 +71,10 @@ An advanced, multi-sectioned view tracking everything happening within a specifi
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/SportsHub.git
+git clone https://github.com/Basmala239/Sportify.git
 
 ```
 
 
 2. Open `SportsHub.xcodeproj` in Xcode.
 3. Build and run the project on your preferred simulator or iOS device.
-
-
-```
