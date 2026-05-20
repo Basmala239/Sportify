@@ -103,12 +103,13 @@
 		FC2A2F4D2FBC8A93008A39E3 /* Sportify */ = {
 			isa = PBXGroup;
 			children = (
+				FC8FA1802FBE391F00C867CD /* Model */,
+				FC8FA17F2FBE391000C867CD /* View */,
+				FC8FA17E2FBE390300C867CD /* Modules */,
 				FC2A2F4E2FBC8A93008A39E3 /* AppDelegate.swift */,
 				FC2A2F502FBC8A93008A39E3 /* SceneDelegate.swift */,
 				FC2A2F522FBC8A93008A39E3 /* ViewController.swift */,
-				FC2A2F542FBC8A93008A39E3 /* Main.storyboard */,
 				FC2A2F5A2FBC8A95008A39E3 /* Assets.xcassets */,
-				FC2A2F5C2FBC8A95008A39E3 /* LaunchScreen.storyboard */,
 				FC2A2F5F2FBC8A95008A39E3 /* Info.plist */,
 				FC2A2F572FBC8A93008A39E3 /* Sportify.xcdatamodeld */,
 			);
@@ -130,6 +131,53 @@
 				FC2A2F742FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift */,
 			);
 			path = SportifyUITests;
+			sourceTree = "<group>";
+		};
+		FC8FA17E2FBE390300C867CD /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FC8FA1832FBE395E00C867CD /* Favorite */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FC8FA17F2FBE391000C867CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC2A2F5C2FBC8A95008A39E3 /* LaunchScreen.storyboard */,
+				FC2A2F542FBC8A93008A39E3 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC8FA1802FBE391F00C867CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC8FA1822FBE393D00C867CD /* Service */,
+				FC8FA1812FBE393300C867CD /* Entities */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC8FA1812FBE393300C867CD /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FC8FA1822FBE393D00C867CD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FC8FA1832FBE395E00C867CD /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
