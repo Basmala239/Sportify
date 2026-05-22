@@ -7,18 +7,31 @@
 
 import Foundation
 import UIKit
-
-extension LeaguesViewController : UITableViewDelegate, UITableViewDataSource {
+import SDWebImage
+extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return leagues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "favorite", for: indexPath) as? CustemTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "leagues", for: indexPath) as? CustemTableViewCell else {
             return UITableViewCell()
+        }
+        
+        let targetLeague = leagues[indexPath.row]
+        
+        cell.leaguesTitle.text = targetLeague.leagueName
+        
+        cell.leaguesCountry.text = targetLeague.countryName
+        
+        if let imageUrlString = targetLeague.leagueLogo, let url = URL(string: imageUrlString) {
+            cell.leaguesImage.sd_setImage(with: url, placeholderImage: UIImage(named: "star.fill"))
+        } else {
+            cell.leaguesImage.image = UIImage(named: "star.fill")
         }
              
         return cell
     }
 }
+
