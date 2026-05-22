@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import SDWebImage
 extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -21,12 +21,14 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
         
         let targetLeague = leagues[indexPath.row]
         
-        cell.textLabel?.text = targetLeague.leagueName
+        cell.leaguesTitle.text = targetLeague.leagueName
         
-        if let logoString = targetLeague.leagueLogo, let logoURL = URL(string: logoString) {
-            // cell.yourImageView.kf.setImage(with: logoURL) // Example implementation
+        cell.leaguesCountry.text = targetLeague.countryName
+        
+        if let imageUrlString = targetLeague.leagueLogo, let url = URL(string: imageUrlString) {
+            cell.leaguesImage.sd_setImage(with: url, placeholderImage: UIImage(named: "star.fill"))
         } else {
-            // cell.yourImageView.image = UIImage(named: "placeholder_sport")
+            cell.leaguesImage.image = UIImage(named: "star.fill")
         }
              
         return cell
