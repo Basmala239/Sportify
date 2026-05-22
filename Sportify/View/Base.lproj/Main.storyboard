@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DT7-Eo-36L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DT7-Eo-36L">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,13 +32,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQA-KE-jcT">
-                                <rect key="frame" x="16" y="220" width="396" height="450"/>
+                                <rect key="frame" x="16" y="218.66666666666663" width="396" height="450"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCR-uD-4EP">
                                         <rect key="frame" x="118" y="32" width="160" height="150"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RIC-uc-b0J">
-                                                <rect key="frame" x="40" y="37" width="80" height="77"/>
+                                                <rect key="frame" x="40" y="37.000000000000028" width="80" height="77"/>
                                                 <color key="tintColor" red="0.27100118989999999" green="0.33595627550000001" blue="0.42247095699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="169-mR-McW"/>
@@ -56,7 +55,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Favorite Yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an9-Ww-rmL">
-                                        <rect key="frame" x="81" y="205.66666666666669" width="234" height="39"/>
+                                        <rect key="frame" x="81" y="205.33333333333334" width="234" height="39"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -85,7 +84,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrB-XT-Hj5">
-                                <rect key="frame" x="32" y="79" width="183" height="39"/>
+                                <rect key="frame" x="32" y="76" width="183" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="145" id="g5i-2a-dXN"/>
                                 </constraints>
@@ -94,7 +93,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gYk-do-dc0">
-                                <rect key="frame" x="32" y="149" width="364" height="678"/>
+                                <rect key="frame" x="32" y="146" width="364" height="681"/>
                                 <color key="backgroundColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -208,7 +207,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leagues" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpu-jm-aZX">
-                                <rect key="frame" x="32" y="79" width="132" height="39"/>
+                                <rect key="frame" x="32" y="76" width="132" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="fHC-TN-BKQ"/>
                                 </constraints>
@@ -217,7 +216,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rne-CR-Fdh">
-                                <rect key="frame" x="16" y="142" width="396" height="56"/>
+                                <rect key="frame" x="16" y="139" width="396" height="51"/>
                                 <color key="backgroundColor" red="0.081524319949999993" green="0.1169075295" blue="0.19147703050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -275,8 +274,8 @@
     </scenes>
     <resources>
         <image name="background" width="402" height="874"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="house" catalog="system" width="128" height="104"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="logo" width="1048" height="1063"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
