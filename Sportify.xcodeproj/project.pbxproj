@@ -29,6 +29,7 @@
 		FC8FA19E2FBE8E9C00C867CD /* LeaguesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA19D2FBE8E9C00C867CD /* LeaguesPresenter.swift */; };
 		FC8FA1A02FBE8ECA00C867CD /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA19F2FBE8ECA00C867CD /* LeaguesViewController.swift */; };
 		FC8FA1A22FBE8EFA00C867CD /* LeaguesTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA1A12FBE8EFA00C867CD /* LeaguesTableViewExtension.swift */; };
+		FCA2EC132FC06F910087873C /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA2EC122FC06F910087873C /* League.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		FC8FA19D2FBE8E9C00C867CD /* LeaguesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesPresenter.swift; sourceTree = "<group>"; };
 		FC8FA19F2FBE8ECA00C867CD /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		FC8FA1A12FBE8EFA00C867CD /* LeaguesTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTableViewExtension.swift; sourceTree = "<group>"; };
+		FCA2EC122FC06F910087873C /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		FC8FA1812FBE393300C867CD /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FCA2EC122FC06F910087873C /* League.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				FC8FA1882FBE470A00C867CD /* CustemTableViewCell.swift in Sources */,
 				FC8FA1952FBE856200C867CD /* APIEndpoints.swift in Sources */,
 				FC2A2F592FBC8A93008A39E3 /* Sportify.xcdatamodeld in Sources */,
+				FCA2EC132FC06F910087873C /* League.swift in Sources */,
 				FC2A2F4F2FBC8A93008A39E3 /* AppDelegate.swift in Sources */,
 				FC8FA1A22FBE8EFA00C867CD /* LeaguesTableViewExtension.swift in Sources */,
 				FC8FA18B2FBE4F5300C867CD /* FavoriteViewController.swift in Sources */,
