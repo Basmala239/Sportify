@@ -29,7 +29,7 @@ class FavoriteViewController: UIViewController, FavoriteView {
     private func setupTableView() {
         favTableView.delegate = self
         favTableView.dataSource = self
-        favTableView.register(UINib(nibName: "CustemTableViewCell", bundle: nil), forCellReuseIdentifier: "favorite")
+        favTableView.register(UINib(nibName: "CustemTableViewCell", bundle: nil), forCellReuseIdentifier: "leagues")
     }
     
     private func setupPresenter() {
