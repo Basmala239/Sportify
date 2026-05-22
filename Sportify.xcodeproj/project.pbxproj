@@ -30,6 +30,7 @@
 		FC8FA1A02FBE8ECA00C867CD /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA19F2FBE8ECA00C867CD /* LeaguesViewController.swift */; };
 		FC8FA1A22FBE8EFA00C867CD /* LeaguesTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA1A12FBE8EFA00C867CD /* LeaguesTableViewExtension.swift */; };
 		FCA2EC132FC06F910087873C /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA2EC122FC06F910087873C /* League.swift */; };
+		FCA2EC162FC084310087873C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FCA2EC152FC084310087873C /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA2EC162FC084310087873C /* SDWebImage in Frameworks */,
 				FC2A2F832FBC9BF9008A39E3 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +292,7 @@
 			name = Sportify;
 			packageProductDependencies = (
 				FC2A2F822FBC9BF9008A39E3 /* Alamofire */,
+				FCA2EC152FC084310087873C /* SDWebImage */,
 			);
 			productName = Sportify;
 			productReference = FC2A2F4B2FBC8A93008A39E3 /* Sportify.app */;
@@ -365,6 +368,7 @@
 			mainGroup = FC2A2F422FBC8A93008A39E3;
 			packageReferences = (
 				FC2A2F812FBC9BF9008A39E3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FCA2EC142FC084310087873C /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = FC2A2F4C2FBC8A93008A39E3 /* Products */;
 			projectDirPath = "";
@@ -772,6 +776,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		FCA2EC142FC084310087873C /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.18.11;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -779,6 +791,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FC2A2F812FBC9BF9008A39E3 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		FCA2EC152FC084310087873C /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCA2EC142FC084310087873C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
