@@ -21,6 +21,12 @@
 		FC2A2F732FBC8A95008A39E3 /* SportifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F722FBC8A95008A39E3 /* SportifyUITests.swift */; };
 		FC2A2F752FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F742FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift */; };
 		FC2A2F832FBC9BF9008A39E3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC2A2F822FBC9BF9008A39E3 /* Alamofire */; };
+		FC8CEB282FC2052A00ED5EFD /* UpcomingEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8CEB262FC2052A00ED5EFD /* UpcomingEventCell.swift */; };
+		FC8CEB292FC2052A00ED5EFD /* UpcomingEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8CEB272FC2052A00ED5EFD /* UpcomingEventCell.xib */; };
+		FC8CEB2C2FC2054800ED5EFD /* LatestEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8CEB2A2FC2054700ED5EFD /* LatestEventCell.swift */; };
+		FC8CEB2D2FC2054800ED5EFD /* LatestEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8CEB2B2FC2054700ED5EFD /* LatestEventCell.xib */; };
+		FC8CEB322FC205C300ED5EFD /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8CEB302FC205C300ED5EFD /* TeamCell.swift */; };
+		FC8CEB332FC205C300ED5EFD /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8CEB312FC205C300ED5EFD /* TeamCell.xib */; };
 		FC8FA1882FBE470A00C867CD /* CustemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA1862FBE470A00C867CD /* CustemTableViewCell.swift */; };
 		FC8FA1892FBE470A00C867CD /* CustemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8FA1872FBE470A00C867CD /* CustemTableViewCell.xib */; };
 		FC8FA18B2FBE4F5300C867CD /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA18A2FBE4F5300C867CD /* FavoriteViewController.swift */; };
@@ -73,6 +79,12 @@
 		FC2A2F6E2FBC8A95008A39E3 /* SportifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2A2F722FBC8A95008A39E3 /* SportifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportifyUITests.swift; sourceTree = "<group>"; };
 		FC2A2F742FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FC8CEB262FC2052A00ED5EFD /* UpcomingEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventCell.swift; sourceTree = "<group>"; };
+		FC8CEB272FC2052A00ED5EFD /* UpcomingEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingEventCell.xib; sourceTree = "<group>"; };
+		FC8CEB2A2FC2054700ED5EFD /* LatestEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestEventCell.swift; sourceTree = "<group>"; };
+		FC8CEB2B2FC2054700ED5EFD /* LatestEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestEventCell.xib; sourceTree = "<group>"; };
+		FC8CEB302FC205C300ED5EFD /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		FC8CEB312FC205C300ED5EFD /* TeamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
 		FC8FA1862FBE470A00C867CD /* CustemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustemTableViewCell.swift; sourceTree = "<group>"; };
 		FC8FA1872FBE470A00C867CD /* CustemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustemTableViewCell.xib; sourceTree = "<group>"; };
 		FC8FA18A2FBE4F5300C867CD /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -325,6 +337,12 @@
 			isa = PBXGroup;
 			children = (
 				FCA2EC222FC097610087873C /* LeaguesDetailsViewController.swift */,
+				FC8CEB262FC2052A00ED5EFD /* UpcomingEventCell.swift */,
+				FC8CEB272FC2052A00ED5EFD /* UpcomingEventCell.xib */,
+				FC8CEB2A2FC2054700ED5EFD /* LatestEventCell.swift */,
+				FC8CEB2B2FC2054700ED5EFD /* LatestEventCell.xib */,
+				FC8CEB302FC205C300ED5EFD /* TeamCell.swift */,
+				FC8CEB312FC205C300ED5EFD /* TeamCell.xib */,
 			);
 			path = LeaguesDetailsView;
 			sourceTree = "<group>";
@@ -449,6 +467,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC8CEB292FC2052A00ED5EFD /* UpcomingEventCell.xib in Resources */,
+				FC8CEB2D2FC2054800ED5EFD /* LatestEventCell.xib in Resources */,
+				FC8CEB332FC205C300ED5EFD /* TeamCell.xib in Resources */,
 				FC8FA1892FBE470A00C867CD /* CustemTableViewCell.xib in Resources */,
 				FC2A2F5E2FBC8A95008A39E3 /* LaunchScreen.storyboard in Resources */,
 				FC2A2F5B2FBC8A95008A39E3 /* Assets.xcassets in Resources */,
@@ -490,12 +511,15 @@
 				FC8FA1882FBE470A00C867CD /* CustemTableViewCell.swift in Sources */,
 				FC8FA1952FBE856200C867CD /* APIEndpoints.swift in Sources */,
 				FC2A2F592FBC8A93008A39E3 /* Sportify.xcdatamodeld in Sources */,
+				FC8CEB2C2FC2054800ED5EFD /* LatestEventCell.swift in Sources */,
+				FC8CEB322FC205C300ED5EFD /* TeamCell.swift in Sources */,
 				FCA2EC132FC06F910087873C /* League.swift in Sources */,
 				FC2A2F4F2FBC8A93008A39E3 /* AppDelegate.swift in Sources */,
 				FC8FA1A22FBE8EFA00C867CD /* LeaguesTableViewExtension.swift in Sources */,
 				FC8FA18B2FBE4F5300C867CD /* FavoriteViewController.swift in Sources */,
 				FC2A2F512FBC8A93008A39E3 /* SceneDelegate.swift in Sources */,
 				FC8FA19E2FBE8E9C00C867CD /* LeaguesPresenter.swift in Sources */,
+				FC8CEB282FC2052A00ED5EFD /* UpcomingEventCell.swift in Sources */,
 				FCA2EC212FC097400087873C /* LeaguesDetailsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
