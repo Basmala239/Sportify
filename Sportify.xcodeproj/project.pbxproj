@@ -21,6 +21,7 @@
 		FC2A2F732FBC8A95008A39E3 /* SportifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F722FBC8A95008A39E3 /* SportifyUITests.swift */; };
 		FC2A2F752FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F742FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift */; };
 		FC2A2F832FBC9BF9008A39E3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC2A2F822FBC9BF9008A39E3 /* Alamofire */; };
+		FC6DDA142FC37CA2004794EA /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6DDA132FC37CA2004794EA /* Team.swift */; };
 		FC8CEB282FC2052A00ED5EFD /* UpcomingEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8CEB262FC2052A00ED5EFD /* UpcomingEventCell.swift */; };
 		FC8CEB292FC2052A00ED5EFD /* UpcomingEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8CEB272FC2052A00ED5EFD /* UpcomingEventCell.xib */; };
 		FC8CEB2C2FC2054800ED5EFD /* LatestEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8CEB2A2FC2054700ED5EFD /* LatestEventCell.swift */; };
@@ -79,6 +80,7 @@
 		FC2A2F6E2FBC8A95008A39E3 /* SportifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2A2F722FBC8A95008A39E3 /* SportifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportifyUITests.swift; sourceTree = "<group>"; };
 		FC2A2F742FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FC6DDA132FC37CA2004794EA /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		FC8CEB262FC2052A00ED5EFD /* UpcomingEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventCell.swift; sourceTree = "<group>"; };
 		FC8CEB272FC2052A00ED5EFD /* UpcomingEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingEventCell.xib; sourceTree = "<group>"; };
 		FC8CEB2A2FC2054700ED5EFD /* LatestEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestEventCell.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				FCA2EC122FC06F910087873C /* League.swift */,
+				FC6DDA132FC37CA2004794EA /* Team.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				FC8FA1A02FBE8ECA00C867CD /* LeaguesViewController.swift in Sources */,
 				FC8FA1882FBE470A00C867CD /* CustemTableViewCell.swift in Sources */,
 				FC8FA1952FBE856200C867CD /* APIEndpoints.swift in Sources */,
+				FC6DDA142FC37CA2004794EA /* Team.swift in Sources */,
 				FC2A2F592FBC8A93008A39E3 /* Sportify.xcdatamodeld in Sources */,
 				FC8CEB2C2FC2054800ED5EFD /* LatestEventCell.swift in Sources */,
 				FC8CEB322FC205C300ED5EFD /* TeamCell.swift in Sources */,
