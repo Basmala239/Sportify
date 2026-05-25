@@ -15,31 +15,24 @@ protocol LeaguesDetailsView: AnyObject {
 }
 class LeaguesDetailsViewController: UITableViewController{
     
-    // MARK: - Outlets
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     @IBOutlet weak var latestEventsCollectionView: UICollectionView!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
     
-    // MARK: - Properties
     var leagueId: String?
-    var leagueName: String?
-    var leagueLogo: String?
-    
+    var sportEndpoint: String?
     private var upcomingEvents: [Event] = []
     private var latestEvents: [Event] = []
     private var teams: [Team] = []
     private var presenter: LeaguesDetailspresenterProtocol!
-    
-    private let favoritesKey = "favoriteLeagues"
-    let indicator = UIActivityIndicatorView(style: .large)
+    private let indicator = UIActivityIndicatorView(style: .large)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
+        
         setupCollectionViews()
-        setupFavoriteButton()
         
         let leaguesPresenter = LeaguesDetailspresenter()
         self.presenter = leaguesPresenter
@@ -50,96 +43,27 @@ class LeaguesDetailsViewController: UITableViewController{
 //        leaguesPresenter.leagueId = self.leagueId
         
         Task {
-                    await leaguesPresenter.fetchLeagueDetails()
-                }
+                await leaguesPresenter.fetchLeagueDetails(leagueId)
+            }
     }
     
    // MARK: - Setup Methods
-    private func setupUI() {
-        title = leagueName ?? "League Details"
-        
-    }
+
     
     private func setupCollectionViews() {
-        // Upcoming Events - Horizontal
         upcomingCollectionView.delegate = self
         upcomingCollectionView.dataSource = self
-        upcomingCollectionView.showsHorizontalScrollIndicator = false
-        let upcomingLayout = UICollectionViewFlowLayout()
-        upcomingLayout.scrollDirection = .horizontal
-        upcomingLayout.minimumLineSpacing = 15
-        upcomingLayout.minimumInteritemSpacing = 10
-        upcomingLayout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-        upcomingCollectionView.collectionViewLayout = upcomingLayout
         upcomingCollectionView.register(UINib(nibName: "UpcomingEventCell", bundle: nil), forCellWithReuseIdentifier: "UpcomingEventCell")
         
-        // Latest Events - Vertical (Turn off scrolling to prevent friction with the Table View)
+        
         latestEventsCollectionView.delegate = self
         latestEventsCollectionView.dataSource = self
-        latestEventsCollectionView.isScrollEnabled = false
-        let latestLayout = UICollectionViewFlowLayout()
-        latestLayout.scrollDirection = .vertical
-        latestLayout.minimumLineSpacing = 10
-        latestLayout.minimumInteritemSpacing = 10
-        latestLayout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-        latestEventsCollectionView.collectionViewLayout = latestLayout
         latestEventsCollectionView.register(UINib(nibName: "LatestEventCell", bundle: nil), forCellWithReuseIdentifier: "LatestEventCell")
         
-        // Teams - Horizontal
         teamsCollectionView.delegate = self
         teamsCollectionView.dataSource = self
         teamsCollectionView.showsHorizontalScrollIndicator = false
-        let teamsLayout = UICollectionViewFlowLayout()
-        teamsLayout.scrollDirection = .horizontal
-        teamsLayout.minimumLineSpacing = 15
-        teamsLayout.minimumInteritemSpacing = 10
-        teamsLayout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-        teamsCollectionView.collectionViewLayout = teamsLayout
         teamsCollectionView.register(UINib(nibName: "TeamCell", bundle: nil), forCellWithReuseIdentifier: "TeamCell")
-    }
-    
-    private func setupFavoriteButton() {
-        let favoriteButton = UIBarButtonItem(image: getFavoriteButtonImage(),
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(favoriteButtonTapped))
-        navigationItem.rightBarButtonItem = favoriteButton
-    }
-    
-    private func getFavoriteButtonImage() -> UIImage? {
-        guard let leagueId = leagueId else { return UIImage(systemName: "star") }
-        
-        let favorites = UserDefaults.standard.array(forKey: favoritesKey) as? [String] ?? []
-        let isFavorite = favorites.contains(leagueId)
-        let imageName = isFavorite ? "star.fill" : "star"
-        return UIImage(systemName: imageName)
-    }
-    
-    // MARK: - view
-    
-    
-    // MARK: - Actions
-    @objc private func favoriteButtonTapped() {
-        guard let leagueId = leagueId else { return }
-        
-        var favorites = UserDefaults.standard.array(forKey: favoritesKey) as? [String] ?? []
-        
-        if favorites.contains(leagueId) {
-            favorites.removeAll { $0 == leagueId }
-            showAlert(message: "Removed from favorites")
-        } else {
-            favorites.append(leagueId)
-            showAlert(message: "Added to favorites")
-        }
-        
-        UserDefaults.standard.set(favorites, forKey: favoritesKey)
-        navigationItem.rightBarButtonItem?.image = getFavoriteButtonImage()
-    }
-    
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
     }
     
     // MARK: - Navigation

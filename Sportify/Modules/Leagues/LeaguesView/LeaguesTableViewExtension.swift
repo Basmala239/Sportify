@@ -33,5 +33,12 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
              
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+        
+            let currentSport = self.sportEndpoint ?? APIEndpoints.football
+            presenter.didSelectLeague(at: indexPath.row, sportEndpoint: currentSport)
+        }
 }
 
