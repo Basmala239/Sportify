@@ -11,7 +11,7 @@ protocol LeaguesView: AnyObject {
     func startLoading()
     func stopLoading()
     func renderLeague(_ leagues: [League])
-}
+    func navigateToDetails(sportEndpoint: String, leagueKey: String)}
 
 class LeaguesViewController: UIViewController, LeaguesView {
 
@@ -21,12 +21,13 @@ class LeaguesViewController: UIViewController, LeaguesView {
     var presenter: LeaguesPresenterProtocol = LeaguesPresenter()
     let indicator = UIActivityIndicatorView(style: .large)
     var leagues: [League] = []
+    var sportEndpoint: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         presenter.attachView(self)
-        presenter.fetchData(for: APIEndpoints.football)
+        presenter.fetchData(for: sportEndpoint ?? APIEndpoints.football)
     }
     
     private func setupTableView() {
@@ -49,5 +50,16 @@ class LeaguesViewController: UIViewController, LeaguesView {
     func renderLeague(_ leagues: [League]) {
         self.leagues = leagues
         leaguesTableView.reloadData()
+    }
+    
+    func navigateToDetails(sportEndpoint: String, leagueKey: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as? LeaguesDetailsViewController {
+            
+            detailsVC.sportEndpoint = sportEndpoint
+            detailsVC.leagueId = leagueKey
+            
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        }
     }
 }

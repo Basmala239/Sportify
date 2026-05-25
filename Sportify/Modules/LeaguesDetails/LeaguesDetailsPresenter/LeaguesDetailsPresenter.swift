@@ -8,15 +8,13 @@
 import Foundation
 protocol LeaguesDetailspresenterProtocol {
     func attachView(_ view: LeaguesDetailsView)
-    
-    
+    func fetchLeagueDetails(_ leagueId: String?) async
 }
 class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
     private var upcomingMatches: [Event] = []
     private var latestMatches: [Event] = []
     private var teams: [Team] = []
     var sportEndpointName: String?
-    var leagueId: String?
 
     private weak var view: LeaguesDetailsView?
     private let networkService: NetworkServiceProtocol
@@ -28,14 +26,15 @@ class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
     func attachView(_ view: LeaguesDetailsView) {
         self.view = view
     }
-    func fetchLeagueDetails() async {
+    func fetchLeagueDetails(_ leagueId: String?) async {
         guard networkService.isInternetConnected() else {
             return
         }
         
         view?.startLoading()
         let endpoint = self.sportEndpointName ?? APIEndpoints.football
-        let id = self.leagueId ?? "207"
+        let id = leagueId ?? "207"
+        
 
         if endpoint == APIEndpoints.tennis {
             view?.stopLoading()
