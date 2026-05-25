@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leA-tF-ceW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-897.19626168224295" y="5.8315334773218144"/>
+            <point key="canvasLocation" x="-346" y="-10"/>
         </scene>
         <!--Sport-->
         <scene sceneID="g9c-cA-bQV">
@@ -173,7 +173,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xNJ-mO-YAw">
-                                <rect key="frame" x="0.0" y="214" width="428" height="629"/>
+                                <rect key="frame" x="0.0" y="211" width="428" height="632"/>
                                 <color key="backgroundColor" red="0.059638462959999999" green="0.089373908939999996" blue="0.1652922332" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Af-Gh-UMg">
                                     <size key="itemSize" width="128" height="128"/>
@@ -193,7 +193,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNe-qs-KN0">
-                                <rect key="frame" x="20" y="106.99999999999999" width="135.33333333333334" height="53.333333333333329"/>
+                                <rect key="frame" x="20" y="103.99999999999999" width="135.33333333333334" height="53.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -201,7 +201,7 @@
                                 <size key="shadowOffset" width="-2" height="-2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elite action , real time ...all sports in one hub" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyt-Fz-cVz">
-                                <rect key="frame" x="20" y="168.33333333333334" width="368" height="21.666666666666657"/>
+                                <rect key="frame" x="20" y="165.33333333333334" width="368" height="21.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" red="0.18859273200000001" green="0.77573996779999999" blue="0.9673141837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -253,7 +253,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QXj-2c-04e">
-                                <rect key="frame" x="16" y="214" width="396" height="662"/>
+                                <rect key="frame" x="16" y="206" width="396" height="670"/>
                                 <color key="backgroundColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
