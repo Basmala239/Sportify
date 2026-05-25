@@ -18,7 +18,6 @@ class SportsViewController: UIViewController , SportsViewProtocol{
         presenter = SportsPresenter(view: self)
         setupCollectionView()
         presenter.viewDidLoad()
-        print("hello basmala , i am esraa")
     }
     
     func setupCollectionView(){
@@ -32,8 +31,18 @@ class SportsViewController: UIViewController , SportsViewProtocol{
     }
     
     func reloadData() {
-            sportsCollectionView.reloadData()
+        sportsCollectionView.reloadData()
+    }
+    
+    func navigateToLeagues(with sportName: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let leaguesVC = storyboard.instantiateViewController(withIdentifier: "LeaguesViewController") as? LeaguesViewController {
+            
+            leaguesVC.sportEndpoint = sportName
+            self.navigationController?.pushViewController(leaguesVC, animated: true)
         }
+    }
 }
 
 extension SportsViewController : UICollectionViewDelegateFlowLayout{
@@ -68,5 +77,12 @@ extension SportsViewController: UICollectionViewDataSource {
         let currentSport = presenter.getSportItem(at: indexPath.item)
         cell.configure(with: currentSport)
         return cell
+    }
+    
+}
+
+extension SportsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.didSelectSport(at: indexPath.item)
     }
 }
