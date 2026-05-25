@@ -28,7 +28,7 @@ class TeamCell: UICollectionViewCell {
         // MARK: - Configure Method
         func configure(with team: Team) {
             teamNameLabel.text = team.teamName
-            loadImage(from: team.teamLogo, into: teamImageView)
+            loadImage(from: team.teamLogo ?? "", into: teamImageView)
         }
         
         private func loadImage(from urlString: String, into imageView: UIImageView) {

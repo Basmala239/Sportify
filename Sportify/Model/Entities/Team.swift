@@ -1,81 +1,65 @@
 //
-//  Team.swift
-//  Sportify
+//  TeamsModel.swift
+//  Sport Mob
 //
-//  Created by بسمله ابوزيد احمد on 24/05/2026.
+//  Created by Al3dwy on 07/05/2026.
 //
 
 import Foundation
 
-import Foundation
 
-// MARK: - Root Response
 struct TeamResponse: Codable {
-    let success: Int
-    let result: [Team]
+    let success: Int?
+    let result: [Team]?
 }
 
-// MARK: - Team
+
 struct Team: Codable {
-    let teamKey: Int
-    let teamName: String
-    let teamLogo: String
-    let players: [Player]
-    let coaches: [Coach]
-    
+    let teamKey: Int?
+    let teamName: String?
+    let teamLogo: String?
+    let players: [Player]?
+    let coaches: [Coach]?
+
     enum CodingKeys: String, CodingKey {
         case teamKey = "team_key"
         case teamName = "team_name"
         case teamLogo = "team_logo"
-        case players
-        case coaches
+        case players, coaches
     }
 }
 
-// MARK: - Player
+
+struct Coach: Codable {
+    let coachName: String?
+    let coachCountry, coachAge : String?
+
+    enum CodingKeys: String, CodingKey {
+        case coachName = "coach_name"
+        case coachCountry = "coach_country"
+        case coachAge = "coach_age"
+    }
+}
+
+
 struct Player: Codable {
-    let playerKey: Int
-    let playerImage: String
-    let playerName: String
-    let playerNumber: String
+    let playerKey: Int?
+    let playerImage: String?
+    let playerName, playerNumber: String?
     let playerCountry: String?
-    let playerType: String
-    let playerAge: String
-    let playerMatchPlayed: String
-    let playerGoals: String
-    let playerYellowCards: String
-    let playerRedCards: String
-    let playerInjured: String
-    let playerSubstituteOut: String
-    let playerSubstitutesOnBench: String
-    let playerAssists: String
-    let playerBirthdate: String
-    let playerIsCaptain: String
-    let playerShotsTotal: String
-    let playerGoalsConceded: String
-    let playerFoulsCommitted: String
-    let playerTackles: String
-    let playerBlocks: String
-    let playerCrossesTotal: String
-    let playerInterceptions: String
-    let playerClearances: String
-    let playerDispossesed: String
-    let playerSaves: String
-    let playerInsideBoxSaves: String
-    let playerDuelsTotal: String
-    let playerDuelsWon: String
-    let playerDribbleAttempts: String
-    let playerDribbleSucc: String
-    let playerPenComm: String
-    let playerPenWon: String
-    let playerPenScored: String
-    let playerPenMissed: String
-    let playerPasses: String
-    let playerPassesAccuracy: String
-    let playerKeyPasses: String
-    let playerWoordworks: String
-    let playerRating: String
-    
+    let playerType: String?
+    let playerAge, playerMatchPlayed, playerGoals, playerYellowCards: String?
+    let playerRedCards: String?
+    let playerSubstituteOut, playerSubstitutesOnBench, playerAssists: String?
+    let playerBirthdate: String?
+    let playerIsCaptain, playerShotsTotal, playerGoalsConceded, playerFoulsCommitted: String?
+    let playerTackles, playerBlocks, playerCrossesTotal, playerInterceptions: String?
+    let playerClearances, playerDispossesed, playerSaves, playerInsideBoxSaves: String?
+    let playerDuelsTotal, playerDuelsWon, playerDribbleAttempts, playerDribbleSucc: String?
+    let playerPenComm, playerPenWon, playerPenScored, playerPenMissed: String?
+    let playerPasses, playerPassesAccuracy, playerKeyPasses, playerWoordworks: String?
+    let playerRating: String?
+
     enum CodingKeys: String, CodingKey {
         case playerKey = "player_key"
         case playerImage = "player_image"
@@ -88,7 +72,6 @@ struct Player: Codable {
         case playerGoals = "player_goals"
         case playerYellowCards = "player_yellow_cards"
         case playerRedCards = "player_red_cards"
-        case playerInjured = "player_injured"
         case playerSubstituteOut = "player_substitute_out"
         case playerSubstitutesOnBench = "player_substitutes_on_bench"
         case playerAssists = "player_assists"
@@ -118,18 +101,5 @@ struct Player: Codable {
         case playerKeyPasses = "player_key_passes"
         case playerWoordworks = "player_woordworks"
         case playerRating = "player_rating"
-    }
-}
-
-// MARK: - Coach
-struct Coach: Codable {
-    let coachName: String
-    let coachCountry: String?
-    let coachAge: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case coachName = "coach_name"
-        case coachCountry = "coach_country"
-        case coachAge = "coach_age"
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 protocol LeaguesView: AnyObject {
     func startLoading()
     func stopLoading()
-    func renderProducts(_ leagues: [League])
+    func renderLeague(_ leagues: [League])
 }
 
 class LeaguesViewController: UIViewController, LeaguesView {
@@ -46,7 +46,7 @@ class LeaguesViewController: UIViewController, LeaguesView {
         indicator.removeFromSuperview()
     }
     
-    func renderProducts(_ leagues: [League]) {
+    func renderLeague(_ leagues: [League]) {
         self.leagues = leagues
         leaguesTableView.reloadData()
     }

@@ -7,9 +7,13 @@
 
 import UIKit
 protocol LeaguesDetailsView: AnyObject {
-    
+    func startLoading()
+    func stopLoading()
+    func renderUpcomingEvents(_ upcomingEvents: [Event])
+    func renderLatestEvents(_ latestEvents: [Event])
+    func renderTeams(_ teams: [Team])
 }
-class LeaguesDetailsViewController: UITableViewController {
+class LeaguesDetailsViewController: UITableViewController{
     
     // MARK: - Outlets
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
@@ -24,8 +28,10 @@ class LeaguesDetailsViewController: UITableViewController {
     private var upcomingEvents: [Event] = []
     private var latestEvents: [Event] = []
     private var teams: [Team] = []
+    private var presenter: LeaguesDetailspresenterProtocol!
     
     private let favoritesKey = "favoriteLeagues"
+    let indicator = UIActivityIndicatorView(style: .large)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -33,8 +39,19 @@ class LeaguesDetailsViewController: UITableViewController {
         
         setupUI()
         setupCollectionViews()
-        
         setupFavoriteButton()
+        
+        let leaguesPresenter = LeaguesDetailspresenter()
+        self.presenter = leaguesPresenter
+        leaguesPresenter.attachView(self)
+        
+//        // Pass view data context down to the presenter state
+//        leaguesPresenter.sportEndpointName = "/football/" // Dynamically set this based on what sport was selected
+//        leaguesPresenter.leagueId = self.leagueId
+        
+        Task {
+                    await leaguesPresenter.fetchLeagueDetails()
+                }
     }
     
    // MARK: - Setup Methods
@@ -97,6 +114,9 @@ class LeaguesDetailsViewController: UITableViewController {
         let imageName = isFavorite ? "star.fill" : "star"
         return UIImage(systemName: imageName)
     }
+    
+    // MARK: - view
+    
     
     // MARK: - Actions
     @objc private func favoriteButtonTapped() {
@@ -216,5 +236,44 @@ extension LeaguesDetailsViewController: UICollectionViewDelegateFlowLayout {
 
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
+    }
+}
+extension LeaguesDetailsViewController: LeaguesDetailsView {
+    func startLoading() {
+        DispatchQueue.main.async { [weak self] in // 👈 Wrap in main queue
+            guard let self = self else { return }
+            self.indicator.center = self.view.center
+            self.view.addSubview(self.indicator)
+            self.indicator.startAnimating()
+        }
+    }
+    
+    func stopLoading() {
+        DispatchQueue.main.async { [weak self] in // 👈 Wrap in main queue
+            guard let self = self else { return }
+            self.indicator.stopAnimating()
+            self.indicator.removeFromSuperview()
+        }
+    }
+    
+    func renderUpcomingEvents(_ upcomingEvents: [Event]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.upcomingEvents = upcomingEvents
+            // self?.upcomingCollectionView.reloadData() // Don't forget to reload if needed!
+        }
+    }
+    
+    func renderLatestEvents(_ latestEvents: [Event]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.latestEvents = latestEvents
+            // self?.latestEventsCollectionView.reloadData()
+        }
+    }
+    
+    func renderTeams(_ teams: [Team]) {
+        DispatchQueue.main.async { [weak self] in 
+            self?.teams = teams
+            self?.teamsCollectionView.reloadData()
+        }
     }
 }

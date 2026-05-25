@@ -43,7 +43,7 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
                 
                 self.view?.stopLoading()
                 let fetchedLeagues = response.result ?? []
-                self.view?.renderProducts(fetchedLeagues)
+                self.view?.renderLeague(fetchedLeagues)
                 
             } catch {
                 self.view?.stopLoading()
