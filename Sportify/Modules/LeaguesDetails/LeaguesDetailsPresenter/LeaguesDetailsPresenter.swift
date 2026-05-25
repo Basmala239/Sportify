@@ -12,8 +12,8 @@ protocol LeaguesDetailspresenterProtocol {
     
 }
 class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
-    private var upcomingMatches: [Match] = []
-    private var latestMatches: [Match] = []
+    private var upcomingMatches: [Event] = []
+    private var latestMatches: [Event] = []
     private var teams: [Team] = []
 
     private weak var view: LeaguesDetailsView?

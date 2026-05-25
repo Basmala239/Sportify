@@ -61,12 +61,6 @@
                                     <constraint firstAttribute="height" constant="2" id="FWf-RO-ta8"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUK-Mz-M9C">
-                                <rect key="frame" x="149.5" y="48" width="21.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCT 24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jV5-ue-lUx">
                                 <rect key="frame" x="65" y="174.5" width="59" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -107,7 +101,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P85-dw-rgg">
-                                <rect key="frame" x="230" y="114" width="100" height="21"/>
+                                <rect key="frame" x="211" y="114" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -119,9 +113,7 @@
                             <constraint firstItem="7TP-LU-ICl" firstAttribute="top" secondItem="hKE-i1-E0H" secondAttribute="top" constant="8" id="4v1-iR-wpn"/>
                             <constraint firstItem="jV5-ue-lUx" firstAttribute="leading" secondItem="7Tt-uS-vX2" secondAttribute="trailing" constant="8" id="6d0-kK-Usu"/>
                             <constraint firstItem="HCW-Dt-LgK" firstAttribute="top" secondItem="m1T-np-Da7" secondAttribute="bottom" constant="8" id="7TK-cQ-o9w"/>
-                            <constraint firstAttribute="trailing" secondItem="P85-dw-rgg" secondAttribute="trailing" constant="8" id="Arl-cT-zgP"/>
                             <constraint firstItem="9Zs-es-xpl" firstAttribute="top" secondItem="DbF-qF-Epo" secondAttribute="bottom" constant="15" id="C8U-f1-He8"/>
-                            <constraint firstItem="FUK-Mz-M9C" firstAttribute="centerX" secondItem="hKE-i1-E0H" secondAttribute="centerX" id="CsR-Jq-WMz"/>
                             <constraint firstItem="P85-dw-rgg" firstAttribute="top" secondItem="7TP-LU-ICl" secondAttribute="bottom" constant="8" id="D8r-mY-og3"/>
                             <constraint firstItem="Q5r-Wg-KZ2" firstAttribute="top" secondItem="DbF-qF-Epo" secondAttribute="bottom" constant="22.000000000000114" id="F2P-mH-H9O"/>
                             <constraint firstItem="9Zs-es-xpl" firstAttribute="leading" secondItem="Q5r-Wg-KZ2" secondAttribute="trailing" constant="32" id="J34-Ff-7bG"/>
@@ -132,9 +124,9 @@
                             <constraint firstItem="Qwv-4c-uOj" firstAttribute="leading" secondItem="hKE-i1-E0H" secondAttribute="leading" constant="8" id="fvs-hl-2VK"/>
                             <constraint firstItem="Q5r-Wg-KZ2" firstAttribute="centerX" secondItem="hKE-i1-E0H" secondAttribute="centerX" id="h2k-Iv-HGL"/>
                             <constraint firstItem="jV5-ue-lUx" firstAttribute="top" secondItem="DbF-qF-Epo" secondAttribute="bottom" constant="16.666666666666629" id="h55-gQ-uae"/>
+                            <constraint firstAttribute="trailing" secondItem="P85-dw-rgg" secondAttribute="trailing" constant="9" id="kyD-B3-j9M"/>
                             <constraint firstItem="DbF-qF-Epo" firstAttribute="leading" secondItem="hKE-i1-E0H" secondAttribute="leading" id="l5K-uD-tLq"/>
                             <constraint firstItem="7Tt-uS-vX2" firstAttribute="top" secondItem="DbF-qF-Epo" secondAttribute="bottom" constant="14.999999999999972" id="lht-Sn-Qbc"/>
-                            <constraint firstItem="FUK-Mz-M9C" firstAttribute="top" secondItem="hKE-i1-E0H" secondAttribute="top" constant="48" id="p6D-xA-W9b"/>
                             <constraint firstItem="GY6-Gw-Qp7" firstAttribute="leading" secondItem="9Zs-es-xpl" secondAttribute="trailing" constant="8" id="v94-v9-Ae2"/>
                             <constraint firstItem="HCW-Dt-LgK" firstAttribute="leading" secondItem="hKE-i1-E0H" secondAttribute="leading" constant="8" id="xNE-wU-lGj"/>
                             <constraint firstAttribute="trailing" secondItem="DbF-qF-Epo" secondAttribute="trailing" id="xa5-ks-MZg"/>
@@ -151,13 +143,13 @@
             </constraints>
             <size key="customSize" width="342" height="215"/>
             <connections>
-                <outlet property="awayTeamImageView" destination="By5-Ch-8fi" id="My4-lO-VNt"/>
-                <outlet property="containerView" destination="hKE-i1-E0H" id="F5l-HS-tcg"/>
-                <outlet property="dateLabel" destination="jV5-ue-lUx" id="8y4-AN-Haa"/>
-                <outlet property="eventNameLabel" destination="HCW-Dt-LgK" id="l6A-Df-mVF"/>
-                <outlet property="homeTeamImageView" destination="m1T-np-Da7" id="xrd-uY-EUy"/>
-                <outlet property="timeLabel" destination="GY6-Gw-Qp7" id="F1s-eU-NOQ"/>
-                <outlet property="vsLabel" destination="FUK-Mz-M9C" id="xF4-CI-764"/>
+                <outlet property="awayTeamLogo" destination="By5-Ch-8fi" id="jbv-gb-Zl0"/>
+                <outlet property="containerView" destination="hKE-i1-E0H" id="g34-6Y-GkX"/>
+                <outlet property="eventAwayTeam" destination="P85-dw-rgg" id="KrY-mV-LMa"/>
+                <outlet property="eventDate" destination="jV5-ue-lUx" id="46n-ZV-H2F"/>
+                <outlet property="eventHomeTeam" destination="HCW-Dt-LgK" id="X2l-ab-U0C"/>
+                <outlet property="eventTime" destination="GY6-Gw-Qp7" id="Ffl-S8-63G"/>
+                <outlet property="homeTeamLogo" destination="m1T-np-Da7" id="VoD-fE-F9v"/>
             </connections>
             <point key="canvasLocation" x="202.89855072463769" y="90.736607142857139"/>
         </collectionViewCell>

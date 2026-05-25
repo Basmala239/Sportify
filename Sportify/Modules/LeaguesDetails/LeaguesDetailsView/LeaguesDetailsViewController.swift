@@ -33,7 +33,7 @@ class LeaguesDetailsViewController: UITableViewController {
         
         setupUI()
         setupCollectionViews()
-        loadData()
+        
         setupFavoriteButton()
     }
     
@@ -96,140 +96,6 @@ class LeaguesDetailsViewController: UITableViewController {
         let isFavorite = favorites.contains(leagueId)
         let imageName = isFavorite ? "star.fill" : "star"
         return UIImage(systemName: imageName)
-    }
-    
-    // MARK: - Data Loading
-    private func loadData() {
-        fetchUpcomingEvents()
-        fetchLatestEvents()
-        fetchTeams()
-    }
-    
-    private func fetchUpcomingEvents() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            self?.upcomingEvents = self?.createSampleUpcomingEvents() ?? []
-            self?.upcomingCollectionView.reloadData()
-        }
-    }
-    
-    private func fetchLatestEvents() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            self?.latestEvents = self?.createSampleLatestEvents() ?? []
-            self?.latestEventsCollectionView.reloadData()
-        }
-    }
-    
-    private func fetchTeams() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            self?.teams = self?.createSampleTeams() ?? []
-            self?.teamsCollectionView.reloadData()
-        }
-    }
-    
-    // MARK: - Sample Data
-    private func createSampleUpcomingEvents() -> [Event] {
-        return [
-            Event(eventName: "Manchester United vs Liverpool",
-                  eventDate: "2024-06-15",
-                  eventTime: "20:00",
-                  homeTeamLogo: "manu_logo",
-                  awayTeamLogo: "liv_logo"),
-            Event(eventName: "Chelsea vs Arsenal",
-                  eventDate: "2024-06-16",
-                  eventTime: "18:30",
-                  homeTeamLogo: "che_logo",
-                  awayTeamLogo: "ars_logo"),
-            Event(eventName: "Chelsea vs Arsenal",
-                  eventDate: "2024-06-16",
-                  eventTime: "18:30",
-                  homeTeamLogo: "che_logo",
-                  awayTeamLogo: "ars_logo"),
-            Event(eventName: "Chelsea vs Arsenal",
-                  eventDate: "2024-06-16",
-                  eventTime: "18:30",
-                  homeTeamLogo: "che_logo",
-                  awayTeamLogo: "ars_logo"),
-            Event(eventName: "Chelsea vs Arsenal",
-                  eventDate: "2024-06-16",
-                  eventTime: "18:30",
-                  homeTeamLogo: "che_logo",
-                  awayTeamLogo: "ars_logo"),
-            Event(eventName: "Chelsea vs Arsenal",
-                  eventDate: "2024-06-16",
-                  eventTime: "18:30",
-                  homeTeamLogo: "che_logo",
-                  awayTeamLogo: "ars_logo")
-        ]
-    }
-    
-    private func createSampleLatestEvents() -> [Event] {
-        return [
-            Event(eventName: "Real Madrid vs Barcelona",
-                  eventDate: "2024-05-20",
-                  eventTime: "21:00",
-                  homeTeamLogo: "rm_logo",
-                  awayTeamLogo: "bar_logo",
-                  homeScore: 2,
-                  awayScore: 1),
-            Event(eventName: "Bayern vs Dortmund",
-                  eventDate: "2024-05-19",
-                  eventTime: "19:30",
-                  homeTeamLogo: "bay_logo",
-                  awayTeamLogo: "dor_logo",
-                  homeScore: 3,
-                  awayScore: 2),
-            Event(eventName: "Real Madrid vs Barcelona",
-                  eventDate: "2024-05-20",
-                  eventTime: "21:00",
-                  homeTeamLogo: "rm_logo",
-                  awayTeamLogo: "bar_logo",
-                  homeScore: 2,
-                  awayScore: 1),
-            Event(eventName: "Bayern vs Dortmund",
-                  eventDate: "2024-05-19",
-                  eventTime: "19:30",
-                  homeTeamLogo: "bay_logo",
-                  awayTeamLogo: "dor_logo",
-                  homeScore: 3,
-                  awayScore: 2),
-            Event(eventName: "Real Madrid vs Barcelona",
-                  eventDate: "2024-05-20",
-                  eventTime: "21:00",
-                  homeTeamLogo: "rm_logo",
-                  awayTeamLogo: "bar_logo",
-                  homeScore: 2,
-                  awayScore: 1),
-            Event(eventName: "Bayern vs Dortmund",
-                  eventDate: "2024-05-19",
-                  eventTime: "19:30",
-                  homeTeamLogo: "bay_logo",
-                  awayTeamLogo: "dor_logo",
-                  homeScore: 3,
-                  awayScore: 2)
-        ]
-    }
-    
-    private func createSampleTeams() -> [Team] {
-        return [
-            Team(name: "Manchester United", logo: "manu_logo", id: "1"),
-            Team(name: "Liverpool", logo: "liv_logo", id: "2"),
-            Team(name: "Chelsea", logo: "che_logo", id: "3"),
-            Team(name: "Arsenal", logo: "ars_logo", id: "4"),
-            Team(name: "Manchester City", logo: "mci_logo", id: "5"),
-            
-            Team(name: "Liverpool", logo: "liv_logo", id: "2"),
-            Team(name: "Chelsea", logo: "che_logo", id: "3"),
-            Team(name: "Arsenal", logo: "ars_logo", id: "4"),
-            Team(name: "Manchester City", logo: "mci_logo", id: "5"),
-            Team(name: "Liverpool", logo: "liv_logo", id: "2"),
-            Team(name: "Chelsea", logo: "che_logo", id: "3"),
-            Team(name: "Arsenal", logo: "ars_logo", id: "4"),
-            Team(name: "Manchester City", logo: "mci_logo", id: "5"),
-            Team(name: "Liverpool", logo: "liv_logo", id: "2"),
-            Team(name: "Chelsea", logo: "che_logo", id: "3"),
-            Team(name: "Arsenal", logo: "ars_logo", id: "4"),
-            Team(name: "Manchester City", logo: "mci_logo", id: "5")
-        ]
     }
     
     // MARK: - Actions
@@ -351,31 +217,4 @@ extension LeaguesDetailsViewController: UICollectionViewDelegateFlowLayout {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
-}
-
-// MARK: - Data Models
-struct Event {
-    let eventName: String
-    let eventDate: String
-    let eventTime: String
-    let homeTeamLogo: String
-    let awayTeamLogo: String
-    var homeScore: Int?
-    var awayScore: Int?
-    
-    init(eventName: String, eventDate: String, eventTime: String, homeTeamLogo: String, awayTeamLogo: String, homeScore: Int? = nil, awayScore: Int? = nil) {
-        self.eventName = eventName
-        self.eventDate = eventDate
-        self.eventTime = eventTime
-        self.homeTeamLogo = homeTeamLogo
-        self.awayTeamLogo = awayTeamLogo
-        self.homeScore = homeScore
-        self.awayScore = awayScore
-    }
-}
-
-struct Team {
-    let name: String
-    let logo: String
-    let id: String
 }
