@@ -18,6 +18,7 @@ class SportsViewController: UIViewController , SportsViewProtocol{
         presenter = SportsPresenter(view: self)
         setupCollectionView()
         presenter.viewDidLoad()
+        print("hello basmala , i am esraa")
     }
     
     func setupCollectionView(){
