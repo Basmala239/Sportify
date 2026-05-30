@@ -33,4 +33,23 @@ class SportsPresenter: SportsPresenterProtocol {
     func getSportItem(at index: Int) -> SportItem {
         return sportsList[index]
     }
+    
+    
+    func didSelectSport(at index: Int) {
+        
+        var navTo :String = APIEndpoints.football
+        switch(index){
+        case 0:
+            navTo = APIEndpoints.football
+        case 1:
+            navTo = APIEndpoints.basketball
+        case 2:
+            navTo = APIEndpoints.tennis
+        case 3:
+            navTo = APIEndpoints.cricket
+        default:
+            navTo = APIEndpoints.football
+        }
+        view?.navigateToLeagues(with: navTo)
+    }
 }
