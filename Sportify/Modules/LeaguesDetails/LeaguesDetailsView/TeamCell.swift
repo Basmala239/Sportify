@@ -8,58 +8,66 @@
 import UIKit
 
 class TeamCell: UICollectionViewCell {
-        // MARK: - Outlets
-        @IBOutlet weak var containerView: UIView!
-        @IBOutlet weak var teamImageView: UIImageView!
-        @IBOutlet weak var teamNameLabel: UILabel!
-        @IBOutlet weak var overlayView: UIView!
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var teamImageView: UIImageView!
+    @IBOutlet weak var teamNameLabel: UILabel!
+    @IBOutlet weak var overlayView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        containerView.layer.cornerRadius = 20.0
+        containerView.clipsToBounds = true
         
-        // MARK: - Awake from Nib
-        override func awakeFromNib() {
-            super.awakeFromNib()
-            setupCellAppearance()
-        }
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowRadius = 8.0
+        self.layer.shadowOpacity = 0.3
+        self.layer.masksToBounds = false
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.contentView.layoutIfNeeded()
         
-        // MARK: - Setup Methods
-        private func setupCellAppearance() {
-            
-        }
+        teamImageView.layer.cornerRadius = teamImageView.frame.size.width / 2
+        overlayView.layer.cornerRadius = overlayView.frame.size.width / 2
         
-        // MARK: - Configure Method
-        func configure(with team: Team) {
-            teamNameLabel.text = team.teamName
-            loadImage(from: team.teamLogo ?? "", into: teamImageView)
-        }
+        let neonCyan = UIColor(red: 0.0/255.0, green: 220.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        containerView.addCustomCardBorders(color: neonCyan, thickness: 3.0, radius: 20.0)
+    }
         
-        private func loadImage(from urlString: String, into imageView: UIImageView) {
-            if let image = UIImage(named: urlString) {
-                imageView.image = image
+    
+    func configure(with team: Team) {
+        teamNameLabel.text = team.teamName
+        loadImage(from: team.teamLogo ?? "", into: teamImageView)
+    }
+        
+    private func loadImage(from urlString: String?, into imageView: UIImageView) {
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+            if let placeholder = UIImage(systemName: "sportscourt.fill") {
+                imageView.image = placeholder
             } else {
-                 imageView.image = UIImage(systemName: "person.circle.fill")
-                imageView.tintColor = .systemGray3
+                imageView.image = nil
                 imageView.backgroundColor = .systemGray5
             }
+            imageView.tintColor = .systemGray3
+            return
         }
         
-        @objc private func cellTapped() {
-            
-            UIView.animate(withDuration: 0.1, animations: {
-                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-            }) { _ in
-                UIView.animate(withDuration: 0.1) {
-                    self.transform = .identity
-                }
+        let placeholder = UIImage(systemName: "sportscourt.fill")
+        imageView.sd_setImage(with: url, placeholderImage: placeholder) { [weak self] (image, error, cacheType, url) in
+            if error != nil {
+                imageView.image = UIImage(systemName: "sportscourt.fill")
+                imageView.tintColor = .systemGray3
             }
         }
-        
-        func setSelected(_ selected: Bool, animated: Bool) {
-            overlayView.isHidden = !selected
-        }
-        
-        override func prepareForReuse() {
-            super.prepareForReuse()
-            teamImageView.image = nil
-            teamNameLabel.text = nil
-            overlayView.isHidden = true
-        }
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        teamNameLabel.text = nil
+        teamImageView.image = nil
+        teamImageView.sd_cancelCurrentImageLoad()
+    }
+        
+}

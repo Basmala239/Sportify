@@ -6,65 +6,78 @@
 //
 
 import UIKit
+import SDWebImage
 
 class UpcomingEventCell: UICollectionViewCell {
-
-     
-        // MARK: - Outlets
+    
+    // MARK: - Outlets
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var eventHomeTeam: UILabel!
+    @IBOutlet weak var homeTeamView: UIView!
+    @IBOutlet weak var awayTeamView: UIView!
     @IBOutlet weak var eventAwayTeam: UILabel!
     @IBOutlet weak var homeTeamLogo: UIImageView!
     @IBOutlet weak var awayTeamLogo: UIImageView!
     @IBOutlet weak var eventDate: UILabel!
     @IBOutlet weak var eventTime: UILabel!
     
-    
-    
     // MARK: - Awake from Nib
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupCellAppearance()
+        containerView.layer.cornerRadius = 20.0
+        containerView.clipsToBounds = true
+        
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowRadius = 8.0
+        self.layer.shadowOpacity = 0.3
+        self.layer.masksToBounds = false
     }
     
-    // MARK: - Setup Methods
-    private func setupCellAppearance() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.contentView.layoutIfNeeded()
         
+        homeTeamView.layer.cornerRadius = homeTeamView.frame.size.width / 2
+        awayTeamView.layer.cornerRadius = awayTeamView.frame.size.width / 2
         
+        homeTeamLogo.layer.cornerRadius = homeTeamLogo.frame.size.width / 2
+        homeTeamLogo.clipsToBounds = true
+        awayTeamLogo.layer.cornerRadius = awayTeamLogo.frame.size.width / 2
+        awayTeamLogo.clipsToBounds = true
+        
+        let neonCyan = UIColor(red: 0.0/255.0, green: 220.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        containerView.addCustomCardBorders(color: neonCyan, thickness: 3.0, radius: 20.0)
     }
     
     // MARK: - Configure Method
     func configure(with event: Event) {
-        eventHomeTeam.text = event.eventHomeTeam
-        eventAwayTeam.text = event.eventAwayTeam
-        eventDate.text = formatDate(event.eventDate)
-        eventTime.text = event.eventTime
+        eventHomeTeam.text = event.HomeTeamName ?? "Home Team"
+        eventAwayTeam.text = event.AwayTeamName ?? "Away Team"
+        eventDate.text = DateFormate.formatDate(event.eventDate ?? "")
+        eventTime.text = event.eventTime ?? "TBD"
         
-
         loadImage(from: event.homeTeamLogo, into: homeTeamLogo)
         loadImage(from: event.awayTeamLogo, into: awayTeamLogo)
     }
     
-    private func formatDate(_ dateString: String) -> String {
-        let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "yyyy-MM-dd"
-        
-        let outputFormatter = DateFormatter()
-        outputFormatter.dateFormat = "MMM dd"
-        
-        if let date = inputFormatter.date(from: dateString) {
-            return outputFormatter.string(from: date)
-        }
-        return dateString
-    }
-    
-    private func loadImage(from urlString: String, into imageView: UIImageView) {
-        
-        if let image = UIImage(named: urlString) {
-            imageView.image = image
-        } else {
-            imageView.image = UIImage(systemName: "sportscourt.fill")
+    private func loadImage(from urlString: String?, into imageView: UIImageView) {
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+            if let placeholder = UIImage(systemName: "sportscourt.fill") {
+                imageView.image = placeholder
+            } else {
+                imageView.image = nil
+                imageView.backgroundColor = .systemGray5
+            }
             imageView.tintColor = .systemGray3
+            return
+        }
+        
+        let placeholder = UIImage(systemName: "sportscourt.fill")
+        imageView.sd_setImage(with: url, placeholderImage: placeholder) { [weak self] (image, error, cacheType, url) in
+            if error != nil {
+                imageView.image = UIImage(systemName: "sportscourt.fill")
+                imageView.tintColor = .systemGray3
+            }
         }
     }
     
@@ -76,8 +89,7 @@ class UpcomingEventCell: UICollectionViewCell {
         eventTime.text = nil
         homeTeamLogo.image = nil
         awayTeamLogo.image = nil
-        
+        homeTeamLogo.sd_cancelCurrentImageLoad()
+        awayTeamLogo.sd_cancelCurrentImageLoad()
     }
 }
-
-

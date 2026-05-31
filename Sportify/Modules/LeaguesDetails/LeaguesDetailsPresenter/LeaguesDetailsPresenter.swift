@@ -7,13 +7,17 @@
 
 import Foundation
 protocol LeaguesDetailspresenterProtocol {
+    var upcomingMatches: [Event] { get }
+    var latestMatches: [Event] { get }
+    var teams: [Team] { get }
+    
     func attachView(_ view: LeaguesDetailsView)
     func fetchLeagueDetails(_ leagueId: String?) async
 }
 class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
-    private var upcomingMatches: [Event] = []
-    private var latestMatches: [Event] = []
-    private var teams: [Team] = []
+    private(set) var upcomingMatches: [Event] = []
+    private(set) var latestMatches: [Event] = []
+    private(set) var teams: [Team] = []
     var sportEndpointName: String?
 
     private weak var view: LeaguesDetailsView?
@@ -41,20 +45,52 @@ class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
             
         }else{
             do {
+               print(DateFormate.today())
+               print(DateFormate.daysAhead(7))
+               
+               let nextResponse: EventsResponse = try await networkService.getData(
+                   endpoint: endpoint,
+                   met: "Fixtures",
+                   parameters: [
+                       "leagueId": id,
+                       "from": DateFormate.today(),
+                       "to": DateFormate.daysAhead(600)
+                   ]
+               )
+               
+               
+               let latestResponse: EventsResponse = try await networkService.getData(
+                   endpoint: endpoint,
+                   met: "Fixtures",
+                   parameters: [
+                       "leagueId": id,
+                       "from": DateFormate.daysAgo(100),
+                       "to": DateFormate.today()
+                       
+                   ]
+               )
+                
+                
                 let teamsResponse: TeamResponse = try await networkService.getData(
                     endpoint: endpoint,
                     met: "Teams",
                     parameters: ["leagueId": id]
                 )
                 
-                // Fallback safely to empty array if result is nil
                 let fetchedTeams = teamsResponse.result ?? []
                 print("Successfully decoded \(fetchedTeams.count) teams!")
                 
-                await view?.renderTeams(fetchedTeams)
+                self.upcomingMatches = nextResponse.result ?? []
+                self.latestMatches = latestResponse.result ?? []
+                self.teams = teamsResponse.result ?? []
+                print("Next Matches Count: \(upcomingMatches.count)")
+                print("Latest Matches Count: \(latestMatches.count)")
+                                
+                view?.stopLoading()
+                view?.reloadData()
                 
             } catch {
-                print("Decoding Error details: \(error)") // 👈 This prints complete structural mismatch paths if it fails again
+                print("Decoding Error details: \(error)")
             }
         }
     }

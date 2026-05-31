@@ -29,7 +29,7 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
     func fetchData(for sportEndpoint: String) {
         guard networkService.isInternetConnected() else {
             
-            
+            view?.noConnectionViewVisibility()
             return
         }
         
@@ -54,9 +54,8 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
     }
     func didSelectLeague(at index: Int, sportEndpoint: String){
         guard index < leagues.count else { return }
-        let selectedLeague = leagues[index]
         
         
-        view?.navigateToDetails(sportEndpoint: sportEndpoint, leagueKey: selectedLeague.leagueKey)
+        view?.navigateToDetails(sportEndpoint: sportEndpoint, league: leagues[index])
     }
 }

@@ -9,9 +9,7 @@ import UIKit
 protocol LeaguesDetailsView: AnyObject {
     func startLoading()
     func stopLoading()
-    func renderUpcomingEvents(_ upcomingEvents: [Event])
-    func renderLatestEvents(_ latestEvents: [Event])
-    func renderTeams(_ teams: [Team])
+    func reloadData()
 }
 class LeaguesDetailsViewController: UITableViewController{
     
@@ -19,7 +17,11 @@ class LeaguesDetailsViewController: UITableViewController{
     @IBOutlet weak var latestEventsCollectionView: UICollectionView!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
     
-    var leagueId: String?
+    @IBOutlet weak var noTeams: UIView!
+    @IBOutlet weak var noUpcamingMatches: UIView!
+    @IBOutlet weak var noLatestResult: UIView!
+    
+    var league: League?
     var sportEndpoint: String?
     private var upcomingEvents: [Event] = []
     private var latestEvents: [Event] = []
@@ -30,22 +32,52 @@ class LeaguesDetailsViewController: UITableViewController{
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         setupCollectionViews()
-        
+        setupNavigationBarAppearance()
         let leaguesPresenter = LeaguesDetailspresenter()
         self.presenter = leaguesPresenter
         leaguesPresenter.attachView(self)
-        
-//        // Pass view data context down to the presenter state
-//        leaguesPresenter.sportEndpointName = "/football/" // Dynamically set this based on what sport was selected
-//        leaguesPresenter.leagueId = self.leagueId
+        leaguesPresenter.sportEndpointName = self.sportEndpoint ?? APIEndpoints.football
         
         Task {
-                await leaguesPresenter.fetchLeagueDetails(leagueId)
-            }
+            await leaguesPresenter.fetchLeagueDetails(league?.leagueKey)
+        }
     }
+    private func setupNavigationBarAppearance() {
+        // Create a transparent appearance
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .clear
+        appearance.backgroundEffect = nil
+        
+        // Set title text attributes
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        // Apply to both standard and scroll edge appearances
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        
+        // Make navigation bar transparent
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backgroundColor = .clear
+        
+        // Set tint color for buttons
+        navigationController?.navigationBar.tintColor = .white
+    }
+    private func updateEmptyStateViews() {
+            // Show/hide upcoming matches empty view
+            noUpcamingMatches.isHidden = upcomingEvents.count > 0
+            upcomingCollectionView.isHidden = upcomingEvents.count == 0
+            
+            // Show/hide latest results empty view
+            noLatestResult.isHidden = latestEvents.count > 0
+            latestEventsCollectionView.isHidden = latestEvents.count == 0
+            
+            // Show/hide teams empty view
+            noTeams.isHidden = teams.count > 0
+            teamsCollectionView.isHidden = teams.count == 0
+        }
     
    // MARK: - Setup Methods
 
@@ -135,7 +167,7 @@ extension LeaguesDetailsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case upcomingCollectionView:
-            return CGSize(width: 280, height: 210)
+            return CGSize(width: 350, height: 220)
         case latestEventsCollectionView:
             return CGSize(width: collectionView.frame.width - 30, height: 210)
         case teamsCollectionView:
@@ -145,7 +177,6 @@ extension LeaguesDetailsViewController: UICollectionViewDelegateFlowLayout {
         }
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        // A value of 0.0 is sometimes ignored by iOS, so 0.1 completely eliminates the space
         return 0.1
     }
 
@@ -154,7 +185,6 @@ extension LeaguesDetailsViewController: UICollectionViewDelegateFlowLayout {
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // Returning an empty view keeps UIKit from inserting default gray backgrounds
         return UIView()
     }
 
@@ -164,7 +194,7 @@ extension LeaguesDetailsViewController: UICollectionViewDelegateFlowLayout {
 }
 extension LeaguesDetailsViewController: LeaguesDetailsView {
     func startLoading() {
-        DispatchQueue.main.async { [weak self] in // 👈 Wrap in main queue
+        DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.indicator.center = self.view.center
             self.view.addSubview(self.indicator)
@@ -173,31 +203,29 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
     }
     
     func stopLoading() {
-        DispatchQueue.main.async { [weak self] in // 👈 Wrap in main queue
+        DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.indicator.stopAnimating()
             self.indicator.removeFromSuperview()
         }
     }
     
-    func renderUpcomingEvents(_ upcomingEvents: [Event]) {
+    func reloadData() {
         DispatchQueue.main.async { [weak self] in
-            self?.upcomingEvents = upcomingEvents
-            // self?.upcomingCollectionView.reloadData() // Don't forget to reload if needed!
-        }
-    }
-    
-    func renderLatestEvents(_ latestEvents: [Event]) {
-        DispatchQueue.main.async { [weak self] in
-            self?.latestEvents = latestEvents
-            // self?.latestEventsCollectionView.reloadData()
-        }
-    }
-    
-    func renderTeams(_ teams: [Team]) {
-        DispatchQueue.main.async { [weak self] in 
-            self?.teams = teams
-            self?.teamsCollectionView.reloadData()
+            guard let self = self else { return }
+            
+            self.upcomingEvents = self.presenter?.upcomingMatches ?? []
+            self.latestEvents = self.presenter?.latestMatches ?? []
+            self.teams = self.presenter?.teams ?? []
+            
+            self.upcomingCollectionView.reloadData()
+            self.latestEventsCollectionView.reloadData()
+            self.teamsCollectionView.reloadData()
+            
+            // Update empty state views
+            self.updateEmptyStateViews()
+            
+            self.tableView.reloadData()
         }
     }
 }
