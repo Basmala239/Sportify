@@ -7,7 +7,7 @@
 
 import UIKit
 protocol FavoriteView: AnyObject {
-    func renderProducts(_ favorites: [Favorite])
+    func renderFavorite(_ favorites: [Favorite])
 }
 
 class FavoriteViewController: UIViewController, FavoriteView {
@@ -26,6 +26,11 @@ class FavoriteViewController: UIViewController, FavoriteView {
         setupPresenter()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.fetchData()
+    }
+    
     private func setupTableView() {
         favTableView.delegate = self
         favTableView.dataSource = self
@@ -34,10 +39,9 @@ class FavoriteViewController: UIViewController, FavoriteView {
     
     private func setupPresenter() {
         presenter.attachView(self)
-//        presenter.fetchData()
     }
     
-    func renderProducts(_ favorites: [Favorite]) {
+    func renderFavorite(_ favorites: [Favorite]) {
         self.favorites = favorites
         
         noFavView.isHidden = !favorites.isEmpty
@@ -45,4 +49,5 @@ class FavoriteViewController: UIViewController, FavoriteView {
         
         favTableView.reloadData()
     }
+    
 }

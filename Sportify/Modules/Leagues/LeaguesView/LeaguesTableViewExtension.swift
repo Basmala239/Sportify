@@ -19,18 +19,9 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let targetLeague = leagues[indexPath.row]
+        let currentLeague = leagues[indexPath.row]
+        cell.configure(with: currentLeague)
         
-        cell.leaguesTitle.text = targetLeague.leagueName
-        
-        cell.leaguesCountry.text = targetLeague.countryName
-        
-        if let imageUrlString = targetLeague.leagueLogo, let url = URL(string: imageUrlString) {
-            cell.leaguesImage.sd_setImage(with: url, placeholderImage: UIImage(named: "star.fill"))
-        } else {
-            cell.leaguesImage.image = UIImage(named: "star.fill")
-        }
-             
         return cell
     }
     
