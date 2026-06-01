@@ -288,7 +288,7 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3W7-w1-5qn">
                                 <rect key="frame" x="16" y="195" width="396" height="681"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_leagues" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-4p-Tf9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_Leagues" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-4p-Tf9">
                                         <rect key="frame" x="24" y="106" width="348" height="253"/>
                                         <color key="backgroundColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -406,7 +406,7 @@
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Uw-lr-dTD">
                                                             <rect key="frame" x="8" y="46" width="412" height="246"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_leagues" translatesAutoresizingMaskIntoConstraints="NO" id="5fy-AY-U3d">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_Leagues" translatesAutoresizingMaskIntoConstraints="NO" id="5fy-AY-U3d">
                                                                     <rect key="frame" x="86" y="32" width="240" height="128"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="240" id="Igu-xe-Mzg"/>
@@ -492,7 +492,7 @@
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-Fd-D5s">
                                                             <rect key="frame" x="8" y="76" width="412" height="308"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_leagues" translatesAutoresizingMaskIntoConstraints="NO" id="utS-sV-qgX">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_Leagues" translatesAutoresizingMaskIntoConstraints="NO" id="utS-sV-qgX">
                                                                     <rect key="frame" x="86" y="32" width="240" height="128"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="128" id="ptW-kQ-IVP"/>
@@ -589,7 +589,7 @@
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYL-eb-e0q">
                                                             <rect key="frame" x="8" y="72" width="412" height="197"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_leagues" translatesAutoresizingMaskIntoConstraints="NO" id="avN-Kj-ny0">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_Leagues" translatesAutoresizingMaskIntoConstraints="NO" id="avN-Kj-ny0">
                                                                     <rect key="frame" x="86" y="16" width="240" height="128"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="240" id="6x8-pA-dwY"/>
@@ -738,8 +738,8 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="logo" width="1048" height="1063"/>
+        <image name="no_Leagues" width="666" height="459"/>
         <image name="no_connection" width="254" height="238"/>
-        <image name="no_leagues" width="666" height="459"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
