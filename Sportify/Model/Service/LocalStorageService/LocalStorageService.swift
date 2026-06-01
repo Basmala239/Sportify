@@ -1,50 +1,79 @@
-//
-//  LocalStorageService.swift
-//  Sportify
-//
-//  Created by بسمله ابوزيد احمد on 21/05/2026.
-//
-
-import Foundation
+import UIKit
 import CoreData
 
-protocol LocalStorageService {
-    func fetchFavorites(completion: @escaping (Result<[Favorite], Error>) -> Void)
-}
-
-class CoreDataManager: LocalStorageService {
+class CoreDataManager {
     
-    static let shared = CoreDataManager()
+     static let shared = CoreDataManager()
+    
     private init() {}
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Sportify")
-        container.loadPersistentStores { _, error in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        }
-        return container
-    }()
     
-    var context: NSManagedObjectContext {
-        return persistentContainer.viewContext
+    private var context: NSManagedObjectContext {
+        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    // MARK: - Fetch Operation
-    func fetchFavorites(completion: @escaping (Result<[Favorite], Error>) -> Void) {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteEntity")
+    func addFavorite(leagueKey: String, name: String?, imageString: String?, country: String?) {
+         if isFavorite(leagueKey: leagueKey) {
+            print("Item '\(leagueKey)' is already in favorites.")
+            return
+        }
         
-//        do {
-//            let managedObjects = try context.fetch(fetchRequest)
-//
-//            let favorites = managedObjects.map { object -> Favorite in
-//                let name = object.value(forKey: "name") as? String ?? ""
-//                let image = object.value(forKey: "image") as? String ?? ""
-//                return
-//            }
-//            completion(.success(favorites))
-//        } catch let error {
-//            completion(.failure(error))
-//        }
+        let favorite = Favorite(context: context)
+        favorite.leagueKey = leagueKey
+        favorite.name = name
+        favorite.image = imageString
+        favorite.countary = country
+         
+        saveContext()
+    }
+    
+    func deleteFavorite(leagueKey: String) {
+        let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "leagueKey == %@", leagueKey)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            for object in results {
+                context.delete(object)
+            }
+            saveContext()
+            print("Successfully deleted '\(leagueKey)' from favorites.")
+        } catch {
+            print("Error deleting favorite item: \(error.localizedDescription)")
+        }
+    }
+    
+    func isFavorite(leagueKey: String) -> Bool {
+        let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "leagueKey == %@", leagueKey)
+        
+        do {
+            let count = try context.count(for: fetchRequest)
+            return count > 0
+        } catch {
+            print("Error checking favorite status: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    func fetchAllFavorites() -> [Favorite] {
+        let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        
+        do {
+            return try context.fetch(fetchRequest)
+        } catch {
+            print("Failed to fetch favorites: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
+    private func saveContext() {
+        if context.hasChanges {
+            do {
+                try context.save()
+                print("Core Data Context Saved Successfully.")
+            } catch {
+                print("Failed to save context: \(error.localizedDescription)")
+            }
+        }
     }
 }

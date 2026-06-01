@@ -55,7 +55,7 @@ class TeamCell: UICollectionViewCell {
         }
         
         let placeholder = UIImage(systemName: "sportscourt.fill")
-        imageView.sd_setImage(with: url, placeholderImage: placeholder) { [weak self] (image, error, cacheType, url) in
+        imageView.sd_setImage(with: url, placeholderImage: placeholder) { (image, error, cacheType, url) in
             if error != nil {
                 imageView.image = UIImage(systemName: "sportscourt.fill")
                 imageView.tintColor = .systemGray3
