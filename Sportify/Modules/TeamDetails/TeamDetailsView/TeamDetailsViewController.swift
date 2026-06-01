@@ -76,7 +76,7 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView{
             header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-            header.textLabel?.textColor = .cyan
+            header.textLabel?.textColor = UIColor(red: 0.0/255.0, green: 194.0/255.0, blue: 248.0/255.0, alpha: 1.0)
         }
     }
     
@@ -86,8 +86,9 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             if indexPath.section == tableSections.count - 1 {
-                return 130 // ارتفاع كارت المباراة (ممكن تكبريه أو تصغريه حسب الديزاين بتاعك)
+                return 130
             }
-            return 260 // الارتفاع اللي كنا ظابطينه لكروت اللعيبة
-        }
+            return 260
+
+    }
 }

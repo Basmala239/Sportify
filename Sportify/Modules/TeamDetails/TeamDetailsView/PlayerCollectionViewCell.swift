@@ -48,6 +48,6 @@ class PlayerCollectionViewCell: UICollectionViewCell {
             positionLabel.text = "Goalkeeper"
             ageLabel.text = "Age 33"
             shirtNumberLabel.text = "1"
-            playerImageView.image = UIImage(named: "user")
+            playerImageView.image = UIImage(named: "person")
         }
 }
