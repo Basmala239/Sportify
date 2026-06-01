@@ -34,7 +34,6 @@
 		FC2A2F692FBC8A95008A39E3 /* SportifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F682FBC8A95008A39E3 /* SportifyTests.swift */; };
 		FC2A2F732FBC8A95008A39E3 /* SportifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F722FBC8A95008A39E3 /* SportifyUITests.swift */; };
 		FC2A2F752FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F742FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift */; };
-		FC2A2F832FBC9BF9008A39E3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC2A2F822FBC9BF9008A39E3 /* Alamofire */; };
 		FC6DDA142FC37CA2004794EA /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6DDA132FC37CA2004794EA /* Team.swift */; };
 		FC6DDA162FC38622004794EA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6DDA152FC38622004794EA /* Event.swift */; };
 		FC8CEB282FC2052A00ED5EFD /* UpcomingEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8CEB262FC2052A00ED5EFD /* UpcomingEventCell.swift */; };
@@ -54,8 +53,11 @@
 		FC8FA19E2FBE8E9C00C867CD /* LeaguesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA19D2FBE8E9C00C867CD /* LeaguesPresenter.swift */; };
 		FC8FA1A02FBE8ECA00C867CD /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA19F2FBE8ECA00C867CD /* LeaguesViewController.swift */; };
 		FC8FA1A22FBE8EFA00C867CD /* LeaguesTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FA1A12FBE8EFA00C867CD /* LeaguesTableViewExtension.swift */; };
+		FC917E882FCC6E4A00FFD12C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC917E872FCC6E4A00FFD12C /* Alamofire */; };
+		FC917E8B2FCC6E6C00FFD12C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FC917E8A2FCC6E6C00FFD12C /* SDWebImage */; };
+		FC917E8E2FCC6F0D00FFD12C /* DateFormate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC917E8D2FCC6F0D00FFD12C /* DateFormate.swift */; };
+		FC917E932FCC805200FFD12C /* CustemBoarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC917E922FCC805200FFD12C /* CustemBoarder.swift */; };
 		FCA2EC132FC06F910087873C /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA2EC122FC06F910087873C /* League.swift */; };
-		FCA2EC162FC084310087873C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FCA2EC152FC084310087873C /* SDWebImage */; };
 		FCA2EC212FC097400087873C /* LeaguesDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA2EC202FC097400087873C /* LeaguesDetailsPresenter.swift */; };
 		FCA2EC232FC097610087873C /* LeaguesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA2EC222FC097610087873C /* LeaguesDetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +130,8 @@
 		FC8FA19D2FBE8E9C00C867CD /* LeaguesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesPresenter.swift; sourceTree = "<group>"; };
 		FC8FA19F2FBE8ECA00C867CD /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		FC8FA1A12FBE8EFA00C867CD /* LeaguesTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTableViewExtension.swift; sourceTree = "<group>"; };
+		FC917E8D2FCC6F0D00FFD12C /* DateFormate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormate.swift; sourceTree = "<group>"; };
+		FC917E922FCC805200FFD12C /* CustemBoarder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustemBoarder.swift; sourceTree = "<group>"; };
 		FCA2EC122FC06F910087873C /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		FCA2EC202FC097400087873C /* LeaguesDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesDetailsPresenter.swift; sourceTree = "<group>"; };
 		FCA2EC222FC097610087873C /* LeaguesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesDetailsViewController.swift; sourceTree = "<group>"; };
@@ -138,8 +142,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCA2EC162FC084310087873C /* SDWebImage in Frameworks */,
-				FC2A2F832FBC9BF9008A39E3 /* Alamofire in Frameworks */,
+				FC917E8B2FCC6E6C00FFD12C /* SDWebImage in Frameworks */,
+				FC917E882FCC6E4A00FFD12C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +273,7 @@
 		FC2A2F4D2FBC8A93008A39E3 /* Sportify */ = {
 			isa = PBXGroup;
 			children = (
+				FC917E8C2FCC6EEC00FFD12C /* Utiltes */,
 				FC8E55FB2FC47FA600846796 /* App */,
 				FC8FA1802FBE391F00C867CD /* Model */,
 				FC8FA17F2FBE391000C867CD /* View */,
@@ -436,6 +441,31 @@
 			path = LeaguesPresenter;
 			sourceTree = "<group>";
 		};
+		FC917E8C2FCC6EEC00FFD12C /* Utiltes */ = {
+			isa = PBXGroup;
+			children = (
+				FC917E902FCC802F00FFD12C /* Extension */,
+				FC917E8F2FCC802500FFD12C /* Helper */,
+			);
+			path = Utiltes;
+			sourceTree = "<group>";
+		};
+		FC917E8F2FCC802500FFD12C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FC917E8D2FCC6F0D00FFD12C /* DateFormate.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		FC917E902FCC802F00FFD12C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FC917E922FCC805200FFD12C /* CustemBoarder.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FCA2EC1D2FC096EF0087873C /* LeaguesDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,8 +514,8 @@
 			);
 			name = Sportify;
 			packageProductDependencies = (
-				FC2A2F822FBC9BF9008A39E3 /* Alamofire */,
-				FCA2EC152FC084310087873C /* SDWebImage */,
+				FC917E872FCC6E4A00FFD12C /* Alamofire */,
+				FC917E8A2FCC6E6C00FFD12C /* SDWebImage */,
 			);
 			productName = Sportify;
 			productReference = FC2A2F4B2FBC8A93008A39E3 /* Sportify.app */;
@@ -560,8 +590,8 @@
 			);
 			mainGroup = FC2A2F422FBC8A93008A39E3;
 			packageReferences = (
-				FC2A2F812FBC9BF9008A39E3 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				FCA2EC142FC084310087873C /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				FC917E862FCC6E4A00FFD12C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FC917E892FCC6E6C00FFD12C /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = FC2A2F4C2FBC8A93008A39E3 /* Products */;
 			projectDirPath = "";
@@ -621,6 +651,7 @@
 				CA5A24182FBF8D5400E532EE /* SplashViewController.swift in Sources */,
 				CA5A24162FBF8B2400E532EE /* SplashPresenter.swift in Sources */,
 				FC8FA1912FBE7E9B00C867CD /* LocalStorageService.swift in Sources */,
+				FC917E8E2FCC6F0D00FFD12C /* DateFormate.swift in Sources */,
 				FC8FA18F2FBE52B200C867CD /* FavoritePresenter.swift in Sources */,
 				CABE54762FCDED1400154EBC /* FixtureTableViewCell.swift in Sources */,
 				FCA2EC232FC097610087873C /* LeaguesDetailsViewController.swift in Sources */,
@@ -634,6 +665,7 @@
 				FC8FA1952FBE856200C867CD /* APIEndpoints.swift in Sources */,
 				FC6DDA142FC37CA2004794EA /* Team.swift in Sources */,
 				CAEB30C92FCCCCD2006EE5D2 /* PlayersRowTableViewCell.swift in Sources */,
+				FC917E932FCC805200FFD12C /* CustemBoarder.swift in Sources */,
 				FC2A2F592FBC8A93008A39E3 /* Sportify.xcdatamodeld in Sources */,
 				FC8CEB2C2FC2054800ED5EFD /* LatestEventCell.swift in Sources */,
 				CAE3F7A22FC4CC69002251C3 /* SportItem.swift in Sources */,
@@ -988,7 +1020,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FC2A2F812FBC9BF9008A39E3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		FC917E862FCC6E4A00FFD12C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -996,7 +1028,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		FCA2EC142FC084310087873C /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		FC917E892FCC6E6C00FFD12C /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -1007,14 +1039,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FC2A2F822FBC9BF9008A39E3 /* Alamofire */ = {
+		FC917E872FCC6E4A00FFD12C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FC2A2F812FBC9BF9008A39E3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = FC917E862FCC6E4A00FFD12C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		FCA2EC152FC084310087873C /* SDWebImage */ = {
+		FC917E8A2FCC6E6C00FFD12C /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FCA2EC142FC084310087873C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = FC917E892FCC6E6C00FFD12C /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
