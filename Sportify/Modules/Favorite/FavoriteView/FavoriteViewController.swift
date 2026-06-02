@@ -8,6 +8,8 @@
 import UIKit
 protocol FavoriteView: AnyObject {
     func renderFavorite(_ favorites: [Favorite])
+    func navigateToLeagueDetails(with league: Favorite)
+    func showNoConnectionAlert()
 }
 
 class FavoriteViewController: UIViewController, FavoriteView {
@@ -48,6 +50,32 @@ class FavoriteViewController: UIViewController, FavoriteView {
         favTableView.isHidden = favorites.isEmpty
         
         favTableView.reloadData()
+    }
+    
+    func navigateToLeagueDetails(with league: Favorite) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as? LeaguesDetailsViewController else { return }
+        
+        let name = league.name ?? "Leagues"
+        let key = league.leagueKey ?? ""
+        
+        
+        detailsVC.league = League(leagueKey: key, leagueName: name)
+        
+        
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
+    func showNoConnectionAlert() {
+        let alert = UIAlertController(
+            title: "No Internet Connection",
+            message: "Please check your network settings and try again to view league details.",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

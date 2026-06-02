@@ -57,4 +57,21 @@ struct League: Decodable {
             self.countryKey = nil
         }
     }
+    init(
+            leagueKey: String,
+            leagueName: String,
+            countryKey: String? = nil,
+            countryName: String? = nil,
+            leagueLogo: String? = nil,
+            countryLogo: String? = nil,
+            leagueYear: String? = nil
+        ) {
+            self.leagueKey = leagueKey
+            self.leagueName = leagueName
+            self.countryKey = countryKey
+            self.countryName = countryName
+            self.leagueLogo = leagueLogo
+            self.countryLogo = countryLogo
+            self.leagueYear = leagueYear
+        }
 }
