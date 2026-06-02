@@ -35,17 +35,25 @@ class PlayersRowTableViewCell: UITableViewCell {
             layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         }
     }
+    var rowPlayers: [Player] = []
+        
+        func configure(with players: [Player]) {
+            self.rowPlayers = players
+            self.collectionView.reloadData() 
+        }
     
 }
 
 extension PlayersRowTableViewCell : UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        rowPlayers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionViewCell", for: indexPath) as! PlayerCollectionViewCell
+        let player = rowPlayers[indexPath.item]
+       cell.configure(with: player)
         return cell
     }
     

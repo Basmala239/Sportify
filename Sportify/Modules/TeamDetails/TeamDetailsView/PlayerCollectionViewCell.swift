@@ -16,10 +16,11 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         @IBOutlet weak var shirtNumberContainerView: UIView!
         @IBOutlet weak var shirtNumberLabel: UILabel!
     
+    var rowPlayers: [Player] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupDesign()
-        setStaticData()
         // Initialization code
     }
     
@@ -41,13 +42,26 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         self.contentView.clipsToBounds = false
         containerCardView.clipsToBounds = false
         containerCardView.layer.masksToBounds = false
+        
+        playerImageView.layer.cornerRadius = playerImageView.frame.height / 2
     }
     
-    private func setStaticData() {
-            playerNameLabel.text = "Alisson"
-            positionLabel.text = "Goalkeeper"
-            ageLabel.text = "Age 33"
-            shirtNumberLabel.text = "1"
-            playerImageView.image = UIImage(named: "person")
+    func configure(with player: Player) {
+            playerNameLabel.text = player.playerName
+            positionLabel.text = player.playerType ?? "Unknown"
+            
+            if let age = player.playerAge {
+                ageLabel.text = "Age \(age)"
+            } else {
+                ageLabel.text = "Age --"
+            }
+            
+            shirtNumberLabel.text = player.playerNumber ?? "-"
+            
+            if let imageString = player.playerImage, let imageUrl = URL(string: imageString) {
+                playerImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "person"))
+            } else {
+                playerImageView.image = UIImage(named: "person")
+            }
         }
 }

@@ -14,6 +14,11 @@ class TeamDetailsViewController: UIViewController {
         var presenter: TeamDetailsPresenterProtocol!
         var teamData: Team?
         var fixtures: [Event] = []
+    
+        var goalkeepers: [Player] = []
+        var defenders: [Player] = []
+        var midfielders: [Player] = []
+        var forwards: [Player] = []
         
         private let indicator = UIActivityIndicatorView(style: .large)
         let tableSections = ["Goalkeepers", "Defenders", "Midfielders", "Forwards", "Fixtures"]
@@ -72,11 +77,25 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
             cell.configure(with: match)
             return cell
         }
-        else{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlayersRowTableViewCell", for: indexPath) as! PlayersRowTableViewCell
-        cell.selectionStyle = .none
-        return cell
-       }
+        else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "PlayersRowTableViewCell", for: indexPath) as! PlayersRowTableViewCell
+                    cell.selectionStyle = .none
+                    
+                    switch indexPath.section {
+                    case 0:
+                        cell.configure(with: goalkeepers)
+                    case 1:
+                        cell.configure(with: defenders)
+                    case 2:
+                        cell.configure(with: midfielders)
+                    case 3:
+                        cell.configure(with: forwards)
+                    default:
+                        break
+                    }
+                    
+                    return cell
+                }
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return tableSections[section]
@@ -123,10 +142,24 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
     
     func displayTeamDetails(team: Team) {
         self.teamData = team
-        DispatchQueue.main.async { [weak self] in
-            self?.teamTableView.reloadData()
-        }
+        filterPlayers(players: team.players ?? [])
+                
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    if let headerView = self.teamTableView.tableHeaderView as? TeamHeaderView {
+                        headerView.configure(with: team)
+                    }
+                    
+                    self.teamTableView.reloadData()
+                }
     }
+    
+    private func filterPlayers(players: [Player]) {
+            goalkeepers = players.filter { $0.playerType == "Goalkeepers" }
+            defenders = players.filter { $0.playerType == "Defenders" }
+            midfielders = players.filter { $0.playerType == "Midfielders" }
+            forwards = players.filter { $0.playerType == "Forwards" }
+        }
     
     func displayFixtures(fixtures: [Event]) {
         self.fixtures = fixtures

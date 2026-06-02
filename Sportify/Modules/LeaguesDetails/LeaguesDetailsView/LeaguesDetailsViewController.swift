@@ -99,19 +99,6 @@ class LeaguesDetailsViewController: UITableViewController{
     }
     
     // MARK: - Navigation
-    //private func navigateToTeamDetails(team: Team) {
-      //  let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        // Ensure this identifier matches your TeamDetailsViewController identity token in Storyboard
-//        if let teamDetailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetailsViewController") as? TeamDetailsViewController {
-//            teamDetailsVC.teamId = team.id
-//            teamDetailsVC.teamName = team.name
-//            teamDetailsVC.teamLogo = team.logo
-//            navigationController?.pushViewController(teamDetailsVC, animated: true)
-//        }
-    //}
-    
-    
-    // MARK: - Navigation
         private func navigateToTeamDetails(team: Team) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
