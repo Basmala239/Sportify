@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TeamHeaderView: UIView {
 
@@ -52,4 +53,23 @@ class TeamHeaderView: UIView {
             playersCountLabel.text = "Players: 31"
             teamLogoImageView.image = UIImage(named: "team_logo")
         }
+    func configure(with team: Team) {
+                teamNameLabel.text = team.teamName
+                
+                if let coach = team.coaches?.first {
+                    coachNameLabel.isHidden = false
+                    coachNameLabel.text = "Coach: \(coach.coachName ?? "Unknown")"
+                } else {
+                    coachNameLabel.isHidden = true 
+                }
+                
+                let count = team.players?.count ?? 0
+                playersCountLabel.text = "Players: \(count)"
+                
+                if let logoString = team.teamLogo, let logoUrl = URL(string: logoString) {
+                    teamLogoImageView.sd_setImage(with: logoUrl, placeholderImage: UIImage(named: "team_logo"))
+                } else {
+                    teamLogoImageView.image = UIImage(named: "team_logo")
+                }
+            }
 }
