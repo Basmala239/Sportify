@@ -99,8 +99,8 @@ class LeaguesDetailsViewController: UITableViewController{
     }
     
     // MARK: - Navigation
-    private func navigateToTeamDetails(team: Team) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    //private func navigateToTeamDetails(team: Team) {
+      //  let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // Ensure this identifier matches your TeamDetailsViewController identity token in Storyboard
 //        if let teamDetailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetailsViewController") as? TeamDetailsViewController {
 //            teamDetailsVC.teamId = team.id
@@ -108,7 +108,27 @@ class LeaguesDetailsViewController: UITableViewController{
 //            teamDetailsVC.teamLogo = team.logo
 //            navigationController?.pushViewController(teamDetailsVC, animated: true)
 //        }
-    }
+    //}
+    
+    
+    // MARK: - Navigation
+        private func navigateToTeamDetails(team: Team) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if let teamDetailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetailsViewController") as? TeamDetailsViewController {
+                guard let teamId = team.teamKey else { return }
+                
+                let detailsPresenter = TeamDetailsPresenter(
+                    view: teamDetailsVC,
+                    teamId: teamId,
+                    sportEndpoint: self.sportEndpoint ?? APIEndpoints.football
+                )
+                
+                teamDetailsVC.presenter = detailsPresenter
+                
+                navigationController?.pushViewController(teamDetailsVC, animated: true)
+            }
+        }
 }
 
 // MARK: - UICollectionViewDataSource
