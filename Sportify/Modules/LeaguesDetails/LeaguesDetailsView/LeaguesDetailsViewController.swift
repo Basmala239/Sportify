@@ -33,7 +33,8 @@ class LeaguesDetailsViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionViews()
-        setupNavigationBarAppearance()
+        setupNavigationBarElement()
+        
         let leaguesPresenter = LeaguesDetailspresenter()
         self.presenter = leaguesPresenter
         leaguesPresenter.attachView(self)
@@ -43,41 +44,43 @@ class LeaguesDetailsViewController: UITableViewController{
             await leaguesPresenter.fetchLeagueDetails(league?.leagueKey)
         }
     }
-    private func setupNavigationBarAppearance() {
-        // Create a transparent appearance
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = .clear
-        appearance.backgroundEffect = nil
-        
-        // Set title text attributes
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        // Apply to both standard and scroll edge appearances
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        
-        // Make navigation bar transparent
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = .clear
-        
-        // Set tint color for buttons
-        navigationController?.navigationBar.tintColor = .white
+    private func setupNavigationBarElement() {
+        let rightButton = UIBarButtonItem(
+            image: UIImage(systemName: "heart"),
+            style: .plain,
+            target: self,
+            action: #selector(favoriteButtonTapped)
+        )
+        self.navigationItem.rightBarButtonItem = rightButton
     }
-    private func updateEmptyStateViews() {
-            // Show/hide upcoming matches empty view
-            noUpcamingMatches.isHidden = upcomingEvents.count > 0
-            upcomingCollectionView.isHidden = upcomingEvents.count == 0
-            
-            // Show/hide latest results empty view
-            noLatestResult.isHidden = latestEvents.count > 0
-            latestEventsCollectionView.isHidden = latestEvents.count == 0
-            
-            // Show/hide teams empty view
-            noTeams.isHidden = teams.count > 0
-            teamsCollectionView.isHidden = teams.count == 0
+    
+    @objc func favoriteButtonTapped() {
+        guard let leagueKey = league?.leagueKey else { return }
+        
+        if CoreDataManager.shared.isFavorite(leagueKey: leagueKey) {
+            CoreDataManager.shared.deleteFavorite(leagueKey: leagueKey)
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+        } else {
+            CoreDataManager.shared.addFavorite(
+                leagueKey: leagueKey,
+                name: league?.leagueName,
+                imageString: league?.leagueLogo,
+                country: league?.countryName
+            )
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
         }
+    }
+    
+    private func updateEmptyStateViews() {
+        noUpcamingMatches.isHidden = upcomingEvents.count > 0
+        upcomingCollectionView.isHidden = upcomingEvents.count == 0
+        
+        noLatestResult.isHidden = latestEvents.count > 0
+        latestEventsCollectionView.isHidden = latestEvents.count == 0
+        
+        noTeams.isHidden = teams.count > 0
+        teamsCollectionView.isHidden = teams.count == 0
+    }
     
    // MARK: - Setup Methods
 
@@ -229,9 +232,7 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
             self.latestEventsCollectionView.reloadData()
             self.teamsCollectionView.reloadData()
             
-            // Update empty state views
             self.updateEmptyStateViews()
-            
             self.tableView.reloadData()
         }
     }

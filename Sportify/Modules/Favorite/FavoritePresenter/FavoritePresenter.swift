@@ -9,30 +9,27 @@ import Foundation
 class FavoritePresenter {
     
     private weak var view: FavoriteView?
-    private let storageService: LocalStorageService
     private var result: [Favorite] = []
     
-    init(storageService: LocalStorageService = CoreDataManager.shared) {
-        self.storageService = storageService
-    }
+    
     
     func attachView(_ view: FavoriteView) {
         self.view = view
     }
     
     func fetchData() {
-        storageService.fetchFavorites { [weak self] response in
-            guard let self = self else { return }
-            
-            switch response {
-            case .success(let localFavorites):
-                self.result = localFavorites
-                DispatchQueue.main.async {
-                    self.view?.renderProducts(localFavorites)
-                }
-            case .failure(let error):
-                print("Error loading local data: \(error.localizedDescription)")
-            }
+        self.result = CoreDataManager.shared.fetchAllFavorites()
+        
+        self.view?.renderFavorite(self.result)
+    }
+    
+    func deleteFavoriteItem(at index: Int) {
+        guard index < result.count else { return }
+        let itemToDelete = result[index]
+        
+        if let leagueKey = itemToDelete.leagueKey {
+            CoreDataManager.shared.deleteFavorite(leagueKey: leagueKey)
+            fetchData()
         }
     }
 }
