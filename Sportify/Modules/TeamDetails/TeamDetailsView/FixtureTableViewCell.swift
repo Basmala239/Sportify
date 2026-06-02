@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FixtureTableViewCell: UITableViewCell {
     
@@ -37,4 +38,23 @@ class FixtureTableViewCell: UITableViewCell {
         containerCardView.layer.shadowOffset = .zero
         containerCardView.layer.shadowRadius = 6
     }
+    
+        func configure(with event: Event) {
+            leagueNameLabel.text = event.leagueName
+            homeTeamNameLabel.text = event.HomeTeamName
+            awayTeamNameLabel.text = event.AwayTeamName
+            matchTimeLabel.text = "\(event.eventDate ?? "") | \(event.eventTime ?? "")"
+            
+            if let homeLogoString = event.homeTeamLogo, let homeLogoUrl = URL(string: homeLogoString) {
+                        homeTeamLogo.sd_setImage(with: homeLogoUrl, placeholderImage: UIImage(named: "team_logo"))
+                    } else {
+                        homeTeamLogo.image = UIImage(named: "team_logo")
+                    }
+                    
+                    if let awayLogoString = event.awayTeamLogo, let awayLogoUrl = URL(string: awayLogoString) {
+                        awayTeamLogo.sd_setImage(with: awayLogoUrl, placeholderImage: UIImage(named: "team_logo"))
+                    } else {
+                        awayTeamLogo.image = UIImage(named: "team_logo")
+                    }
+        }
 }

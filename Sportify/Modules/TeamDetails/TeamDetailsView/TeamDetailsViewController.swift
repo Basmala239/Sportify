@@ -68,6 +68,8 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
         
         if indexPath.section == tableSections.count - 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FixtureTableViewCell", for: indexPath) as! FixtureTableViewCell
+            let match = fixtures[indexPath.row]
+            cell.configure(with: match)
             return cell
         }
         else{
