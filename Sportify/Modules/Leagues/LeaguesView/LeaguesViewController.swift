@@ -49,6 +49,8 @@ class LeaguesViewController: UIViewController, LeaguesView {
     
     private func setupSearchBar() {
         searchBar.delegate = self
+        searchBar.searchTextField.textColor = .white
+        searchBar.searchTextField.leftView?.tintColor = .white
     }
     
     func startLoading() {
