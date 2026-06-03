@@ -53,11 +53,11 @@ class UpcomingEventCell: UICollectionViewCell {
     func configure(with event: Event) {
         eventHomeTeam.text = event.HomeTeamName ?? "Home Team"
         eventAwayTeam.text = event.AwayTeamName ?? "Away Team"
-        eventDate.text = DateFormate.formatDate(event.eventDate ?? "")
+        eventDate.text = DateFormate.formatDate((event.eventDate ?? event.eventDateStart) ?? "Nov 23")
         eventTime.text = event.eventTime ?? "TBD"
         
-        loadImage(from: event.homeTeamLogo, into: homeTeamLogo)
-        loadImage(from: event.awayTeamLogo, into: awayTeamLogo)
+        loadImage(from: event.homeTeamLogo ?? event.event_home_team_logo, into: homeTeamLogo)
+        loadImage(from: event.awayTeamLogo ?? event.event_away_team_logo, into: awayTeamLogo)
     }
     
     func configure(with event: TennisEvent) {

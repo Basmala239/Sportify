@@ -39,61 +39,55 @@ class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
         let endpoint = self.sportEndpointName ?? APIEndpoints.football
         let id = leagueId ?? "207"
         
-
-        if endpoint == APIEndpoints.cricket {
-            view?.stopLoading()
+        do {
+           print(DateFormate.today())
+           print(DateFormate.daysAhead(7))
+           
+           let nextResponse: EventsResponse = try await networkService.getData(
+               endpoint: endpoint,
+               met: "Fixtures",
+               parameters: [
+                   "leagueId": id,
+                   "from": DateFormate.today(),
+                   "to": DateFormate.daysAhead(600)
+               ]
+           )
+           
+           
+           let latestResponse: EventsResponse = try await networkService.getData(
+               endpoint: endpoint,
+               met: "Fixtures",
+               parameters: [
+                   "leagueId": id,
+                   "from": DateFormate.daysAgo(600),
+                   "to": DateFormate.today()
+                   
+               ]
+           )
             
-        }else{
-            do {
-               print(DateFormate.today())
-               print(DateFormate.daysAhead(7))
-               
-               let nextResponse: EventsResponse = try await networkService.getData(
-                   endpoint: endpoint,
-                   met: "Fixtures",
-                   parameters: [
-                       "leagueId": id,
-                       "from": DateFormate.today(),
-                       "to": DateFormate.daysAhead(600)
-                   ]
-               )
-               
-               
-               let latestResponse: EventsResponse = try await networkService.getData(
-                   endpoint: endpoint,
-                   met: "Fixtures",
-                   parameters: [
-                       "leagueId": id,
-                       "from": DateFormate.daysAgo(600),
-                       "to": DateFormate.today()
-                       
-                   ]
-               )
-                
-                if(endpoint != APIEndpoints.tennis){
-                    let teamsResponse: TeamResponse = try await networkService.getData(
-                        endpoint: endpoint,
-                        met: "Teams",
-                        parameters: ["leagueId": id]
-                    )
-                
-                
-                    let fetchedTeams = teamsResponse.result ?? []
-                    print("Successfully decoded \(fetchedTeams.count) teams!")
-                    self.teams = teamsResponse.result ?? []
-                }
-                self.upcomingMatches = nextResponse.result ?? []
-                self.latestMatches = latestResponse.result ?? []
-                
-                print("Next Matches Count: \(upcomingMatches.count)")
-                print("Latest Matches Count: \(latestMatches.count)")
-                                
-                view?.stopLoading()
-                view?.reloadData()
-                
-            } catch {
-                print("Decoding Error details: \(error)")
-            }
+            
+            let teamsResponse: TeamResponse = try await networkService.getData(
+                endpoint: endpoint,
+                met: "Teams",
+                parameters: ["leagueId": id]
+            )
+        
+        
+            let fetchedTeams = teamsResponse.result ?? []
+            print("Successfully decoded \(fetchedTeams.count) teams!")
+            self.teams = teamsResponse.result ?? []
+            self.upcomingMatches = nextResponse.result ?? []
+            self.latestMatches = latestResponse.result ?? []
+            
+            print("Next Matches Count: \(upcomingMatches.count)")
+            print("Latest Matches Count: \(latestMatches.count)")
+            print("Latest Matches Count: \(teams.count)")
+                            
+            view?.stopLoading()
+            view?.reloadData()
+            
+        } catch {
+            print("Decoding Error details: \(error)")
         }
     }
 }

@@ -54,16 +54,28 @@ class FavoriteViewController: UIViewController, FavoriteView {
     
     func navigateToLeagueDetails(with league: Favorite) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as? LeaguesDetailsViewController else { return }
+        if(league.endPoint == APIEndpoints.tennis){
+            guard let detailsVC = storyboard.instantiateViewController(withIdentifier: "TennisDetailViewController") as? TennisDetailViewController else { return }
+            
+            let name = league.name ?? "Leagues"
+            let key = league.leagueKey ?? ""
+            detailsVC.sportEndpoint = league.endPoint
+            
+            detailsVC.league = League(leagueKey: key, leagueName: name)
+            
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+            
+        }else{
+            guard let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as? LeaguesDetailsViewController else { return }
+            
+            let name = league.name ?? "Leagues"
+            let key = league.leagueKey ?? ""
+            
+            detailsVC.sportEndpoint = league.endPoint
+            detailsVC.league = League(leagueKey: key, leagueName: name)
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        }
         
-        let name = league.name ?? "Leagues"
-        let key = league.leagueKey ?? ""
-        
-        
-        detailsVC.league = League(leagueKey: key, leagueName: name)
-        
-        
-        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
     func showNoConnectionAlert() {

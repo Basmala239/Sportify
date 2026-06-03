@@ -50,14 +50,20 @@ class LatestEventCell: UICollectionViewCell {
     
     // MARK: - Configure Method
     func configure(with event: Event) {
-        matchResult.text = event.eventFinalResult
+        var homeScore = event.eventHomeFinalResult ?? "0"
+        var awayScore = event.eventAwayFinalResult ?? "0"
+        if (homeScore.isEmpty){ homeScore = "0"}
+        if (awayScore.isEmpty){ awayScore = "0"}
+
+        let finalResult = "\(homeScore)         \n        \(awayScore)"
+        matchResult.text = event.eventFinalResult ?? finalResult
         eventHomeTeam.text = event.HomeTeamName ?? "Home Team"
         eventAwayTeam.text = event.AwayTeamName ?? "Away Team"
-        eventDate.text = DateFormate.formatDate(event.eventDate ?? "")
+        eventDate.text = DateFormate.formatDate((event.eventDate ?? event.eventDateStart) ?? "Nov 23")
         eventTime.text = event.eventTime ?? "TBD"
         
-        loadImage(from: event.homeTeamLogo, into: homeTeamLogo)
-        loadImage(from: event.awayTeamLogo, into: awayTeamLogo)
+        loadImage(from: event.homeTeamLogo ?? event.event_home_team_logo, into: homeTeamLogo)
+        loadImage(from: event.awayTeamLogo ?? event.event_away_team_logo, into: awayTeamLogo)
     }
     
     func configure(with event: TennisEvent) {
