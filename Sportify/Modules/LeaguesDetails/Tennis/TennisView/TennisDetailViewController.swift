@@ -1,32 +1,32 @@
 //
-//  LeaguesDetailsViewController.swift
+//  TennisDetailViewController.swift
 //  Sportify
 //
-//  Created by بسمله ابوزيد احمد on 22/05/2026.
+//  Created by بسمله ابوزيد احمد on 03/06/2026.
 //
 
 import UIKit
-protocol LeaguesDetailsView: AnyObject {
+
+protocol TennisDetailsView: AnyObject {
     func startLoading()
     func stopLoading()
     func reloadData()
 }
-class LeaguesDetailsViewController: UITableViewController{
+class TennisDetailViewController: UITableViewController{
     
+        
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     @IBOutlet weak var latestEventsCollectionView: UICollectionView!
-    @IBOutlet weak var teamsCollectionView: UICollectionView!
-    
-    @IBOutlet weak var noTeams: UIView!
+
     @IBOutlet weak var noUpcamingMatches: UIView!
     @IBOutlet weak var noLatestResult: UIView!
     
     var league: League?
     var sportEndpoint: String?
-    private var upcomingEvents: [Event] = []
-    private var latestEvents: [Event] = []
-    private var teams: [Team] = []
-    private var presenter: LeaguesDetailspresenterProtocol!
+    private var upcomingEvents: [TennisEvent] = []
+    private var latestEvents: [TennisEvent] = []
+    
+    private var presenter: TennispresenterProtocol!
     private let indicator = UIActivityIndicatorView(style: .large)
     
     // MARK: - Lifecycle
@@ -35,13 +35,14 @@ class LeaguesDetailsViewController: UITableViewController{
         setupCollectionViews()
         setupNavigationBarElement()
         
-        let leaguesPresenter = LeaguesDetailspresenter()
-        self.presenter = leaguesPresenter
-        leaguesPresenter.attachView(self)
-        leaguesPresenter.sportEndpointName = self.sportEndpoint ?? APIEndpoints.football
+        let tennisPresenter = TennisPresenter()
+        tennisPresenter.sportEndpointName = self.sportEndpoint ?? APIEndpoints.football
+        tennisPresenter.attachView(self)
+        
+        self.presenter = tennisPresenter
         
         Task {
-            await leaguesPresenter.fetchLeagueDetails(league?.leagueKey)
+            await presenter.fetchLeagueDetails(league?.leagueKey)
         }
     }
     private func setupNavigationBarElement() {
@@ -77,9 +78,6 @@ class LeaguesDetailsViewController: UITableViewController{
         
         noLatestResult.isHidden = latestEvents.count > 0
         latestEventsCollectionView.isHidden = latestEvents.count == 0
-        
-        noTeams.isHidden = teams.count > 0
-        teamsCollectionView.isHidden = teams.count == 0
     }
     
    // MARK: - Setup Methods
@@ -94,43 +92,17 @@ class LeaguesDetailsViewController: UITableViewController{
         latestEventsCollectionView.delegate = self
         latestEventsCollectionView.dataSource = self
         latestEventsCollectionView.register(UINib(nibName: "LatestEventCell", bundle: nil), forCellWithReuseIdentifier: "LatestEventCell")
-        
-        teamsCollectionView.delegate = self
-        teamsCollectionView.dataSource = self
-        teamsCollectionView.showsHorizontalScrollIndicator = false
-        teamsCollectionView.register(UINib(nibName: "TeamCell", bundle: nil), forCellWithReuseIdentifier: "TeamCell")
     }
-    
-    // MARK: - Navigation
-        private func navigateToTeamDetails(team: Team) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            if let teamDetailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetailsViewController") as? TeamDetailsViewController {
-                guard let teamId = team.teamKey else { return }
-                
-                let detailsPresenter = TeamDetailsPresenter(
-                    view: teamDetailsVC,
-                    teamId: teamId,
-                    sportEndpoint: self.sportEndpoint ?? APIEndpoints.football
-                )
-                
-                teamDetailsVC.presenter = detailsPresenter
-                
-                navigationController?.pushViewController(teamDetailsVC, animated: true)
-            }
-        }
 }
 
 // MARK: - UICollectionViewDataSource
-extension LeaguesDetailsViewController: UICollectionViewDataSource {
+extension TennisDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case upcomingCollectionView:
             return upcomingEvents.count
         case latestEventsCollectionView:
             return latestEvents.count
-        case teamsCollectionView:
-            return teams.count
         default:
             return 0
         }
@@ -150,38 +122,21 @@ extension LeaguesDetailsViewController: UICollectionViewDataSource {
             cell.configure(with: event)
             return cell
             
-        case teamsCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamCell
-            let team = teams[indexPath.item]
-            cell.configure(with: team)
-            return cell
-            
         default:
             return UICollectionViewCell()
         }
     }
 }
 
-// MARK: - UICollectionViewDelegate
-extension LeaguesDetailsViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == teamsCollectionView {
-            let selectedTeam = teams[indexPath.item]
-            navigateToTeamDetails(team: selectedTeam)
-        }
-    }
-}
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension LeaguesDetailsViewController: UICollectionViewDelegateFlowLayout {
+extension TennisDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case upcomingCollectionView:
             return CGSize(width: 350, height: 220)
         case latestEventsCollectionView:
             return CGSize(width: collectionView.frame.width - 30, height: 210)
-        case teamsCollectionView:
-            return CGSize(width: 170, height: 170)
         default:
             return CGSize(width: 100, height: 100)
         }
@@ -202,7 +157,8 @@ extension LeaguesDetailsViewController: UICollectionViewDelegateFlowLayout {
         return UIView()
     }
 }
-extension LeaguesDetailsViewController: LeaguesDetailsView {
+extension TennisDetailViewController: TennisDetailsView {
+    
     func startLoading() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -224,13 +180,11 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            self.upcomingEvents = self.presenter?.upcomingMatches ?? []
-            self.latestEvents = self.presenter?.latestMatches ?? []
-            self.teams = self.presenter?.teams ?? []
+            self.upcomingEvents = self.presenter.upcomingMatches
+            self.latestEvents = self.presenter.latestMatches
             
             self.upcomingCollectionView.reloadData()
             self.latestEventsCollectionView.reloadData()
-            self.teamsCollectionView.reloadData()
             
             self.updateEmptyStateViews()
             self.tableView.reloadData()
