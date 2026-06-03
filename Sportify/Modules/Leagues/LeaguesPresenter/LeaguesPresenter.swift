@@ -10,7 +10,7 @@ import Foundation
 protocol LeaguesPresenterProtocol {
     func attachView(_ view: LeaguesView)
     func fetchData(for sportEndpoint: String)
-    func didSelectLeague(at index: Int, sportEndpoint: String)
+    func didSelectLeague(_ league: League, sportEndpoint: String)
 }
 
 class LeaguesPresenter: LeaguesPresenterProtocol {
@@ -45,17 +45,16 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
                 self.view?.stopLoading()
                 self.leagues = response.result ?? []
                 self.view?.renderLeague(self.leagues)
-                
+//                for league in leagues {
+//                    print("leagues presenter : \(league.leagueKey) \(league.leagueName)" )
+//                }
             } catch {
                 self.view?.stopLoading()
                 print("Error loading leagues: \(error.localizedDescription)")
             }
         }
     }
-    func didSelectLeague(at index: Int, sportEndpoint: String){
-        guard index < leagues.count else { return }
-        
-        
-        view?.navigateToDetails(sportEndpoint: sportEndpoint, league: leagues[index])
+    func didSelectLeague(_ league: League, sportEndpoint: String){
+        view?.navigateToDetails(sportEndpoint: sportEndpoint, league: league)
     }
 }

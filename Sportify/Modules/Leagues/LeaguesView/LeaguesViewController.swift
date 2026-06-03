@@ -96,6 +96,7 @@ class LeaguesViewController: UIViewController, LeaguesView {
         if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as? LeaguesDetailsViewController {
             detailsVC.sportEndpoint = sportEndpoint
             detailsVC.league = league
+            print("navigateToDetails: \(league.leagueKey) \(league.leagueName)" )
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }
     }
