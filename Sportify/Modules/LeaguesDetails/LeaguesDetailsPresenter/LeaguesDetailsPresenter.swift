@@ -10,6 +10,7 @@ protocol LeaguesDetailspresenterProtocol {
     var upcomingMatches: [Event] { get }
     var latestMatches: [Event] { get }
     var teams: [Team] { get }
+    var players: [PlayerProfile] { get }
     
     func attachView(_ view: LeaguesDetailsView)
     func fetchLeagueDetails(_ leagueId: String?) async
@@ -18,6 +19,7 @@ class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
     private(set) var upcomingMatches: [Event] = []
     private(set) var latestMatches: [Event] = []
     private(set) var teams: [Team] = []
+    private(set) var players: [PlayerProfile] = []
     var sportEndpointName: String?
 
     private weak var view: LeaguesDetailsView?
@@ -65,17 +67,29 @@ class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
                ]
            )
             
+            if(APIEndpoints.tennis != sportEndpointName ){
+                let teamsResponse: TeamResponse = try await networkService.getData(
+                    endpoint: endpoint,
+                    met: "Teams",
+                    parameters: ["leagueId": id]
+                )
             
-            let teamsResponse: TeamResponse = try await networkService.getData(
-                endpoint: endpoint,
-                met: "Teams",
-                parameters: ["leagueId": id]
-            )
-        
-        
-            let fetchedTeams = teamsResponse.result ?? []
-            print("Successfully decoded \(fetchedTeams.count) teams!")
-            self.teams = teamsResponse.result ?? []
+            
+                let fetchedTeams = teamsResponse.result ?? []
+                print("Successfully decoded \(fetchedTeams.count) teams!")
+                self.teams = teamsResponse.result ?? []
+            } else {
+                let playersResponse: PlayerProfileResponse = try await networkService.getData(
+                    endpoint: endpoint,
+                    met: "Players",
+                    parameters: ["leagueId": id]
+                )
+            
+            
+                let fetchedPlayers = playersResponse.result ?? []
+                print("Successfully decoded \(fetchedPlayers.count) teams!")
+                self.players = fetchedPlayers
+            }
             self.upcomingMatches = nextResponse.result ?? []
             self.latestMatches = latestResponse.result ?? []
             

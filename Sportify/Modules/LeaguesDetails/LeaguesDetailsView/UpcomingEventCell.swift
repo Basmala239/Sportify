@@ -51,22 +51,13 @@ class UpcomingEventCell: UICollectionViewCell {
     
     // MARK: - Configure Method
     func configure(with event: Event) {
-        eventHomeTeam.text = event.HomeTeamName ?? "Home Team"
-        eventAwayTeam.text = event.AwayTeamName ?? "Away Team"
+        eventHomeTeam.text = (event.HomeTeamName ?? event.eventFirstPlayer) ?? "Home Team"
+        eventAwayTeam.text = (event.AwayTeamName ?? event.eventSecondPlayer) ?? "Away Team"
         eventDate.text = DateFormate.formatDate((event.eventDate ?? event.eventDateStart) ?? "Nov 23")
         eventTime.text = event.eventTime ?? "TBD"
         
-        loadImage(from: event.homeTeamLogo ?? event.event_home_team_logo, into: homeTeamLogo)
-        loadImage(from: event.awayTeamLogo ?? event.event_away_team_logo, into: awayTeamLogo)
-    }
-    
-    func configure(with event: TennisEvent) {
-        eventHomeTeam.text = event.eventFirstPlayer
-        eventAwayTeam.text = event.eventSecondPlayer
-        eventDate.text = DateFormate.formatDate(event.eventDate!)
-        eventTime.text = event.eventTime
-        loadImage(from: event.eventFirstPlayerLogo, into: homeTeamLogo)
-        loadImage(from: event.eventSecondPlayerLogo, into: awayTeamLogo)
+        loadImage(from: (event.homeTeamLogo ?? event.event_home_team_logo) ?? event.eventFirstPlayerLogo, into: homeTeamLogo)
+        loadImage(from: (event.awayTeamLogo ?? event.event_away_team_logo) ?? event.eventSecondPlayerLogo, into: awayTeamLogo)
     }
     
     private func loadImage(from urlString: String?, into imageView: UIImageView) {

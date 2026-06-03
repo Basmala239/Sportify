@@ -93,20 +93,13 @@ class LeaguesViewController: UIViewController, LeaguesView {
     
     func navigateToDetails(sportEndpoint: String, league: League) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if(sportEndpoint == APIEndpoints.tennis){
-            if let detailsVC = storyboard.instantiateViewController(withIdentifier: "TennisDetailViewController") as? TennisDetailViewController {
-                detailsVC.sportEndpoint = sportEndpoint
-                detailsVC.league = league
-                self.navigationController?.pushViewController(detailsVC, animated: true)
-                print("Navigate")
-            }
-        }else{
-            if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as? LeaguesDetailsViewController {
-                detailsVC.sportEndpoint = sportEndpoint
-                detailsVC.league = league
-                self.navigationController?.pushViewController(detailsVC, animated: true)
-            }
+        
+        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as? LeaguesDetailsViewController {
+            detailsVC.sportEndpoint = sportEndpoint
+            detailsVC.league = league
+            self.navigationController?.pushViewController(detailsVC, animated: true)
         }
+        
     }
     
 }

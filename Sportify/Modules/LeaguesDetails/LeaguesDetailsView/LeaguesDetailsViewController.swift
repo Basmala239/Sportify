@@ -21,11 +21,13 @@ class LeaguesDetailsViewController: UITableViewController{
     @IBOutlet weak var noUpcamingMatches: UIView!
     @IBOutlet weak var noLatestResult: UIView!
     
+    @IBOutlet weak var thirdSectionTitle: UILabel!
     var league: League?
     var sportEndpoint: String?
     private var upcomingEvents: [Event] = []
     private var latestEvents: [Event] = []
     private var teams: [Team] = []
+    private var players: [PlayerProfile] = []
     private var presenter: LeaguesDetailspresenterProtocol!
     private let indicator = UIActivityIndicatorView(style: .large)
     
@@ -87,14 +89,24 @@ class LeaguesDetailsViewController: UITableViewController{
         noLatestResult.isHidden = latestEvents.count > 0
         latestEventsCollectionView.isHidden = latestEvents.count == 0
         
-        noTeams.isHidden = teams.count > 0
-        teamsCollectionView.isHidden = teams.count == 0
+        if(APIEndpoints.tennis !=  sportEndpoint){
+            noTeams.isHidden = teams.count > 0
+            teamsCollectionView.isHidden = teams.count == 0
+        }else{
+            noTeams.isHidden = players.count > 0
+            teamsCollectionView.isHidden = players.count == 0
+        }
     }
     
    // MARK: - Setup Methods
 
     
     private func setupCollectionViews() {
+        if (sportEndpoint == APIEndpoints.tennis ){
+            thirdSectionTitle.text = "Players"
+        }else{
+            thirdSectionTitle.text = "Teams"
+        }
         upcomingCollectionView.delegate = self
         upcomingCollectionView.dataSource = self
         upcomingCollectionView.register(UINib(nibName: "UpcomingEventCell", bundle: nil), forCellWithReuseIdentifier: "UpcomingEventCell")
@@ -139,7 +151,11 @@ extension LeaguesDetailsViewController: UICollectionViewDataSource {
         case latestEventsCollectionView:
             return latestEvents.count
         case teamsCollectionView:
-            return teams.count
+            if(APIEndpoints.tennis != sportEndpoint){
+                return teams.count
+            }else{
+                return players.count
+            }
         default:
             return 0
         }
@@ -161,8 +177,15 @@ extension LeaguesDetailsViewController: UICollectionViewDataSource {
             
         case teamsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamCell
-            let team = teams[indexPath.item]
-            cell.configure(with: team)
+            
+            if(APIEndpoints.tennis != sportEndpoint){
+                let team = teams[indexPath.item]
+                cell.configure(with: team)
+            }else{
+                let player = players[indexPath.item]
+                cell.configure(with: player)
+            }
+            
             return cell
             
         default:
@@ -235,7 +258,11 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
             
             self.upcomingEvents = self.presenter?.upcomingMatches ?? []
             self.latestEvents = self.presenter?.latestMatches ?? []
-            self.teams = self.presenter?.teams ?? []
+            if(self.sportEndpoint != APIEndpoints.tennis){
+                self.teams = self.presenter?.teams ?? []
+            }else{
+                self.players = self.presenter?.players ?? []
+            }
             
             self.upcomingCollectionView.reloadData()
             self.latestEventsCollectionView.reloadData()

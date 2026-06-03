@@ -11,34 +11,56 @@
 //  Created by Al3dwy on 04/05/2026.
 //
 
-struct EventsResponse: Codable {
+struct EventsResponse: Decodable {
     let success: Int
     let result: [Event]?
 }
 
-struct Event: Codable {
+struct Event: Decodable {
     let eventKey: Int?
-    let eventDate, eventTime, HomeTeamName: String?
+    let eventDate: String?
+    let eventTime: String?
+    let HomeTeamName: String?
     let eventDateStart: String?
     let homeTeamKey: Int?
     let AwayTeamName: String?
     let awayTeamKey: Int?
-    let eventHalftimeResult, eventFinalResult, eventFtResult, eventPenaltyResult: String?
+    let eventHalftimeResult: String?
+    let eventFinalResult: String?
+    let eventFtResult: String?
+    let eventPenaltyResult: String?
     let eventHomeFinalResult: String?
     let eventAwayFinalResult: String?
-    let eventStatus, countryName, leagueName: String?
+    let eventStatus: String?
+    let countryName: String?
+    let leagueName: String?
     let leagueKey: Int?
-    let leagueRound, leagueSeason, eventLive, eventStadium: String?
+    let leagueRound: String?
+    let leagueSeason: String?
+    let eventLive: String?
+    let eventStadium: String?
     let eventReferee: String?
-    let homeTeamLogo, awayTeamLogo: String?
+    let homeTeamLogo: String?
+    let awayTeamLogo: String?
     let eventCountryKey: Int?
-    let leagueLogo, countryLogo: String?
-    let eventHomeFormation, eventAwayFormation: String?
+    let leagueLogo: String?
+    let countryLogo: String?
+    let eventHomeFormation: String?
+    let eventAwayFormation: String?
     let fkStageKey: Int?
     let stageName: String?
     let event_home_team_logo: String?
     let event_away_team_logo: String?
-   
+    let firstPlayerKey: Int?
+    let eventSecondPlayer: String?
+    let secondPlayerKey: Int?
+    let eventGameResult: String?
+    let eventServe: String?
+    let eventWinner: String?
+    let eventFirstPlayerLogo: String?
+    let eventSecondPlayerLogo: String?
+    let eventFirstPlayer: String?
+    
     enum CodingKeys: String, CodingKey {
         case eventKey = "event_key"
         case eventDate = "event_date"
@@ -74,5 +96,14 @@ struct Event: Codable {
         case stageName = "stage_name"
         case event_home_team_logo = "event_home_team_logo"
         case event_away_team_logo = "event_away_team_logo"
+        case eventFirstPlayer = "event_first_player"
+        case firstPlayerKey = "first_player_key"
+        case eventSecondPlayer = "event_second_player"
+        case secondPlayerKey = "second_player_key"
+        case eventGameResult = "event_game_result"
+        case eventServe = "event_serve"
+        case eventWinner = "event_winner"
+        case eventFirstPlayerLogo = "event_first_player_logo"
+        case eventSecondPlayerLogo = "event_second_player_logo"
     }
 }

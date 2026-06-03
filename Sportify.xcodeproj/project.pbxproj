@@ -38,9 +38,7 @@
 		FC2A2F752FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F742FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift */; };
 		FC3A142C2FD06F6000A1D729 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FC3A142B2FD06F6000A1D729 /* SDWebImage */; };
 		FC3A142F2FD06F9000A1D729 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC3A142E2FD06F9000A1D729 /* Alamofire */; };
-		FC3A14352FD071E600A1D729 /* TennisPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A14342FD071E600A1D729 /* TennisPresenter.swift */; };
-		FC3A14392FD0733500A1D729 /* TennisDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A14382FD0733500A1D729 /* TennisDetailViewController.swift */; };
-		FC3A143B2FD073D400A1D729 /* TennisEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A143A2FD073D400A1D729 /* TennisEvent.swift */; };
+		FC3A14442FD0D0B400A1D729 /* PlayerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3A14432FD0D0B400A1D729 /* PlayerProfile.swift */; };
 		FC6DDA142FC37CA2004794EA /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6DDA132FC37CA2004794EA /* Team.swift */; };
 		FC6DDA162FC38622004794EA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6DDA152FC38622004794EA /* Event.swift */; };
 		FC8CEB282FC2052A00ED5EFD /* UpcomingEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8CEB262FC2052A00ED5EFD /* UpcomingEventCell.swift */; };
@@ -122,9 +120,7 @@
 		FC2A2F6E2FBC8A95008A39E3 /* SportifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2A2F722FBC8A95008A39E3 /* SportifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportifyUITests.swift; sourceTree = "<group>"; };
 		FC2A2F742FBC8A95008A39E3 /* SportifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FC3A14342FD071E600A1D729 /* TennisPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPresenter.swift; sourceTree = "<group>"; };
-		FC3A14382FD0733500A1D729 /* TennisDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisDetailViewController.swift; sourceTree = "<group>"; };
-		FC3A143A2FD073D400A1D729 /* TennisEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisEvent.swift; sourceTree = "<group>"; };
+		FC3A14432FD0D0B400A1D729 /* PlayerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProfile.swift; sourceTree = "<group>"; };
 		FC6DDA132FC37CA2004794EA /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		FC6DDA152FC38622004794EA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		FC8CEB262FC2052A00ED5EFD /* UpcomingEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventCell.swift; sourceTree = "<group>"; };
@@ -321,31 +317,6 @@
 			path = SportifyUITests;
 			sourceTree = "<group>";
 		};
-		FC3A14302FD0719200A1D729 /* Tennis */ = {
-			isa = PBXGroup;
-			children = (
-				FC3A14322FD071B700A1D729 /* TennisPresenter */,
-				FC3A14312FD071AC00A1D729 /* TennisView */,
-			);
-			path = Tennis;
-			sourceTree = "<group>";
-		};
-		FC3A14312FD071AC00A1D729 /* TennisView */ = {
-			isa = PBXGroup;
-			children = (
-				FC3A14382FD0733500A1D729 /* TennisDetailViewController.swift */,
-			);
-			path = TennisView;
-			sourceTree = "<group>";
-		};
-		FC3A14322FD071B700A1D729 /* TennisPresenter */ = {
-			isa = PBXGroup;
-			children = (
-				FC3A14342FD071E600A1D729 /* TennisPresenter.swift */,
-			);
-			path = TennisPresenter;
-			sourceTree = "<group>";
-		};
 		FC8E55FB2FC47FA600846796 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,7 +376,7 @@
 				FC6DDA132FC37CA2004794EA /* Team.swift */,
 				FC6DDA152FC38622004794EA /* Event.swift */,
 				FC926D1D2FCEC14C00C8C204 /* OnboardingStep.swift */,
-				FC3A143A2FD073D400A1D729 /* TennisEvent.swift */,
+				FC3A14432FD0D0B400A1D729 /* PlayerProfile.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -517,7 +488,6 @@
 		FCA2EC1D2FC096EF0087873C /* LeaguesDetails */ = {
 			isa = PBXGroup;
 			children = (
-				FC3A14302FD0719200A1D729 /* Tennis */,
 				FCA2EC1F2FC097010087873C /* LeaguesDetailsPresenter */,
 				FCA2EC1E2FC096F80087873C /* LeaguesDetailsView */,
 			);
@@ -725,12 +695,10 @@
 				FC8FA1972FBE85A500C867CD /* NetworkService.swift in Sources */,
 				FC8FA18D2FBE4F8500C867CD /* FavoriteTableViewExtension.swift in Sources */,
 				CA5A24182FBF8D5400E532EE /* SplashViewController.swift in Sources */,
-				FC3A14352FD071E600A1D729 /* TennisPresenter.swift in Sources */,
 				CA5A24162FBF8B2400E532EE /* SplashPresenter.swift in Sources */,
 				FC8FA1912FBE7E9B00C867CD /* LocalStorageService.swift in Sources */,
 				CA34A1A62FCF33D30081B487 /* TeamDetailsPresenter.swift in Sources */,
 				FC9737772FCF474600EA89BF /* OnboardingPresenter.swift in Sources */,
-				FC3A14392FD0733500A1D729 /* TennisDetailViewController.swift in Sources */,
 				FC917E8E2FCC6F0D00FFD12C /* DateFormate.swift in Sources */,
 				FC8FA18F2FBE52B200C867CD /* FavoritePresenter.swift in Sources */,
 				CABE54762FCDED1400154EBC /* FixtureTableViewCell.swift in Sources */,
@@ -748,12 +716,12 @@
 				FC917E932FCC805200FFD12C /* CustemBoarder.swift in Sources */,
 				CA34A1A42FCF31070081B487 /* TeamDetailsProtocol.swift in Sources */,
 				FC2A2F592FBC8A93008A39E3 /* Sportify.xcdatamodeld in Sources */,
+				FC3A14442FD0D0B400A1D729 /* PlayerProfile.swift in Sources */,
 				FC926D202FCEC21C00C8C204 /* OnboardingDataViewController.swift in Sources */,
 				FC8CEB2C2FC2054800ED5EFD /* LatestEventCell.swift in Sources */,
 				CAE3F7A22FC4CC69002251C3 /* SportItem.swift in Sources */,
 				FC8CEB322FC205C300ED5EFD /* TeamCell.swift in Sources */,
 				FCA2EC132FC06F910087873C /* League.swift in Sources */,
-				FC3A143B2FD073D400A1D729 /* TennisEvent.swift in Sources */,
 				FC2A2F4F2FBC8A93008A39E3 /* AppDelegate.swift in Sources */,
 				FC6DDA162FC38622004794EA /* Event.swift in Sources */,
 				FC8FA1A22FBE8EFA00C867CD /* LeaguesTableViewExtension.swift in Sources */,

@@ -41,6 +41,10 @@ class TeamCell: UICollectionViewCell {
         teamNameLabel.text = team.teamName
         loadImage(from: team.teamLogo ?? "", into: teamImageView)
     }
+    func configure(with player: PlayerProfile) {
+        teamNameLabel.text = player.playerName
+        loadImage(from: player.playerLogo ?? "", into: teamImageView)
+    }
         
     private func loadImage(from urlString: String?, into imageView: UIImageView) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
