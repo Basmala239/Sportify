@@ -11,7 +11,7 @@ class CoreDataManager {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    func addFavorite(leagueKey: String, name: String?, imageString: String?, country: String?) {
+    func addFavorite(leagueKey: String, name: String?, imageString: String?, country: String?, endPoint: String?) {
          if isFavorite(leagueKey: leagueKey) {
             print("Item '\(leagueKey)' is already in favorites.")
             return
@@ -22,6 +22,7 @@ class CoreDataManager {
         favorite.name = name
         favorite.image = imageString
         favorite.countary = country
+        favorite.endPoint = endPoint
          
         saveContext()
     }

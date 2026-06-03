@@ -46,29 +46,38 @@ class TennisDetailViewController: UITableViewController{
         }
     }
     private func setupNavigationBarElement() {
+        guard let leagueKey = league?.leagueKey else { return }
+        
+        let isFav = CoreDataManager.shared.isFavorite(leagueKey: leagueKey)
+        let imageName = isFav ? "heart.fill" : "heart"
+        
         let rightButton = UIBarButtonItem(
-            image: UIImage(systemName: "heart"),
+            image: UIImage(systemName: imageName),
             style: .plain,
             target: self,
             action: #selector(favoriteButtonTapped)
         )
+        rightButton.tintColor = .systemRed
         self.navigationItem.rightBarButtonItem = rightButton
     }
-    
-    @objc func favoriteButtonTapped() {
+
+    @objc private func favoriteButtonTapped() {
         guard let leagueKey = league?.leagueKey else { return }
         
         if CoreDataManager.shared.isFavorite(leagueKey: leagueKey) {
             CoreDataManager.shared.deleteFavorite(leagueKey: leagueKey)
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+            print("Successfully removed league \(leagueKey) from favorites.")
         } else {
             CoreDataManager.shared.addFavorite(
                 leagueKey: leagueKey,
                 name: league?.leagueName,
-                imageString: league?.leagueLogo,
-                country: league?.countryName
+                imageString: league?.leagueLogo ?? "",
+                country: league?.countryName ?? "",
+                endPoint: sportEndpoint ?? ""
             )
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+            print("Successfully added league \(leagueKey) to favorites.")
         }
     }
     
