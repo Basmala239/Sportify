@@ -40,7 +40,7 @@ class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
         let id = leagueId ?? "207"
         
 
-        if endpoint == APIEndpoints.tennis {
+        if endpoint == APIEndpoints.cricket {
             view?.stopLoading()
             
         }else{
@@ -64,25 +64,27 @@ class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
                    met: "Fixtures",
                    parameters: [
                        "leagueId": id,
-                       "from": DateFormate.daysAgo(100),
+                       "from": DateFormate.daysAgo(600),
                        "to": DateFormate.today()
                        
                    ]
                )
                 
+                if(endpoint != APIEndpoints.tennis){
+                    let teamsResponse: TeamResponse = try await networkService.getData(
+                        endpoint: endpoint,
+                        met: "Teams",
+                        parameters: ["leagueId": id]
+                    )
                 
-                let teamsResponse: TeamResponse = try await networkService.getData(
-                    endpoint: endpoint,
-                    met: "Teams",
-                    parameters: ["leagueId": id]
-                )
                 
-                let fetchedTeams = teamsResponse.result ?? []
-                print("Successfully decoded \(fetchedTeams.count) teams!")
-                
+                    let fetchedTeams = teamsResponse.result ?? []
+                    print("Successfully decoded \(fetchedTeams.count) teams!")
+                    self.teams = teamsResponse.result ?? []
+                }
                 self.upcomingMatches = nextResponse.result ?? []
                 self.latestMatches = latestResponse.result ?? []
-                self.teams = teamsResponse.result ?? []
+                
                 print("Next Matches Count: \(upcomingMatches.count)")
                 print("Latest Matches Count: \(latestMatches.count)")
                                 

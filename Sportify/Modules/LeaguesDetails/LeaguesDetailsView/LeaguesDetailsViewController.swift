@@ -32,6 +32,7 @@ class LeaguesDetailsViewController: UITableViewController{
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Details: \(league?.leagueKey) \(league?.leagueName)" )
         setupCollectionViews()
         setupNavigationBarElement()
         

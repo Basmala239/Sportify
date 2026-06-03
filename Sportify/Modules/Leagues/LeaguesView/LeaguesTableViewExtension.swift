@@ -29,7 +29,7 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     
         let currentSport = self.sportEndpoint ?? APIEndpoints.football
-        presenter.didSelectLeague(at: indexPath.row, sportEndpoint: currentSport)
+        presenter.didSelectLeague(leagues[indexPath.row], sportEndpoint: currentSport)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
