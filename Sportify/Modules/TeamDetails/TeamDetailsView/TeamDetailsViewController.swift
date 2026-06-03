@@ -15,13 +15,16 @@ class TeamDetailsViewController: UIViewController {
         var teamData: Team?
         var fixtures: [Event] = []
     
-        var goalkeepers: [Player] = []
-        var defenders: [Player] = []
-        var midfielders: [Player] = []
-        var forwards: [Player] = []
+//        var goalkeepers: [Player] = []
+//        var defenders: [Player] = []
+//        var midfielders: [Player] = []
+//        var forwards: [Player] = []
         
         private let indicator = UIActivityIndicatorView(style: .large)
-        let tableSections = ["Goalkeepers", "Defenders", "Midfielders", "Forwards", "Fixtures"]
+        //let tableSections = ["Goalkeepers", "Defenders", "Midfielders", "Forwards", "Fixtures"]
+    
+    var tableSections: [String] = []
+    var playersBySection: [[Player]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,39 +67,60 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
         tableSections.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == tableSections.count - 1 {
-                    return fixtures.count
-        }
-        return 1
+//        if section == tableSections.count - 1 {
+//                    return fixtures.count
+//        }
+//        return 1
+        let sectionTitle = tableSections[section]
+            if sectionTitle == "Fixtures" {
+                return fixtures.count
+            }
+            return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == tableSections.count - 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FixtureTableViewCell", for: indexPath) as! FixtureTableViewCell
-            let match = fixtures[indexPath.row]
-            cell.configure(with: match)
-            return cell
-        }
-        else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "PlayersRowTableViewCell", for: indexPath) as! PlayersRowTableViewCell
-                    cell.selectionStyle = .none
-                    
-                    switch indexPath.section {
-                    case 0:
-                        cell.configure(with: goalkeepers)
-                    case 1:
-                        cell.configure(with: defenders)
-                    case 2:
-                        cell.configure(with: midfielders)
-                    case 3:
-                        cell.configure(with: forwards)
-                    default:
-                        break
-                    }
-                    
-                    return cell
-                }
+//        if indexPath.section == tableSections.count - 1 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "FixtureTableViewCell", for: indexPath) as! FixtureTableViewCell
+//            let match = fixtures[indexPath.row]
+//            cell.configure(with: match)
+//            return cell
+//        }
+//        else {
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: "PlayersRowTableViewCell", for: indexPath) as! PlayersRowTableViewCell
+//                    cell.selectionStyle = .none
+//                    
+//                    switch indexPath.section {
+//                    case 0:
+//                        cell.configure(with: goalkeepers)
+//                    case 1:
+//                        cell.configure(with: defenders)
+//                    case 2:
+//                        cell.configure(with: midfielders)
+//                    case 3:
+//                        cell.configure(with: forwards)
+//                    default:
+//                        break
+//                    }
+//                    
+//                    return cell
+//                }
+        let sectionTitle = tableSections[indexPath.section]
+        if sectionTitle == "Fixtures" {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FixtureTableViewCell", for: indexPath) as! FixtureTableViewCell
+                let match = fixtures[indexPath.row]
+                cell.configure(with: match)
+                return cell
+            }
+            else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PlayersRowTableViewCell", for: indexPath) as! PlayersRowTableViewCell
+                cell.selectionStyle = .none
+                let playersForThisSection = playersBySection[indexPath.section]
+                cell.configure(with: playersForThisSection)
+                
+                return cell
+            }
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return tableSections[section]
     }
@@ -112,7 +136,12 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            if indexPath.section == tableSections.count - 1 {
+//            if indexPath.section == tableSections.count - 1 {
+//                return 130
+//            }
+//            return 260
+        let sectionTitle = tableSections[indexPath.section]
+            if sectionTitle == "Fixtures" {
                 return 130
             }
             return 260
@@ -154,12 +183,21 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
                 }
     }
     
+//    private func filterPlayers(players: [Player]) {
+//            goalkeepers = players.filter { $0.playerType == "Goalkeepers" }
+//            defenders = players.filter { $0.playerType == "Defenders" }
+//            midfielders = players.filter { $0.playerType == "Midfielders" }
+//            forwards = players.filter { $0.playerType == "Forwards" }
+//        }
+    
     private func filterPlayers(players: [Player]) {
-            goalkeepers = players.filter { $0.playerType == "Goalkeepers" }
-            defenders = players.filter { $0.playerType == "Defenders" }
-            midfielders = players.filter { $0.playerType == "Midfielders" }
-            forwards = players.filter { $0.playerType == "Forwards" }
+        let groupedDictionary = Dictionary(grouping: players) { player in
+            return player.playerType ?? "Players"
         }
+        tableSections = groupedDictionary.keys.sorted()
+        playersBySection = tableSections.map { groupedDictionary[$0]! }
+        tableSections.append("Fixtures")
+    }
     
     func displayFixtures(fixtures: [Event]) {
         self.fixtures = fixtures
