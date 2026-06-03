@@ -60,6 +60,16 @@ class LatestEventCell: UICollectionViewCell {
         loadImage(from: event.awayTeamLogo, into: awayTeamLogo)
     }
     
+    func configure(with event: TennisEvent) {
+        matchResult.text = event.eventFinalResult
+        eventHomeTeam.text = event.eventFirstPlayer
+        eventAwayTeam.text = event.eventSecondPlayer
+        eventDate.text = DateFormate.formatDate(event.eventDate!)
+        eventTime.text = event.eventTime
+        loadImage(from: event.eventFirstPlayerLogo, into: homeTeamLogo)
+        loadImage(from: event.eventSecondPlayerLogo, into: awayTeamLogo)
+    }
+    
     private func loadImage(from urlString: String?, into imageView: UIImageView) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
             if let placeholder = UIImage(systemName: "sportscourt.fill") {
