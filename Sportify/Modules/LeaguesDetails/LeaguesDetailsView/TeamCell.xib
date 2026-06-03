@@ -37,7 +37,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SD6-jz-gr1">
-                                <rect key="frame" x="63" y="124" width="44.5" height="20.5"/>
+                                <rect key="frame" x="8" y="124" width="154" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -46,7 +46,9 @@
                         <color key="backgroundColor" red="0.088567368689999995" green="0.1324557066" blue="0.21101439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CZH-Rd-k8f" firstAttribute="centerX" secondItem="gP0-k2-zof" secondAttribute="centerX" id="Bah-Bj-ahq"/>
+                            <constraint firstAttribute="trailing" secondItem="SD6-jz-gr1" secondAttribute="trailing" constant="8" id="Jc5-e5-xwX"/>
                             <constraint firstItem="SD6-jz-gr1" firstAttribute="centerX" secondItem="gP0-k2-zof" secondAttribute="centerX" id="QQw-mh-DdF"/>
+                            <constraint firstItem="SD6-jz-gr1" firstAttribute="leading" secondItem="gP0-k2-zof" secondAttribute="leading" constant="8" id="WM1-9H-83O"/>
                             <constraint firstItem="CZH-Rd-k8f" firstAttribute="top" secondItem="gP0-k2-zof" secondAttribute="top" constant="8" id="mF3-Ak-h7I"/>
                             <constraint firstItem="SD6-jz-gr1" firstAttribute="top" secondItem="CZH-Rd-k8f" secondAttribute="bottom" constant="16" id="xEE-IY-Thy"/>
                         </constraints>
