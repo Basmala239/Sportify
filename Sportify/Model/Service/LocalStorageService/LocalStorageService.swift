@@ -78,3 +78,4 @@ class CoreDataManager {
         }
     }
 }
+extension CoreDataManager: FavoriteLocalProtocol {}
