@@ -55,6 +55,7 @@ class LeaguesViewController: UIViewController, LeaguesView {
     
     func startLoading() {
         indicator.center = view.center
+        indicator.color = .white
         view.addSubview(indicator)
         indicator.startAnimating()
     }
