@@ -16,24 +16,20 @@ enum MockError: Error {
 class MockNetworkService: NetworkServiceProtocol {
     
     var isConnected = true
-    var stubbedData: Data?
-    var isGetDataCalled = false
+    var shouldReturnError = false
+    var mockResponse: Decodable!
     
     func isInternetConnected() -> Bool {
         return isConnected
     }
     
-    func getData<T>(endpoint: String, met: String, parameters: [String : Any]?) async throws -> T where T : Decodable {
-        isGetDataCalled = true 
-        guard let data = stubbedData else {
-            throw MockError.notImplemented
+    func getData<T: Decodable>(endpoint: String, met: String, parameters: [String: Any]?) async throws -> T {
+        if shouldReturnError {
+            throw NSError(domain: "NetworkError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Connection failed"])
         }
-        
-        do {
-            let decodedResponse = try JSONDecoder().decode(T.self, from: data)
-            return decodedResponse
-        } catch {
-            throw error 
+        if let response = mockResponse as? T {
+            return response
         }
+        throw NSError(domain: "DecodingError", code: -1, userInfo: nil)
     }
 }
