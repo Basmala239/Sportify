@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0987972FD125D400E0F885 /* FavoritePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0987962FD125D400E0F885 /* FavoritePresenterTests.swift */; };
 		CA34A1A42FCF31070081B487 /* TeamDetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA34A1A32FCF31070081B487 /* TeamDetailsProtocol.swift */; };
 		CA34A1A62FCF33D30081B487 /* TeamDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA34A1A52FCF33D30081B487 /* TeamDetailsPresenter.swift */; };
 		CA453C812FCBB11100C9F8A1 /* TeamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA453C802FCBB11100C9F8A1 /* TeamHeaderView.swift */; };
@@ -15,6 +16,9 @@
 		CA5A24142FBF8B1500E532EE /* SplashProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A24132FBF8B1500E532EE /* SplashProtocols.swift */; };
 		CA5A24162FBF8B2400E532EE /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A24152FBF8B2400E532EE /* SplashPresenter.swift */; };
 		CA5A24182FBF8D5400E532EE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A24172FBF8D5400E532EE /* SplashViewController.swift */; };
+		CAB51B052FD1D3D00048ADAA /* MockFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB51B042FD1D3D00048ADAA /* MockFavoriteView.swift */; };
+		CAB51B072FD1D7540048ADAA /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB51B062FD1D7540048ADAA /* MockNetworkService.swift */; };
+		CAB51B092FD1D92B0048ADAA /* MockFavoriteLocalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB51B082FD1D92B0048ADAA /* MockFavoriteLocalManager.swift */; };
 		CABE54762FCDED1400154EBC /* FixtureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE54742FCDED1400154EBC /* FixtureTableViewCell.swift */; };
 		CABE54772FCDED1400154EBC /* FixtureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CABE54752FCDED1400154EBC /* FixtureTableViewCell.xib */; };
 		CAE3F7A22FC4CC69002251C3 /* SportItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE3F7A12FC4CC69002251C3 /* SportItem.swift */; };
@@ -87,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA0987962FD125D400E0F885 /* FavoritePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenterTests.swift; sourceTree = "<group>"; };
 		CA34A1A32FCF31070081B487 /* TeamDetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsProtocol.swift; sourceTree = "<group>"; };
 		CA34A1A52FCF33D30081B487 /* TeamDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsPresenter.swift; sourceTree = "<group>"; };
 		CA453C802FCBB11100C9F8A1 /* TeamHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamHeaderView.swift; sourceTree = "<group>"; };
@@ -95,6 +100,9 @@
 		CA5A24132FBF8B1500E532EE /* SplashProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashProtocols.swift; sourceTree = "<group>"; };
 		CA5A24152FBF8B2400E532EE /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		CA5A24172FBF8D5400E532EE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		CAB51B042FD1D3D00048ADAA /* MockFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoriteView.swift; sourceTree = "<group>"; };
+		CAB51B062FD1D7540048ADAA /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		CAB51B082FD1D92B0048ADAA /* MockFavoriteLocalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoriteLocalManager.swift; sourceTree = "<group>"; };
 		CABE54742FCDED1400154EBC /* FixtureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureTableViewCell.swift; sourceTree = "<group>"; };
 		CABE54752FCDED1400154EBC /* FixtureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FixtureTableViewCell.xib; sourceTree = "<group>"; };
 		CAE3F7A12FC4CC69002251C3 /* SportItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportItem.swift; sourceTree = "<group>"; };
@@ -204,6 +212,16 @@
 			path = SplashView;
 			sourceTree = "<group>";
 		};
+		CAB51B032FD1D39C0048ADAA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				CAB51B042FD1D3D00048ADAA /* MockFavoriteView.swift */,
+				CAB51B062FD1D7540048ADAA /* MockNetworkService.swift */,
+				CAB51B082FD1D92B0048ADAA /* MockFavoriteLocalManager.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		CACE82182FCBAA770044CC97 /* TeamDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,7 +321,9 @@
 		FC2A2F672FBC8A95008A39E3 /* SportifyTests */ = {
 			isa = PBXGroup;
 			children = (
+				CAB51B032FD1D39C0048ADAA /* Mocks */,
 				FC2A2F682FBC8A95008A39E3 /* SportifyTests.swift */,
+				CA0987962FD125D400E0F885 /* FavoritePresenterTests.swift */,
 			);
 			path = SportifyTests;
 			sourceTree = "<group>";
@@ -740,7 +760,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB51B072FD1D7540048ADAA /* MockNetworkService.swift in Sources */,
+				CAB51B092FD1D92B0048ADAA /* MockFavoriteLocalManager.swift in Sources */,
+				CA0987972FD125D400E0F885 /* FavoritePresenterTests.swift in Sources */,
 				FC2A2F692FBC8A95008A39E3 /* SportifyTests.swift in Sources */,
+				CAB51B052FD1D3D00048ADAA /* MockFavoriteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
