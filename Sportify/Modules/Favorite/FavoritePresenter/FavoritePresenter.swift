@@ -6,15 +6,23 @@
 //
 import Foundation
 
+protocol FavoriteLocalProtocol {
+    func fetchAllFavorites() -> [Favorite]
+    func deleteFavorite(leagueKey: String) 
+    func isFavorite(leagueKey: String) -> Bool
+    func addFavorite(leagueKey: String, name: String?, imageString: String?, country: String?, endPoint: String?)
+}
+
 class FavoritePresenter {
     
     private weak var view: FavoriteView?
     private var result: [Favorite] = []
     private let networkService: NetworkServiceProtocol
+    private let localManager: FavoriteLocalProtocol
         
-        
-    init(networkService: NetworkServiceProtocol = NetworkService.shared) {
+    init(networkService: NetworkServiceProtocol = NetworkService.shared,localManager: FavoriteLocalProtocol = CoreDataManager.shared) {
         self.networkService = networkService
+        self.localManager = localManager
     }
     
     
@@ -23,7 +31,7 @@ class FavoritePresenter {
     }
     
     func fetchData() {
-        self.result = CoreDataManager.shared.fetchAllFavorites()
+        self.result = localManager.fetchAllFavorites()
         
         self.view?.renderFavorite(self.result)
     }
@@ -33,7 +41,7 @@ class FavoritePresenter {
         let itemToDelete = result[index]
         
         if let leagueKey = itemToDelete.leagueKey {
-            CoreDataManager.shared.deleteFavorite(leagueKey: leagueKey)
+            localManager.deleteFavorite(leagueKey: leagueKey)
             fetchData()
         }
     }
