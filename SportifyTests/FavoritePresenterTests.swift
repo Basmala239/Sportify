@@ -51,7 +51,19 @@ final class FavoritePresenterTests: XCTestCase {
         XCTAssertEqual(mockView.renderedFavorites.first?.name, "Premier League")
     }
     
-    
+    func testDeleteFavoriteItem(){
+        let dummyFavorite = Favorite(context: mockContext)
+        dummyFavorite.leagueKey = "141"
+        dummyFavorite.name = "Premier League"
+        mockLocalManager.stubbedFavorites = [dummyFavorite]
+        presenter.fetchData()
+        
+        presenter.deleteFavoriteItem(at: 0)
+        
+        XCTAssertTrue(mockLocalManager.isDeleteCalled)
+        XCTAssertEqual(mockLocalManager.deletedLeagueKey, "141")
+        
+    }
 
     // MARK: - Core Data Helper
     func setUpInMemoryManagedObjectContext() -> NSManagedObjectContext {
