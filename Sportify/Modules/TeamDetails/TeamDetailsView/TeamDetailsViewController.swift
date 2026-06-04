@@ -118,7 +118,7 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.indicator.center = self.view.center
-            self.indicator.color = .cyan 
+            self.indicator.color = .white
             self.view.addSubview(self.indicator)
             self.indicator.startAnimating()
         }
