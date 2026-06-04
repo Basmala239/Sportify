@@ -46,11 +46,14 @@ class SplashViewController : UIViewController , SplashViewProtocol{
     }
     
     func navigateToNextScreen() {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        if let nextVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeTabBar") as? UIViewController {
-            nextVC.modalPresentationStyle = .fullScreen
-            nextVC.modalTransitionStyle = .crossDissolve
-            self.present(nextVC, animated: true, completion: nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainRootVC = storyboard.instantiateViewController(withIdentifier: "HomeNavigationWrapper")
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            window.rootViewController = mainRootVC
+            UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve, animations: nil)
         }
     }
     
