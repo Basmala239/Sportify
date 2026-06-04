@@ -48,9 +48,18 @@ class SplashViewController : UIViewController , SplashViewProtocol{
     func navigateToNextScreen() {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         if let nextVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeTabBar") as? UIViewController {
-                    nextVC.modalPresentationStyle = .fullScreen
-                    nextVC.modalTransitionStyle = .crossDissolve 
-                    self.present(nextVC, animated: true, completion: nil)
-                }
-            }
+            nextVC.modalPresentationStyle = .fullScreen
+            nextVC.modalTransitionStyle = .crossDissolve
+            self.present(nextVC, animated: true, completion: nil)
+        }
+    }
+    
+    func navigateToOnboarding() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if let nextVC = mainStoryboard.instantiateViewController(withIdentifier: "OnboardingContainerViewController") as? OnboardingContainerViewController {
+            nextVC.modalPresentationStyle = .fullScreen
+            nextVC.modalTransitionStyle = .crossDissolve
+            self.present(nextVC, animated: true, completion: nil)
+        }
+    }
 }
