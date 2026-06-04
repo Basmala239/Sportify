@@ -11,6 +11,7 @@ protocol SplashViewProtocol:AnyObject{
     func animateTitle(text: String)
     func fillProgressBar(duration: Double)
     func navigateToNextScreen()
+    func navigateToOnboarding()
 }
 
 protocol SplashPresenterProtocol {

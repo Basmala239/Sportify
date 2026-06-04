@@ -17,14 +17,15 @@ class OnboardingPresenter {
     private weak var view: OnboardingViewProtocol?
     private let steps: [OnboardingStep]
     private(set) var currentIndex: Int = 0
+    private var storage: OnboardingStorage
     
     var totalStepsCount: Int {
         return steps.count
     }
     
-     init(view: OnboardingViewProtocol) {
+     init(view: OnboardingViewProtocol, storage: OnboardingStorage = UserDefaultsManager.shared) {
         self.view = view
-        
+        self.storage = storage
         self.steps = [
             OnboardingStep(imageName: "onboarding1", title: "Welcome to SportsHub", description: "Your ultimate destination for live scores, stats, and highlights."),
             OnboardingStep(imageName: "onboarding2", title: "Never Miss a Moment", description: "Get real-time updates and notifications for your favorite teams."),
@@ -47,14 +48,14 @@ class OnboardingPresenter {
             updateView()
             view?.navigateToPage(at: currentIndex, directionForward: true)
         } else {
-            UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
+            storage.isFirstVisit = false
             view?.navigateToHome()
         }
     }
     
     func handlePageSwiped(to index: Int) {
         guard index >= 0 && index < steps.count else { return }
-        let isForward = index > currentIndex
+        _ = index > currentIndex
         currentIndex = index
         updateView()
     }
