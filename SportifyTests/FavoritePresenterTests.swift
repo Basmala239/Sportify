@@ -78,6 +78,20 @@ final class FavoritePresenterTests: XCTestCase {
         XCTAssertTrue(mockView.isNavigateCalled,"navigate to the league details screen because internet is connected")
         XCTAssertFalse(mockView.isShowNoConnectionAlertCalled,"the connection error message should not appear")
     }
+    
+    func testDidSelectFavoriteItem_withoutInternet_showAlerts(){
+        let dummyFavorite = Favorite(context: mockContext)
+        dummyFavorite.leagueKey = "141"
+        dummyFavorite.name = "Premier League"
+        mockLocalManager.stubbedFavorites = [dummyFavorite]
+        presenter.fetchData()
+        mockNetwork.isConnected = false
+        
+        presenter.didSelectFavoriteItem(at: 0)
+        
+        XCTAssertTrue(mockView.isShowNoConnectionAlertCalled,"the connection error message should appear")
+        XCTAssertFalse(mockView.isNavigateCalled,"should not navigate to the league details screen because no internet connection exist")
+    }
 
     // MARK: - Core Data Helper
     func setUpInMemoryManagedObjectContext() -> NSManagedObjectContext {
