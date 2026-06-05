@@ -10,42 +10,45 @@ protocol LeaguesDetailsView: AnyObject {
     func startLoading()
     func stopLoading()
     func reloadData()
+    func showError(_ message: String)
+    func showEmptyState()
+    func showNoInternetConnection()
 }
 class LeaguesDetailsViewController: UITableViewController{
     
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     @IBOutlet weak var latestEventsCollectionView: UICollectionView!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
-    
     @IBOutlet weak var noTeams: UIView!
     @IBOutlet weak var noUpcamingMatches: UIView!
     @IBOutlet weak var noLatestResult: UIView!
-    
     @IBOutlet weak var thirdSectionTitle: UILabel!
     var league: League?
     var sportEndpoint: String?
-    private var upcomingEvents: [Event] = []
-    private var latestEvents: [Event] = []
-    private var teams: [Team] = []
-    private var players: [PlayerProfile] = []
+    
     private var presenter: LeaguesDetailspresenterProtocol!
     private let indicator = UIActivityIndicatorView(style: .large)
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPresenter()
         setupCollectionViews()
+        fetchData()
+        updateSectionTitle()
         setupNavigationBarElement()
-        
-        let leaguesPresenter = LeaguesDetailspresenter()
-        self.presenter = leaguesPresenter
-        leaguesPresenter.attachView(self)
-        leaguesPresenter.sportEndpointName = self.sportEndpoint ?? APIEndpoints.football
-        
-        Task {
-            await leaguesPresenter.fetchLeagueDetails(league?.leagueKey)
-        }
     }
+    
+    private func updateSectionTitle() {
+        thirdSectionTitle.text = presenter.sportType == .tennis ? "Players" : "Teams"
+    }
+
+    
+    private func setupPresenter() {
+       presenter = LeaguesDetailspresenter()
+       presenter.attachView(self)
+   }
+    
     private func setupNavigationBarElement() {
         guard let leagueKey = league?.leagueKey else { return }
         
@@ -63,44 +66,33 @@ class LeaguesDetailsViewController: UITableViewController{
     }
 
     @objc private func favoriteButtonTapped() {
-        guard let leagueKey = league?.leagueKey else { return }
+        guard let league = league else { return }
+        let isNowFavorite = presenter.toggleFavorite(
+            league: league,
+            endpoint: sportEndpoint ?? APIEndpoints.football
+        )
         
-        if CoreDataManager.shared.isFavorite(leagueKey: leagueKey) {
-            CoreDataManager.shared.deleteFavorite(leagueKey: leagueKey)
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
-            print("Successfully removed league \(leagueKey) from favorites.")
-        } else {
-            CoreDataManager.shared.addFavorite(
-                leagueKey: leagueKey,
-                name: league?.leagueName,
-                imageString: league?.leagueLogo ?? "",
-                country: league?.countryName ?? "",
-                endPoint: sportEndpoint ?? ""
-            )
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
-            print("Successfully added league \(leagueKey) to favorites.")
-        }
+        let heartImage = isNowFavorite ? "heart.fill" : "heart"
+        navigationItem.rightBarButtonItem?.image = UIImage(systemName: heartImage)
     }
     
-    private func updateEmptyStateViews() {
-        noUpcamingMatches.isHidden = upcomingEvents.count > 0
-        upcomingCollectionView.isHidden = upcomingEvents.count == 0
+    func showEmptyState() {
+        noUpcamingMatches.isHidden = presenter.upcomingMatches.count > 0
+        upcomingCollectionView.isHidden = presenter.upcomingMatches.count == 0
         
-        noLatestResult.isHidden = latestEvents.count > 0
-        latestEventsCollectionView.isHidden = latestEvents.count == 0
+        noLatestResult.isHidden = presenter.latestMatches.count > 0
+        latestEventsCollectionView.isHidden = presenter.latestMatches.count == 0
         
         if(APIEndpoints.tennis !=  sportEndpoint){
-            noTeams.isHidden = teams.count > 0
-            teamsCollectionView.isHidden = teams.count == 0
+            noTeams.isHidden = presenter.teams.count > 0
+            teamsCollectionView.isHidden = presenter.teams.count == 0
         }else{
-            noTeams.isHidden = players.count > 0
-            teamsCollectionView.isHidden = players.count == 0
+            noTeams.isHidden = presenter.players.count > 0
+            teamsCollectionView.isHidden = presenter.players.count == 0
         }
     }
     
    // MARK: - Setup Methods
-
-    
     private func setupCollectionViews() {
         if (sportEndpoint == APIEndpoints.tennis ){
             thirdSectionTitle.text = "Players"
@@ -122,70 +114,81 @@ class LeaguesDetailsViewController: UITableViewController{
         teamsCollectionView.register(UINib(nibName: "TeamCell", bundle: nil), forCellWithReuseIdentifier: "TeamCell")
     }
     
+    private func fetchData() {
+        presenter.fetchLeagueDetails(
+            leagueId: league?.leagueKey,
+            endpoint: sportEndpoint ?? APIEndpoints.football
+        )
+    }
+    
     // MARK: - Navigation
-        private func navigateToTeamDetails(team: Team) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    private func navigateToTeamDetails(team: Team) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let teamDetailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetailsViewController") as? TeamDetailsViewController {
+            guard let teamId = team.teamKey else { return }
             
-            if let teamDetailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetailsViewController") as? TeamDetailsViewController {
-                guard let teamId = team.teamKey else { return }
-                
-                let detailsPresenter = TeamDetailsPresenter(
-                    view: teamDetailsVC,
-                    teamId: teamId,
-                    sportEndpoint: self.sportEndpoint ?? APIEndpoints.football
-                )
-                
-                teamDetailsVC.presenter = detailsPresenter
-                
-                navigationController?.pushViewController(teamDetailsVC, animated: true)
-            }
+            let detailsPresenter = TeamDetailsPresenter(
+                view: teamDetailsVC,
+                teamId: teamId,
+                sportEndpoint: self.sportEndpoint ?? APIEndpoints.football
+            )
+            
+            teamDetailsVC.presenter = detailsPresenter
+            
+            navigationController?.pushViewController(teamDetailsVC, animated: true)
         }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
 extension LeaguesDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionView {
-        case upcomingCollectionView:
-            return upcomingEvents.count
-        case latestEventsCollectionView:
-            return latestEvents.count
-        case teamsCollectionView:
-            if(APIEndpoints.tennis != sportEndpoint){
-                return teams.count
-            }else{
-                return players.count
-            }
-        default:
-            return 0
-        }
-    }
+       switch collectionView {
+       case upcomingCollectionView:
+           return presenter.upcomingMatches.count
+       case latestEventsCollectionView:
+           return presenter.latestMatches.count
+       case teamsCollectionView:
+           return presenter.sportType == .tennis ? presenter.players.count : presenter.teams.count
+       default:
+           return 0
+       }
+   }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case upcomingCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpcomingEventCell", for: indexPath) as! UpcomingEventCell
-            let event = upcomingEvents[indexPath.item]
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "UpcomingEventCell",
+                for: indexPath
+            ) as! UpcomingEventCell
+            let event = presenter.upcomingMatches[indexPath.item]
             cell.configure(with: event)
             return cell
             
         case latestEventsCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LatestEventCell", for: indexPath) as! LatestEventCell
-            let event = latestEvents[indexPath.item]
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "LatestEventCell",
+                for: indexPath
+            ) as! LatestEventCell
+            let event = presenter.latestMatches[indexPath.item]
             cell.configure(with: event)
             return cell
             
         case teamsCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamCell
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "TeamCell",
+                for: indexPath
+            ) as! TeamCell
             
-            if(APIEndpoints.tennis != sportEndpoint){
-                let team = teams[indexPath.item]
-                cell.configure(with: team)
-            }else{
-                let player = players[indexPath.item]
+            if presenter.sportType == .tennis {
+                let player = presenter.players[indexPath.item]
                 cell.configure(with: player)
+            } else {
+                let team = presenter.teams[indexPath.item]
+                cell.configure(with: team)
             }
-            
             return cell
             
         default:
@@ -197,9 +200,9 @@ extension LeaguesDetailsViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension LeaguesDetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == teamsCollectionView {
-            let selectedTeam = teams[indexPath.item]
-            navigateToTeamDetails(team: selectedTeam)
+        if collectionView == teamsCollectionView && presenter.sportType != .tennis {
+            let team = presenter.teams[indexPath.item]
+            navigateToTeamDetails(team: team)
         }
     }
 }
@@ -235,6 +238,30 @@ extension LeaguesDetailsViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 extension LeaguesDetailsViewController: LeaguesDetailsView {
+    func showError(_ message: String) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(
+                title: "Error",
+                message: message,
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self?.present(alert, animated: true)
+        }
+    }
+    
+    func showNoInternetConnection() {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(
+                title: "No Internet Connection",
+                message: "Please check your internet connection and try again.",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self?.present(alert, animated: true)
+        }
+    }
+    
     func startLoading() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -255,22 +282,11 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
     
     func reloadData() {
         DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            
-            self.upcomingEvents = self.presenter?.upcomingMatches ?? []
-            self.latestEvents = self.presenter?.latestMatches ?? []
-            if(self.sportEndpoint != APIEndpoints.tennis){
-                self.teams = self.presenter?.teams ?? []
-            }else{
-                self.players = self.presenter?.players ?? []
-            }
-            
-            self.upcomingCollectionView.reloadData()
-            self.latestEventsCollectionView.reloadData()
-            self.teamsCollectionView.reloadData()
-            
-            self.updateEmptyStateViews()
-            self.tableView.reloadData()
+            self?.updateSectionTitle()
+            self?.upcomingCollectionView.reloadData()
+            self?.latestEventsCollectionView.reloadData()
+            self?.teamsCollectionView.reloadData()
+            self?.showEmptyState()
         }
     }
 }
