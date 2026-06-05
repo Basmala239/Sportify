@@ -11,17 +11,36 @@ import XCTest
 class MockLeaguesView: LeaguesView {
     var isStartLoadingCalled = false
     var isStopLoadingCalled = false
+    var isRenderLeagueCalled = false
     var renderedLeagues: [League]? = nil
     var navigatedSportEndpoint: String? = nil
     var navigatedLeague: League? = nil
     var isNoConnectionVisibleCalled = false
+    var errorMessage: String? = nil
 
-    func startLoading() { isStartLoadingCalled = true }
-    func stopLoading() { isStopLoadingCalled = true }
-    func renderLeague(_ leagues: [League]) { renderedLeagues = leagues }
-    func noConnectionViewVisibility() { isNoConnectionVisibleCalled = true }
+    func startLoading() {
+        isStartLoadingCalled = true
+    }
+    
+    func stopLoading() {
+        isStopLoadingCalled = true
+    }
+    
+    func renderLeague(_ leagues: [League]) {
+        isRenderLeagueCalled = true
+        renderedLeagues = leagues
+    }
+    
+    func noConnectionViewVisibility() {
+        isNoConnectionVisibleCalled = true
+    }
+    
     func navigateToDetails(sportEndpoint: String, league: League) {
         navigatedSportEndpoint = sportEndpoint
         navigatedLeague = league
+    }
+    
+    func showError(_ message: String) {
+        errorMessage = message
     }
 }

@@ -71,9 +71,9 @@ struct Event: Decodable {
         case AwayTeamName = "event_away_team"
         case awayTeamKey = "away_team_key"
         case eventHalftimeResult = "event_halftime_result"
-        case eventFinalResult = "event_final_result"
-        case eventHomeFinalResult = "event_home_final_result"
-        case eventAwayFinalResult = "event_away_final_result"
+        case eventFinalResult = "event_final_result"//
+        case eventHomeFinalResult = "event_home_final_result"//
+        case eventAwayFinalResult = "event_away_final_result"//
         case eventFtResult = "event_ft_result"
         case eventPenaltyResult = "event_penalty_result"
         case eventStatus = "event_status"
@@ -105,5 +105,123 @@ struct Event: Decodable {
         case eventWinner = "event_winner"
         case eventFirstPlayerLogo = "event_first_player_logo"
         case eventSecondPlayerLogo = "event_second_player_logo"
+    }
+}
+
+
+// MARK: - Sport Type Enum
+enum SportType {
+    case football, basketball, cricket, tennis
+    
+    var displayName: String {
+        switch self {
+        case .football: return "Football"
+        case .basketball: return "Basketball"
+        case .cricket: return "Cricket"
+        case .tennis: return "Tennis"
+        }
+    }
+}
+
+// MARK: - Sport Event Protocol
+protocol SportEvent {
+    var eventId: String { get }
+    var date: String { get }
+    var time: String { get }
+    var status: String { get }
+    var leagueName: String { get }
+}
+
+// MARK: - Team Sport Event (Football, Basketball, Cricket)
+struct TeamSportEvent: SportEvent {
+    let eventId: String
+    let date: String
+    let time: String
+    let status: String
+    let leagueName: String
+    let homeTeam: String
+    let awayTeam: String
+    let homeScore: String?
+    let awayScore: String?
+    let homeTeamLogo: String?
+    let awayTeamLogo: String?
+    let isUpcoming: Bool
+    
+    var displayResult: String {
+        guard !isUpcoming else { return "VS" }
+        if awayScore == "D"{
+            return homeScore ?? "0 - 0"
+        }
+        return "\(homeScore ?? "0") - \(awayScore ?? "0")"
+    }
+}
+
+// MARK: - Tennis Event
+struct TennisEvent: SportEvent {
+    let eventId: String
+    let date: String
+    let time: String
+    let status: String
+    let leagueName: String
+    let firstPlayer: String
+    let secondPlayer: String
+    let winner: String?
+    let firstPlayerLogo: String?
+    let secondPlayerLogo: String?
+    let scores: [String]
+    
+    
+}
+
+// MARK: - Event Factory
+class EventFactory {
+    static func createEvent(from rawEvent: Event, sportEndpoint: String, isUpcoming: Bool) -> SportEvent? {
+        let sportType = getSportType(from: sportEndpoint)
+        
+        switch sportType {
+        case .tennis:
+            return TennisEvent(
+                eventId: "\(rawEvent.eventKey ?? 0)",
+                date: rawEvent.eventDate ?? "",
+                time: rawEvent.eventTime ?? "",
+                status: rawEvent.eventStatus ?? "",
+                leagueName: rawEvent.leagueName ?? "",
+                firstPlayer: rawEvent.eventFirstPlayer ?? "Player 1",
+                secondPlayer: rawEvent.eventSecondPlayer ?? "Player 2",
+                winner: rawEvent.eventWinner,
+                firstPlayerLogo: rawEvent.eventFirstPlayerLogo,
+                secondPlayerLogo: rawEvent.eventSecondPlayerLogo,
+                scores: []
+            )
+        default:
+            return TeamSportEvent(
+                eventId: "\(rawEvent.eventKey ?? 0)",
+                date: rawEvent.eventDate ?? rawEvent.eventDateStart ?? "",
+                time: rawEvent.eventTime ?? "",
+                status: rawEvent.eventStatus ?? "",
+                leagueName: rawEvent.leagueName ?? "",
+                homeTeam: rawEvent.HomeTeamName ?? rawEvent.eventFirstPlayer ?? "Home",
+                awayTeam: rawEvent.AwayTeamName ?? rawEvent.eventSecondPlayer ?? "Away",
+                homeScore: rawEvent.eventHomeFinalResult ?? rawEvent.eventFinalResult,
+                awayScore: rawEvent.eventAwayFinalResult ??
+                "D",
+                homeTeamLogo: rawEvent.homeTeamLogo ?? rawEvent.event_home_team_logo,
+                awayTeamLogo: rawEvent.awayTeamLogo ?? rawEvent.event_away_team_logo,
+                isUpcoming: isUpcoming
+            )
+        }
+    }
+    
+    private static func getSportType(from endpoint: String) -> SportType {
+        switch endpoint {
+        case APIEndpoints.tennis:
+            return .tennis
+        case APIEndpoints.basketball:
+            return .basketball
+        case APIEndpoints.cricket:
+            return .cricket
+        default:
+            return .football
+        }
     }
 }
