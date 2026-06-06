@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,9 +25,10 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m1T-np-Da7">
                                         <rect key="frame" x="1" y="1" width="98" height="98"/>
+                                        <color key="backgroundColor" name="backgroundColor"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="primaryColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="1z1-PI-sZr"/>
                                     <constraint firstItem="m1T-np-Da7" firstAttribute="leading" secondItem="Qwv-4c-uOj" secondAttribute="leading" constant="1" id="Omr-aT-Rq5"/>
@@ -41,9 +43,10 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="By5-Ch-8fi">
                                         <rect key="frame" x="1" y="1" width="98" height="98"/>
+                                        <color key="backgroundColor" name="backgroundColor"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.057949103420000002" green="0.089523561299999999" blue="0.16407331820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="primaryColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="By5-Ch-8fi" secondAttribute="trailing" constant="1" id="8DX-i0-MbR"/>
                                     <constraint firstAttribute="bottom" secondItem="By5-Ch-8fi" secondAttribute="bottom" constant="1" id="Bvf-T1-HD2"/>
@@ -55,7 +58,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbF-qF-Epo">
                                 <rect key="frame" x="8" y="156" width="338" height="2"/>
-                                <color key="backgroundColor" red="0.57149487730000004" green="0.63782256839999996" blue="0.73210459949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="grayTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="FWf-RO-ta8"/>
                                 </constraints>
@@ -63,18 +66,18 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCT 24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jV5-ue-lUx">
                                 <rect key="frame" x="82" y="174.5" width="59" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.57149487730000004" green="0.63782256839999996" blue="0.73210459949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="grayTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GY6-Gw-Qp7">
                                 <rect key="frame" x="245" y="173" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.57149487730000004" green="0.63782256839999996" blue="0.73210459949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="grayTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Zs-es-xpl">
                                 <rect key="frame" x="213" y="173.5" width="24" height="23"/>
-                                <color key="tintColor" red="0.34901624920000002" green="0.7782043219" blue="0.96909612420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="primaryColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Jmt-If-l0K"/>
                                     <constraint firstAttribute="width" constant="24" id="NyA-Um-BJO"/>
@@ -82,7 +85,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Q5r-Wg-KZ2">
                                 <rect key="frame" x="173" y="180.5" width="8" height="7"/>
-                                <color key="tintColor" red="0.34901624920000002" green="0.7782043219" blue="0.96909612420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="primaryColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="E1V-OL-0Ta"/>
                                     <constraint firstAttribute="height" constant="8" id="RnL-ou-f7G"/>
@@ -90,7 +93,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7Tt-uS-vX2">
                                 <rect key="frame" x="50" y="174" width="24" height="21.5"/>
-                                <color key="tintColor" red="0.34901624920000002" green="0.7782043219" blue="0.96909612420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" name="primaryColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="N7p-VT-FTh"/>
                                     <constraint firstAttribute="height" constant="24" id="UUt-SE-SZq"/>
@@ -120,11 +123,11 @@
                                     <constraint firstAttribute="width" constant="35" id="hU7-Qa-q04"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="0.34901624920000002" green="0.7782043219" blue="0.96909612420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="primaryColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.088567368689999995" green="0.1324557066" blue="0.21101439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="secondaryColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7TP-LU-ICl" secondAttribute="trailing" constant="8" id="2R5-dk-3Iu"/>
                             <constraint firstItem="7TP-LU-ICl" firstAttribute="top" secondItem="hKE-i1-E0H" secondAttribute="top" constant="8" id="4v1-iR-wpn"/>
@@ -179,5 +182,17 @@
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="clock" catalog="system" width="128" height="121"/>
+        <namedColor name="backgroundColor">
+            <color red="0.95233069525824654" green="0.95233069525824654" blue="0.95233069525824654" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grayTextColor">
+            <color red="0.57149487730000004" green="0.63782256839999996" blue="0.73210459949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryColor">
+            <color red="0.32516887779999998" green="0.73539173599999996" blue="0.89483731990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondaryColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

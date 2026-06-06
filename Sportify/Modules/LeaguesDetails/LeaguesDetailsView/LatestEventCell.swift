@@ -26,10 +26,18 @@ class LatestEventCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 20.0
         containerView.clipsToBounds = true
         
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowRadius = 8.0
-        self.layer.shadowOpacity = 0.3
-        self.layer.masksToBounds = false
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        contentView.layer.shadowRadius = 4.0
+        contentView.layer.shadowOpacity = 0.05
+        contentView.layer.masksToBounds = false
+        
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .appBackground
+        backgroundView.layer.cornerRadius = 20.0
+        self.backgroundView = backgroundView
     }
     
     override func layoutSubviews() {
@@ -44,8 +52,9 @@ class LatestEventCell: UICollectionViewCell {
         awayTeamLogo.layer.cornerRadius = awayTeamLogo.frame.size.width / 2
         awayTeamLogo.clipsToBounds = true
         
-        let neonCyan = UIColor(red: 0.0/255.0, green: 220.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        containerView.addCustomCardBorders(color: neonCyan, thickness: 3.0, radius: 20.0)
+        let shadowRect = contentView.bounds.insetBy(dx: 4, dy: 2)
+        contentView.layer.shadowPath = UIBezierPath(roundedRect: shadowRect, cornerRadius: 20.0).cgPath
+        containerView.addCustomCardBorders(color: .appPrimary, thickness: 3.0, radius: 20.0)
     }
     func configure(with event: SportEvent) {
         if let teamEvent = event as? TeamSportEvent {
