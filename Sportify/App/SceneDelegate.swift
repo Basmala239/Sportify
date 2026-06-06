@@ -19,6 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let style: UIUserInterfaceStyle = (savedTheme == .dark) ? .dark : .light
         
+        let savedLanguage = UserDefaultsManager.shared.appLanguage.rawValue
+        
+         Bundle.setLanguage(savedLanguage)
+        
+        let semanticContent: UISemanticContentAttribute = (savedLanguage == "ar") ? .forceRightToLeft : .forceLeftToRight
+        UIView.appearance().semanticContentAttribute = semanticContent
+        
         let window = UIWindow(windowScene: windowScene)
         window.overrideUserInterfaceStyle = style
         

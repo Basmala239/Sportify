@@ -20,8 +20,11 @@ class BundleEx: Bundle {
 }
 
 extension Bundle {
-    static func forceLanguage(_ language: String) {
-        object_setClass(Bundle.main, BundleEx.self)
+    static func setLanguage(_ language: String) {
+        defer {
+            object_setClass(Bundle.main, BundleEx.self)
+        }
+        
         if let path = Bundle.main.path(forResource: language, ofType: "lproj"),
            let bundle = Bundle(path: path) {
             objc_setAssociatedObject(Bundle.main, &bundleKey, bundle, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -31,26 +34,28 @@ extension Bundle {
     }
 }
 
-
 class LanguageManager {
     static let shared = LanguageManager()
     
     func setLanguage(languageCode: String) {
-        
         UserDefaults.standard.set([languageCode], forKey: "AppleLanguages")
         UserDefaults.standard.synchronize()
         
-        Bundle.forceLanguage(languageCode)
+        Bundle.setLanguage(languageCode)
         
         let semanticContent: UISemanticContentAttribute = (languageCode == "ar") ? .forceRightToLeft : .forceLeftToRight
         UIView.appearance().semanticContentAttribute = semanticContent
         UINavigationBar.appearance().semanticContentAttribute = semanticContent
         UITabBar.appearance().semanticContentAttribute = semanticContent
         
+        refreshRootViewController()
+    }
+    
+    private func refreshRootViewController() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let sceneDelegate = windowScene.delegate as? SceneDelegate,
               let window = sceneDelegate.window else {
-            print("cant reach to window")
+            print("Cannot reach window")
             return
         }
         
