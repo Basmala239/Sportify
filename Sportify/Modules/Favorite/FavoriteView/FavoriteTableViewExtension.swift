@@ -31,23 +31,22 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, completionHandler) in
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete".localized) { [weak self] (action, view, completionHandler) in
             guard let self = self else { return }
             
-            let itemName = self.favorites[indexPath.row].name ?? "this league"
             
             let alert = UIAlertController(
-                title: "Delete Favorite",
-                message: "Are you sure you want to remove \(itemName) from your favorites?",
+                title: "Delete Favorite".localized,
+                message: "Are you sure you want to remove this leagues from your favorites?".localized,
                 preferredStyle: .alert
             )
             
-             let okAction = UIAlertAction(title: "OK", style: .destructive) { _ in
+            let okAction = UIAlertAction(title: "OK".localized, style: .destructive) { _ in
                 self.presenter.deleteFavoriteItem(at: indexPath.row)
                 completionHandler(true)
             }
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { _ in
                 completionHandler(false)
             }
             

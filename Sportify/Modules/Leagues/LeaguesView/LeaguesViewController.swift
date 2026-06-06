@@ -93,8 +93,8 @@ class LeaguesViewController: UIViewController, LeaguesView {
     }
     
     func showError(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { [weak self] _ in
+        let alert = UIAlertController(title: "Error".localized, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("OK".localized, comment: ""), style: .default) { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }
         

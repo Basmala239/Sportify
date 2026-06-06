@@ -37,10 +37,10 @@
 		CAEB30C92FCCCCD2006EE5D2 /* PlayersRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEB30C72FCCCCD2006EE5D2 /* PlayersRowTableViewCell.swift */; };
 		CAEB30CA2FCCCCD2006EE5D2 /* PlayersRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAEB30C82FCCCCD2006EE5D2 /* PlayersRowTableViewCell.xib */; };
 		FC1C1D342FD448A90092F3B6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1C1D332FD448A90092F3B6 /* UIColor.swift */; };
-		FC1C1D372FD484F40092F3B6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FC1C1D362FD484F40092F3B6 /* SDWebImage */; };
-		FC1C1D3A2FD4851B0092F3B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC1C1D392FD4851B0092F3B6 /* Alamofire */; };
 		FC1C1D3C2FD4B5230092F3B6 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1C1D3B2FD4B5230092F3B6 /* Localization.swift */; };
 		FC1C1D432FD4BF430092F3B6 /* Bundle+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1C1D422FD4BF430092F3B6 /* Bundle+Language.swift */; };
+		FC1C1D512FD4D0EA0092F3B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC1C1D502FD4D0EA0092F3B6 /* Alamofire */; };
+		FC1C1D542FD4D1030092F3B6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FC1C1D532FD4D1030092F3B6 /* SDWebImage */; };
 		FC2A2F4F2FBC8A93008A39E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F4E2FBC8A93008A39E3 /* AppDelegate.swift */; };
 		FC2A2F512FBC8A93008A39E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F502FBC8A93008A39E3 /* SceneDelegate.swift */; };
 		FC2A2F562FBC8A93008A39E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2A2F542FBC8A93008A39E3 /* Main.storyboard */; };
@@ -192,8 +192,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC1C1D372FD484F40092F3B6 /* SDWebImage in Frameworks */,
-				FC1C1D3A2FD4851B0092F3B6 /* Alamofire in Frameworks */,
+				FC1C1D542FD4D1030092F3B6 /* SDWebImage in Frameworks */,
+				FC1C1D512FD4D0EA0092F3B6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,8 +676,8 @@
 			);
 			name = Sportify;
 			packageProductDependencies = (
-				FC1C1D362FD484F40092F3B6 /* SDWebImage */,
-				FC1C1D392FD4851B0092F3B6 /* Alamofire */,
+				FC1C1D502FD4D0EA0092F3B6 /* Alamofire */,
+				FC1C1D532FD4D1030092F3B6 /* SDWebImage */,
 			);
 			productName = Sportify;
 			productReference = FC2A2F4B2FBC8A93008A39E3 /* Sportify.app */;
@@ -753,8 +753,8 @@
 			);
 			mainGroup = FC2A2F422FBC8A93008A39E3;
 			packageReferences = (
-				FC1C1D352FD484F40092F3B6 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				FC1C1D382FD4851B0092F3B6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FC1C1D4F2FD4D0EA0092F3B6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FC1C1D522FD4D1030092F3B6 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = FC2A2F4C2FBC8A93008A39E3 /* Products */;
 			projectDirPath = "";
@@ -1227,15 +1227,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FC1C1D352FD484F40092F3B6 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				kind = exactVersion;
-				version = 5.18.11;
-			};
-		};
-		FC1C1D382FD4851B0092F3B6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		FC1C1D4F2FD4D0EA0092F3B6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1243,18 +1235,26 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		FC1C1D522FD4D1030092F3B6 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.18.11;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FC1C1D362FD484F40092F3B6 /* SDWebImage */ = {
+		FC1C1D502FD4D0EA0092F3B6 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FC1C1D352FD484F40092F3B6 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		FC1C1D392FD4851B0092F3B6 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FC1C1D382FD4851B0092F3B6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = FC1C1D4F2FD4D0EA0092F3B6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		FC1C1D532FD4D1030092F3B6 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC1C1D522FD4D1030092F3B6 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

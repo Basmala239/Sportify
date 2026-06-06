@@ -12,10 +12,10 @@ class SportsPresenter: SportsPresenterProtocol {
     private weak var view: SportsViewProtocol?
     
     private let sportsList: [SportItem] = [
-        SportItem(name: "Football", imageName: "football2"),
-        SportItem(name: "Basketball", imageName: "basketball2"),
-        SportItem(name: "Tennis", imageName: "tennies2"),
-        SportItem(name: "Criecket", imageName: "creckit2")
+        SportItem(name: "Football".localized, imageName: "football2"),
+        SportItem(name: "Basketball".localized, imageName: "basketball2"),
+        SportItem(name: "Tennis".localized, imageName: "tennies2"),
+        SportItem(name: "Criecket".localized, imageName: "creckit2")
     ]
     
     init(view: SportsViewProtocol) {

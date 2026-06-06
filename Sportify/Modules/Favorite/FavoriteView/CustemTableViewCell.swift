@@ -58,7 +58,7 @@ class CustemTableViewCell: UITableViewCell {
     
     func configure(with league: League) {
         leaguesTitle.text = league.leagueName
-        leaguesCountry.text = league.countryName ?? "No Country name"
+        leaguesCountry.text = league.countryName ?? "No Country name".localized
         loadImage(from: league.leagueLogo)
     }
     

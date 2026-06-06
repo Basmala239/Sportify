@@ -65,13 +65,13 @@ class SettingPresenter {
         DispatchQueue.main.async { [weak self] in
 
             let alert = UIAlertController(
-                title: "language_change_title".localized,
-                message: "language_change_message".localized,
+                title: "Language change".localized,
+                message: "App language will change now".localized,
                 preferredStyle: .alert
             )
 
             alert.addAction(UIAlertAction(
-                title: "ok_button".localized,
+                title: "OK".localized,
                 style: .default
             ) { _ in
                 self?.recreateRootViewController()
