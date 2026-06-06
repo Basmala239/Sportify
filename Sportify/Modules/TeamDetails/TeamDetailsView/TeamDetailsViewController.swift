@@ -112,7 +112,7 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView{
             header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-            header.textLabel?.textColor = UIColor(red: 0.0/255.0, green: 194.0/255.0, blue: 248.0/255.0, alpha: 1.0)
+            header.textLabel?.textColor = .appHeadLineColor
         }
     }
     
@@ -137,7 +137,7 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.indicator.center = self.view.center
-            self.indicator.color = .white
+            self.indicator.color = .appLoadingColor
             self.view.addSubview(self.indicator)
             self.indicator.startAnimating()
         }
