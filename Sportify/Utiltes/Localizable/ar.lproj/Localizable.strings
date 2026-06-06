@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Sportify
+
+  Created by Esraa Ehab on 06/06/2026.
+  
+*/
+// Settings Screen
+"settings_title" = "الاعدادات";
+"theme_label" = "الثيم";
+"language_label" = "اللغه";
+"theme_light" = "فاتح";
+"theme_dark" = "داكن";
+"language_english" = "English (US)";
+"language_arabic" = "العربية";
+
+// Alerts
+"language_change_title" = "تغيير اللغه";
+"language_change_message" = "لغه التطبيق سوف تتغير الان";
+"ok_button" = "موافق";
+
+//
+

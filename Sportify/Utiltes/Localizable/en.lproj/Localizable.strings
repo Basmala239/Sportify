@@ -18,3 +18,9 @@
 "language_change_title" = "Language Changed";
 "language_change_message" = "App language will change now";
 "ok_button" = "OK";
+
+//sports screen
+"football" = "Foot Ball";
+"basketball" = "Basket Ball";
+"tennies" = "Tennies";
+"creicket" = "Creicket";
