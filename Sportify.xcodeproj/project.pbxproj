@@ -37,6 +37,8 @@
 		FC1C1D342FD448A90092F3B6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1C1D332FD448A90092F3B6 /* UIColor.swift */; };
 		FC1C1D372FD484F40092F3B6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FC1C1D362FD484F40092F3B6 /* SDWebImage */; };
 		FC1C1D3A2FD4851B0092F3B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC1C1D392FD4851B0092F3B6 /* Alamofire */; };
+		FC1C1D3C2FD4B5230092F3B6 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1C1D3B2FD4B5230092F3B6 /* Localization.swift */; };
+		FC1C1D3F2FD4B6B10092F3B6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC1C1D3E2FD4B6B10092F3B6 /* Localizable.strings */; };
 		FC2A2F4F2FBC8A93008A39E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F4E2FBC8A93008A39E3 /* AppDelegate.swift */; };
 		FC2A2F512FBC8A93008A39E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F502FBC8A93008A39E3 /* SceneDelegate.swift */; };
 		FC2A2F562FBC8A93008A39E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2A2F542FBC8A93008A39E3 /* Main.storyboard */; };
@@ -130,6 +132,8 @@
 		CAEB30C72FCCCCD2006EE5D2 /* PlayersRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersRowTableViewCell.swift; sourceTree = "<group>"; };
 		CAEB30C82FCCCCD2006EE5D2 /* PlayersRowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayersRowTableViewCell.xib; sourceTree = "<group>"; };
 		FC1C1D332FD448A90092F3B6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		FC1C1D3B2FD4B5230092F3B6 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		FC1C1D3E2FD4B6B10092F3B6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FC2A2F4B2FBC8A93008A39E3 /* Sportify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2A2F4E2FBC8A93008A39E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC2A2F502FBC8A93008A39E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -328,6 +332,14 @@
 				CAE3F7AA2FC4CC84002251C3 /* SportsProtocols.swift */,
 			);
 			path = SportsPresenter;
+			sourceTree = "<group>";
+		};
+		FC1C1D3D2FD4B69C0092F3B6 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				FC1C1D3E2FD4B6B10092F3B6 /* Localizable.strings */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		FC2A2F422FBC8A93008A39E3 = {
@@ -533,6 +545,7 @@
 		FC917E8C2FCC6EEC00FFD12C /* Utiltes */ = {
 			isa = PBXGroup;
 			children = (
+				FC1C1D3D2FD4B69C0092F3B6 /* Localizable */,
 				FC917E902FCC802F00FFD12C /* Extension */,
 				FC917E8F2FCC802500FFD12C /* Helper */,
 			);
@@ -553,6 +566,7 @@
 			children = (
 				FC917E922FCC805200FFD12C /* CustemBoarder.swift */,
 				FC1C1D332FD448A90092F3B6 /* UIColor.swift */,
+				FC1C1D3B2FD4B5230092F3B6 /* Localization.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -761,6 +775,7 @@
 				CAEB30CA2FCCCCD2006EE5D2 /* PlayersRowTableViewCell.xib in Resources */,
 				CABE54772FCDED1400154EBC /* FixtureTableViewCell.xib in Resources */,
 				FC2A2F5E2FBC8A95008A39E3 /* LaunchScreen.storyboard in Resources */,
+				FC1C1D3F2FD4B6B10092F3B6 /* Localizable.strings in Resources */,
 				CAE3F7AB2FC4CC84002251C3 /* SportsCollectionViewCell.xib in Resources */,
 				FC2A2F5B2FBC8A95008A39E3 /* Assets.xcassets in Resources */,
 				FC2A2F562FBC8A93008A39E3 /* Main.storyboard in Resources */,
@@ -823,6 +838,7 @@
 				CA840ED02FD398F8003B0B6B /* PlayerDetailsViewController.swift in Sources */,
 				FC1C1D342FD448A90092F3B6 /* UIColor.swift in Sources */,
 				FC8CEB2C2FC2054800ED5EFD /* LatestEventCell.swift in Sources */,
+				FC1C1D3C2FD4B5230092F3B6 /* Localization.swift in Sources */,
 				CAE3F7A22FC4CC69002251C3 /* SportItem.swift in Sources */,
 				FC8CEB322FC205C300ED5EFD /* TeamCell.swift in Sources */,
 				FCA2EC132FC06F910087873C /* League.swift in Sources */,

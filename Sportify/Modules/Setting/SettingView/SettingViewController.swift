@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 class SettingViewController: UIViewController, SettingViewProtocol {
 
     @IBOutlet weak var themeSegment: UISegmentedControl!
