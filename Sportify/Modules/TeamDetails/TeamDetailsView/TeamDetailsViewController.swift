@@ -69,9 +69,9 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
             return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let sectionTitle = tableSections[indexPath.section]
-        if sectionTitle == "Fixtures" {
+            
+            let sectionTitle = tableSections[indexPath.section]
+            if sectionTitle == "Fixtures" {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FixtureTableViewCell", for: indexPath) as! FixtureTableViewCell
                 let match = fixtures[indexPath.row]
                 cell.configure(with: match)
@@ -82,10 +82,29 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
                 cell.selectionStyle = .none
                 let playersForThisSection = playersBySection[indexPath.section]
                 cell.configure(with: playersForThisSection)
+                cell.onPlayerTapped = { [weak self] selectedPlayer in
+                    guard let self = self else { return }
+                    
+//                    guard self.currentSport == "football" else {
+//                        self.showError(message: "player details available for football only ⚽️")
+//                        return
+//                    }
+                   
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    if let playerDetailsVC = storyboard.instantiateViewController(withIdentifier: "PlayerDetailsViewController") as? PlayerDetailsViewController {
+                        
+                        playerDetailsVC.player = selectedPlayer
+                        
+                        playerDetailsVC.teamName = self.teamData?.teamName
+                        
+                        self.navigationController?.pushViewController(playerDetailsVC, animated: true)
+                    }
+                }
                 
                 return cell
             }
-    }
+        }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return tableSections[section]
