@@ -245,7 +245,11 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
                 message: message,
                 preferredStyle: .alert
             )
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            
+            alert.addAction(okAction)
             self?.present(alert, animated: true)
         }
     }
@@ -257,7 +261,11 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
                 message: "Please check your internet connection and try again.",
                 preferredStyle: .alert
             )
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            
+            alert.addAction(okAction)
             self?.present(alert, animated: true)
         }
     }
@@ -266,7 +274,7 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.indicator.center = self.view.center
-            self.indicator.color = .white
+            self.indicator.color = .appLoadingColor
             self.view.addSubview(self.indicator)
             self.indicator.startAnimating()
         }

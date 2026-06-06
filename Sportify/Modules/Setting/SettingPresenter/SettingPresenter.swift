@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 protocol SettingViewProtocol: AnyObject {
     func updateThemeSelection(to theme: AppTheme)
     func updateLanguageSelection(to language: AppLanguage)
@@ -39,8 +39,16 @@ class SettingPresenter {
     }
     
     private func applyTheme(_ theme: AppTheme) {
-        
-       
+        DispatchQueue.main.async {
+            let style: UIUserInterfaceStyle = (theme == .dark) ? .dark : .light
+            
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                windowScene.windows.forEach { window in
+                    window.overrideUserInterfaceStyle = style
+                }
+            }
+           
+        }
     }
     
     private func applyLanguage(_ language: AppLanguage) {

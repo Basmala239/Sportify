@@ -49,13 +49,15 @@ class LeaguesViewController: UIViewController, LeaguesView {
     
     private func setupSearchBar() {
         searchBar.delegate = self
-        searchBar.searchTextField.textColor = .white
-        searchBar.searchTextField.leftView?.tintColor = .white
+        searchBar.backgroundColor = .appSecondary
+        searchBar.barTintColor = .appBackground
+        searchBar.searchTextField.textColor = .appTitle
+        searchBar.searchTextField.leftView?.tintColor = .appPrimary
     }
     
     func startLoading() {
         indicator.center = view.center
-        indicator.color = .white
+        indicator.color = .appLoadingColor
         view.addSubview(indicator)
         indicator.startAnimating()
     }
@@ -92,7 +94,11 @@ class LeaguesViewController: UIViewController, LeaguesView {
     
     func showError(_ message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        alert.addAction(okAction)
         present(alert, animated: true)
     }
     
