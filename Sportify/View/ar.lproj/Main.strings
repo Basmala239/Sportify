@@ -1,0 +1,161 @@
+/* Class = "UILabel"; text = "📅"; ObjectID = "05B-5R-Nnj"; */
+"05B-5R-Nnj.text" = "📅";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "194-vw-xno"; */
+"194-vw-xno.text" = "Label";
+
+/* Class = "UILabel"; text = "NO LEEAGUES FOUNND"; ObjectID = "1yd-ao-huE"; */
+"1yd-ao-huE.text" = "لا توجد دوريات";
+
+/* Class = "UILabel"; text = "ASSISTS"; ObjectID = "2h8-7v-4vl"; */
+"2h8-7v-4vl.text" = "صناعة الأهداف";
+
+/* Class = "UILabel"; text = "Your device is currently offline. Please check your network setting or try again when a signal is restored"; ObjectID = "3zF-l4-rYE"; */
+"3zF-l4-rYE.text" = "جهازك غير متصل بالإنترنت حالياً. يرجى التحقق من إعدادات الشبكة أو المحاولة مرة أخرى عند عودة الاتصال.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4ay-wV-hRz"; */
+"4ay-wV-hRz.text" = "Label";
+
+/* Class = "UILabel"; text = "No Upcoming Matches"; ObjectID = "5G1-De-0cM"; */
+"5G1-De-0cM.text" = "لا توجد مباريات قادمة";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5NV-qP-a3N"; */
+"5NV-qP-a3N.text" = "Label";
+
+/* Class = "UILabel"; text = "AGE"; ObjectID = "6x1-p9-Mzi"; */
+"6x1-p9-Mzi.text" = "العمر";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "7SR-RT-QU0"; */
+"7SR-RT-QU0.normalTitle" = "التالي";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "9NC-Cs-oxT"; */
+"9NC-Cs-oxT.text" = "Label";
+
+/* Class = "UILabel"; text = "Upcoming matches"; ObjectID = "DL5-AF-x22"; */
+"DL5-AF-x22.text" = "المباريات القادمة";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "F4k-Pp-aH4"; */
+"F4k-Pp-aH4.text" = "Label";
+
+/* Class = "UILabel"; text = "Dribbling"; ObjectID = "G8L-kD-jHn"; */
+"G8L-kD-jHn.text" = "المراوغة";
+
+/* Class = "UILabel"; text = "Shooting"; ObjectID = "HXz-QA-uW8"; */
+"HXz-QA-uW8.text" = "التسديد";
+
+/* Class = "UILabel"; text = "👟"; ObjectID = "Ha2-pb-9RX"; */
+"Ha2-pb-9RX.text" = "👟";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Hni-sO-Nmf"; */
+"Hni-sO-Nmf.text" = "Label";
+
+/* Class = "UILabel"; text = "⚽️"; ObjectID = "Hyz-bm-7B4"; */
+"Hyz-bm-7B4.text" = "⚽️";
+
+/* Class = "UILabel"; text = "Setting"; ObjectID = "Iny-jr-ihn"; */
+"Iny-jr-ihn.text" = "الإعدادات";
+
+/* Class = "UILabel"; text = "No Teams"; ObjectID = "JHD-8L-zCG"; */
+"JHD-8L-zCG.text" = "لا توجد فرق";
+
+/* Class = "UILabel"; text = "Stay in the Game"; ObjectID = "KZ7-DQ-Zc8"; */
+"KZ7-DQ-Zc8.text" = "ابقَ في قلب الحدث";
+
+/* Class = "UILabel"; text = "Elite action , real time ...all sports in one hub"; ObjectID = "Kyt-Fz-cVz"; */
+"Kyt-Fz-cVz.text" = "أحداث حماسية، في الوقت الفعلي... كل الرياضات في مكان واحد";
+
+/* Class = "UILabel"; text = "MATCHES"; ObjectID = "Mlb-IB-zr2"; */
+"Mlb-IB-zr2.text" = "المباريات";
+
+/* Class = "UILabel"; text = "🟨🟥"; ObjectID = "Nl3-56-6pR"; */
+"Nl3-56-6pR.text" = "🟨🟥";
+
+/* Class = "UILabel"; text = "Teams"; ObjectID = "PMM-0d-910"; */
+"PMM-0d-910.text" = "الفرق";
+
+/* Class = "UILabel"; text = "Your device is currently offline. Please check your network setting or try again when a signal is restored"; ObjectID = "QBU-Dl-BAc"; */
+"QBU-Dl-BAc.text" = "جهازك غير متصل بالإنترنت حالياً. يرجى التحقق من إعدادات الشبكة أو المحاولة مرة أخرى عند عودة الاتصال.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RUr-N6-hDv"; */
+"RUr-N6-hDv.text" = "Label";
+
+/* Class = "UILabel"; text = "Passing"; ObjectID = "SGB-Bv-NV4"; */
+"SGB-Bv-NV4.text" = "التمرير";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SiG-3m-m9z"; */
+"SiG-3m-m9z.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Favorite"; ObjectID = "XaJ-2p-3DU"; */
+"XaJ-2p-3DU.title" = "المفضلة";
+
+/* Class = "UITabBarItem"; title = "Sport"; ObjectID = "Y6x-Rn-nNR"; */
+"Y6x-Rn-nNR.title" = "الرياضة";
+
+/* Class = "UILabel"; text = "No Favorite Yet"; ObjectID = "an9-Ww-rmL"; */
+"an9-Ww-rmL.text" = "لا توجد مفضلة بعد";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cos-Km-otv"; */
+"cos-Km-otv.text" = "Label";
+
+/* Class = "UILabel"; text = "Track player stats, league standings, and deep analytics easily"; ObjectID = "ctg-U6-NFV"; */
+"ctg-U6-NFV.text" = "تابع إحصائيات اللاعبين، ترتيب الدوريات، والتحليلات العميقة بكل سهولة";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "dZE-wK-nFQ"; */
+"dZE-wK-nFQ.text" = "Label";
+
+/* Class = "UISegmentedControl"; duz-CP-7xi.segmentTitles[0] = "Light"; ObjectID = "duz-CP-7xi"; */
+"duz-CP-7xi.segmentTitles[0]" = "فاتح";
+
+/* Class = "UISegmentedControl"; duz-CP-7xi.segmentTitles[1] = "Dark"; ObjectID = "duz-CP-7xi"; */
+"duz-CP-7xi.segmentTitles[1]" = "داكن";
+
+/* Class = "UILabel"; text = "Latest Result"; ObjectID = "eUz-3h-vel"; */
+"eUz-3h-vel.text" = "أحدث النتائج";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fFZ-rK-rrL"; */
+"fFZ-rK-rrL.text" = "Label";
+
+/* Class = "UILabel"; text = "Pace"; ObjectID = "g7X-iw-yns"; */
+"g7X-iw-yns.text" = "السرعة";
+
+/* Class = "UILabel"; text = "Favorite"; ObjectID = "h9c-a3-EcA"; */
+"h9c-a3-EcA.text" = "المفضلة";
+
+/* Class = "UIButton"; configuration.title = "  language"; ObjectID = "iGj-47-qgh"; */
+"iGj-47-qgh.configuration.title" = "  اللغة";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iGj-47-qgh"; */
+"iGj-47-qgh.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "No Latest Matches"; ObjectID = "lNb-04-oCY"; */
+"lNb-04-oCY.text" = "لا توجد مباريات حديثة";
+
+/* Class = "UITabBarItem"; title = "Setting"; ObjectID = "oUx-3f-BzJ"; */
+"oUx-3f-BzJ.title" = "الإعدادات";
+
+/* Class = "UILabel"; text = "Tap the heart icon on league or team to add them to your favorites"; ObjectID = "pod-px-chM"; */
+"pod-px-chM.text" = "اضغط على أيقونة القلب على أي دوري أو فريق لإضافته إلى مفضلتك";
+
+/* Class = "UILabel"; text = "CARDS (Y/R)"; ObjectID = "qWV-YV-KHM"; */
+"qWV-YV-KHM.text" = "البطاقات (ص/ح)";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qiH-31-8jJ"; */
+"qiH-31-8jJ.text" = "Label";
+
+/* Class = "UILabel"; text = "GOALS"; ObjectID = "vHQ-Rn-Rxr"; */
+"vHQ-Rn-Rxr.text" = "الأهداف";
+
+/* Class = "UILabel"; text = "Theme"; ObjectID = "yOp-ko-TgE"; */
+"yOp-ko-TgE.text" = "المظهر";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "yij-Ag-alm"; */
+"yij-Ag-alm.text" = "اللغة";
+
+/* Class = "UILabel"; text = "Sports"; ObjectID = "zNe-qs-KN0"; */
+"zNe-qs-KN0.text" = "الرياضات";
+
+/* Class = "UILabel"; text = "Leagues"; ObjectID = "zny-M6-ZBh"; */
+"zny-M6-ZBh.text" = "الدوريات";
+
+/* Class = "UILabel"; text = "SKILL PROFILE"; ObjectID = "zzV-xj-cUm"; */
+"zzV-xj-cUm.text" = "ملف المهارات";

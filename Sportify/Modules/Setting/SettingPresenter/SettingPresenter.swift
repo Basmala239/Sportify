@@ -52,7 +52,14 @@ class SettingPresenter {
     }
     
     private func applyLanguage(_ language: AppLanguage) {
-        
-       
+        let languageCode: String
+                switch language {
+                case .arabic:
+                    languageCode = "ar"
+                case .english:
+                    languageCode = "en"
+                }
+                
+                LanguageManager.shared.setLanguage(languageCode: languageCode)
     }
 }
