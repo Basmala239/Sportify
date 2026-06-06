@@ -48,7 +48,7 @@ class PlayerDetailsViewController: UIViewController {
             playerImageView.layer.cornerRadius = playerImageView.frame.width / 2
             playerImageView.clipsToBounds = true
             
-            playerImageView.layer.borderColor = UIColor.cyan.cgColor
+            playerImageView.layer.borderColor = UIColor.appPrimary.cgColor
             playerImageView.layer.borderWidth = 2.0
         }
     

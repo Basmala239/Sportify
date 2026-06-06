@@ -30,7 +30,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
 //        containerCardView.layer.borderWidth = 1
 //        containerCardView.layer.borderColor = UIColor.cyan.cgColor
 //        
-        containerCardView.layer.shadowColor = UIColor.cyan.cgColor
+        containerCardView.layer.shadowColor = UIColor.appPrimary.cgColor
         containerCardView.layer.shadowOpacity = 0.3
         containerCardView.layer.shadowOffset = CGSize(width: 0, height: 4)
         containerCardView.layer.shadowRadius = 6

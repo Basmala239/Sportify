@@ -20,13 +20,13 @@ class NeonCardView: UIView {
     }
     
     private func setupDesign() {
-        self.backgroundColor = UIColor(red: 13/255, green: 24/255, blue: 40/255, alpha: 1.0)
-        self.layer.borderColor = UIColor.cyan.cgColor
+        self.backgroundColor = .appSecondary
+        self.layer.borderColor = UIColor.appPrimary.cgColor
         self.layer.borderWidth = 1.5
         self.layer.cornerRadius = 12
         self.clipsToBounds = false
         
-        self.layer.shadowColor = UIColor.cyan.cgColor
+        self.layer.shadowColor = UIColor.appPrimary.cgColor
         self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.layer.shadowRadius = 6
