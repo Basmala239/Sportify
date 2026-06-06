@@ -39,6 +39,8 @@
 		FC1C1D3A2FD4851B0092F3B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC1C1D392FD4851B0092F3B6 /* Alamofire */; };
 		FC1C1D3C2FD4B5230092F3B6 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1C1D3B2FD4B5230092F3B6 /* Localization.swift */; };
 		FC1C1D3F2FD4B6B10092F3B6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC1C1D3E2FD4B6B10092F3B6 /* Localizable.strings */; };
+		FC1C1D412FD4BC2E0092F3B6 /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1C1D402FD4BC2E0092F3B6 /* LocalizationHelper.swift */; };
+		FC1C1D432FD4BF430092F3B6 /* Bundle+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1C1D422FD4BF430092F3B6 /* Bundle+Language.swift */; };
 		FC2A2F4F2FBC8A93008A39E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F4E2FBC8A93008A39E3 /* AppDelegate.swift */; };
 		FC2A2F512FBC8A93008A39E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A2F502FBC8A93008A39E3 /* SceneDelegate.swift */; };
 		FC2A2F562FBC8A93008A39E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2A2F542FBC8A93008A39E3 /* Main.storyboard */; };
@@ -134,6 +136,8 @@
 		FC1C1D332FD448A90092F3B6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		FC1C1D3B2FD4B5230092F3B6 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		FC1C1D3E2FD4B6B10092F3B6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		FC1C1D402FD4BC2E0092F3B6 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
+		FC1C1D422FD4BF430092F3B6 /* Bundle+Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Language.swift"; sourceTree = "<group>"; };
 		FC2A2F4B2FBC8A93008A39E3 /* Sportify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2A2F4E2FBC8A93008A39E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC2A2F502FBC8A93008A39E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -337,7 +341,9 @@
 		FC1C1D3D2FD4B69C0092F3B6 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
+				CA592FE52FD4BE0D00064F7D /* LanguageManager.swift */,
 				FC1C1D3E2FD4B6B10092F3B6 /* Localizable.strings */,
+				FC1C1D422FD4BF430092F3B6 /* Bundle+Language.swift */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -556,7 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				FC917E8D2FCC6F0D00FFD12C /* DateFormate.swift */,
-				CA592FE52FD4BE0D00064F7D /* LanguageManager.swift */,
+				FC1C1D402FD4BC2E0092F3B6 /* LocalizationHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -803,6 +809,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1C1D412FD4BC2E0092F3B6 /* LocalizationHelper.swift in Sources */,
 				FC926D1E2FCEC14C00C8C204 /* OnboardingStep.swift in Sources */,
 				CA5A24142FBF8B1500E532EE /* SplashProtocols.swift in Sources */,
 				FC8FA1972FBE85A500C867CD /* NetworkService.swift in Sources */,
@@ -848,6 +855,7 @@
 				FC8FA18B2FBE4F5300C867CD /* FavoriteViewController.swift in Sources */,
 				CAE3F7AE2FC4CC84002251C3 /* SportsPresenter.swift in Sources */,
 				FC2A2F512FBC8A93008A39E3 /* SceneDelegate.swift in Sources */,
+				FC1C1D432FD4BF430092F3B6 /* Bundle+Language.swift in Sources */,
 				CA453C852FCBBD6300C9F8A1 /* TeamDetailsViewController.swift in Sources */,
 				FC8FA19E2FBE8E9C00C867CD /* LeaguesPresenter.swift in Sources */,
 				CA840ECE2FD390BC003B0B6B /* NeonCardView.swift in Sources */,

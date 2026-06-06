@@ -13,8 +13,8 @@ enum AppTheme: String {
 }
 
 enum AppLanguage: String {
-    case english = "en"
     case arabic = "ar"
+    case base = "Base"
 }
 
 protocol OnboardingStorage {
@@ -59,7 +59,7 @@ final class UserDefaultsManager: OnboardingStorage, AppSettingsStorage{
         get {
             guard let rawValue = storage.string(forKey: Keys.appLanguage),
                   let language = AppLanguage(rawValue: rawValue) else {
-                return .english
+                return .base
             }
             return language
         }
