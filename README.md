@@ -19,14 +19,17 @@ A dynamic iOS application built using Swift and UIKit that allows sports enthusi
 * If the user is **online**, tapping a favorite league redirects them to the detailed league view.
 * If the user is **offline**, a smooth alert banner/pop-up prompts them that an active internet connection is required.
 
+### 3. Setting Leagues (Main Screen - Tab 3)
 
+* select your favorite mode "Dark or Light"  
+* select your lanugage "Arabic or English"
 
-### 3. Leagues Viewer
+### 4. Leagues Viewer
 
 * **Custom TableView:** Implements a `UITableViewController` with custom cells.
 * **Elegant UI:** Displays a circular league badge (`strBadge`) alongside the league's name (`strLeague`).
 
-### 4. League Details
+### 5. League Details
 
 An advanced, multi-sectioned view tracking everything happening within a specific league. It features three distinct sections:
 
@@ -34,7 +37,7 @@ An advanced, multi-sectioned view tracking everything happening within a specifi
 * **Latest Results:** A vertical scrolling `UICollectionView` detailing historical match scores (`intHomeScore` vs `intAwayScore`), dates, times, and team imagery.
 * **Teams Roster:** A horizontal carousel displaying circular team logos. Tapping any team transitions into the Team Details view.
 
-### 5. Team Details
+### 6. Team Details
 
 * A beautifully designed, custom profile view highlighting the essential details of a selected team, focusing on clean typography and visual balance.
 
@@ -74,6 +77,6 @@ git clone https://github.com/Basmala239/Sportify.git
 ---
 
 ## Developed by:
-[Esraa Ehab](https://github.com/EsraaEhab153)
-[Basmala Abuzied](https://github.com/Basmala239)
+* [Esraa Ehab](https://github.com/EsraaEhab153)
+* [Basmala Abuzied](https://github.com/Basmala239)
 
