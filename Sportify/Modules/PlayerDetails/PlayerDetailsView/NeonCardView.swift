@@ -24,6 +24,11 @@ class NeonCardView: UIView {
         self.layer.borderColor = UIColor.cyan.cgColor
         self.layer.borderWidth = 1.5
         self.layer.cornerRadius = 12
-        self.clipsToBounds = true
+        self.clipsToBounds = false
+        
+        self.layer.shadowColor = UIColor.cyan.cgColor
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowRadius = 6
     }
 }

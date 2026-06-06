@@ -16,6 +16,11 @@ class PlayerDetailsViewController: UIViewController {
     
     @IBOutlet weak var ageLabel: UILabel!
     
+    @IBOutlet weak var goalsLabel: UILabel!
+        @IBOutlet weak var assistsLabel: UILabel!
+        @IBOutlet weak var matchesLabel: UILabel!
+        @IBOutlet weak var cardsLabel: UILabel!
+    
     var playerDetails: PlayerDetails?
     
     override func viewDidLoad() {
@@ -23,6 +28,7 @@ class PlayerDetailsViewController: UIViewController {
         setupHeaderUI()
         populateHeaderData()
         populatePhysicalStats()
+        populateSeasonStats()
         // Do any additional setup after loading the view.
     }
     
@@ -58,5 +64,16 @@ class PlayerDetailsViewController: UIViewController {
                 ageLabel.text = "N/A"
             }
           
+        }
+    
+    private func populateSeasonStats() {
+            guard let player = playerDetails else { return }
+            
+            goalsLabel.text = player.playerGoals ?? "0"
+            assistsLabel.text = player.playerAssists ?? "0"
+            matchesLabel.text = player.playerMatchPlayed ?? "0"
+            let yellowCards = player.playerYellowCards ?? "0"
+            let redCards = player.playerRedCards ?? "0"
+            cardsLabel.text = "\(yellowCards) / \(redCards)"
         }
 }
