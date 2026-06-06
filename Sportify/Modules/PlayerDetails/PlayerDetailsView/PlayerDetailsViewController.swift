@@ -82,7 +82,8 @@ class PlayerDetailsViewController: UIViewController {
     private func populateSeasonStats() {
             guard let player = player else { return }
             
-            goalsLabel.text = player.playerGoals ?? "0"
+            let goals = player.playerGoals ?? ""
+            goalsLabel.text = goals.isEmpty ? "0" : goals
             assistsLabel.text = player.playerAssists ?? "0"
             matchesLabel.text = player.playerMatchPlayed ?? "0"
             let yellowCards = player.playerYellowCards ?? "0"
