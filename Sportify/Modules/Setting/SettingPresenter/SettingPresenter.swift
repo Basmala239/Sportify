@@ -52,44 +52,58 @@ class SettingPresenter {
     }
     
     private func applyLanguage(_ language: AppLanguage) {
-        let languageCode: String
-        switch language {
-        case .arabic:
-            languageCode = "ar"
-        case .english:
-            languageCode = "en"
-        }
-        
+
+        let languageCode = language.rawValue
+
         LanguageManager.shared.setLanguage(languageCode: languageCode)
-        
-        DispatchQueue.main.async {
+
+        UIView.appearance().semanticContentAttribute =
+            language == .arabic
+            ? .forceRightToLeft
+            : .forceLeftToRight
+
+        DispatchQueue.main.async { [weak self] in
+
             let alert = UIAlertController(
                 title: "language_change_title".localized,
                 message: "language_change_message".localized,
                 preferredStyle: .alert
             )
-            
+
             alert.addAction(UIAlertAction(
                 title: "ok_button".localized,
                 style: .default
             ) { _ in
-                // No need to recreate here because LanguageManager already does it
+                self?.recreateRootViewController()
             })
-            
-            if let viewController = self.view as? UIViewController {
-                viewController.present(alert, animated: true)
+
+            if let vc = self?.view as? UIViewController {
+                vc.present(alert, animated: true)
             }
         }
     }
 
     private func recreateRootViewController() {
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateInitialViewController()
-        
+
+        let rootVC = storyboard.instantiateViewController(
+            withIdentifier: "HomeNavigationWrapper"
+        )
+
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first else { return }
-        
-        window.rootViewController = initialViewController
+              let window = windowScene.windows.first else {
+            return
+        }
+
+        window.rootViewController = rootVC
         window.makeKeyAndVisible()
+
+        UIView.transition(
+            with: window,
+            duration: 0.3,
+            options: .transitionCrossDissolve,
+            animations: nil
+        )
     }
 }

@@ -239,16 +239,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkx-ZS-vG9">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="442.66666666666669" height="926"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wMd-5B-8M5">
-                                        <rect key="frame" x="16" y="0.0" width="396" height="935"/>
+                                        <rect key="frame" x="16" y="0.0" width="410.66666666666669" height="935"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTe-5e-AYI">
-                                                <rect key="frame" x="0.0" y="0.0" width="396" height="300"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="410.66666666666669" height="300"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vty-Uo-ME0">
-                                                        <rect key="frame" x="52" y="44.000000000000014" width="292" height="231.33333333333337"/>
+                                                        <rect key="frame" x="59.333333333333371" y="44.000000000000014" width="292" height="231.33333333333337"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="51z-l4-hgw">
                                                                 <rect key="frame" x="76" y="0.0" width="140" height="140"/>
@@ -302,13 +302,13 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="F5R-9z-INu">
-                                                <rect key="frame" x="0.0" y="316" width="396" height="36"/>
+                                                <rect key="frame" x="0.0" y="316" width="410.66666666666669" height="36"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aor-6C-G81" customClass="NeonCardView" customModule="Sportify" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="396" height="36"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="410.66666666666669" height="36"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NV-qP-a3N">
-                                                                <rect key="frame" x="173" y="6" width="50" height="24"/>
+                                                                <rect key="frame" x="180.33333333333334" y="6" width="50" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                 <color key="textColor" name="headLineColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -325,13 +325,13 @@
                                                 <color key="backgroundColor" name="backgroundColor"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-RC-JZT">
-                                                <rect key="frame" x="0.0" y="368" width="396" height="240"/>
+                                                <rect key="frame" x="0.0" y="368" width="410.66666666666669" height="240"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="t6U-Ah-AO8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="396" height="116"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="410.66666666666669" height="116"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7S-p5-zfY" customClass="NeonCardView" customModule="Sportify" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="190" height="116"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="197.33333333333334" height="116"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚽️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyz-bm-7B4">
                                                                         <rect key="frame" x="16" y="26" width="23" height="20.333333333333329"/>
@@ -365,7 +365,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ze-kD-m4J" customClass="NeonCardView" customModule="Sportify" customModuleProvider="target">
-                                                                <rect key="frame" x="206" y="0.0" width="190" height="116"/>
+                                                                <rect key="frame" x="213.33333333333331" y="0.0" width="197.33333333333331" height="116"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ha2-pb-9RX">
                                                                         <rect key="frame" x="16" y="27" width="23" height="20.333333333333329"/>
@@ -402,10 +402,10 @@
                                                         <color key="backgroundColor" name="backgroundColor"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5ze-8F-xAA">
-                                                        <rect key="frame" x="0.0" y="124" width="396" height="116"/>
+                                                        <rect key="frame" x="0.0" y="124" width="410.66666666666669" height="116"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GvI-z2-ffe" customClass="NeonCardView" customModule="Sportify" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="190" height="116"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="197.33333333333334" height="116"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05B-5R-Nnj">
                                                                         <rect key="frame" x="16" y="26" width="23" height="20.333333333333329"/>
@@ -439,7 +439,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOe-Zg-Dgd" customClass="NeonCardView" customModule="Sportify" customModuleProvider="target">
-                                                                <rect key="frame" x="206" y="0.0" width="190" height="116"/>
+                                                                <rect key="frame" x="213.33333333333331" y="0.0" width="197.33333333333331" height="116"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="🟨🟥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl3-56-6pR">
                                                                         <rect key="frame" x="16" y="26" width="46" height="20.333333333333329"/>
@@ -448,7 +448,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARDS (Y/R)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWV-YV-KHM">
-                                                                        <rect key="frame" x="74" y="26" width="96" height="20.333333333333329"/>
+                                                                        <rect key="frame" x="74" y="26" width="103.33333333333331" height="20.333333333333329"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                         <color key="textColor" name="titleColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -483,25 +483,25 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SKILL PROFILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzV-xj-cUm">
-                                                <rect key="frame" x="0.0" y="624" width="396" height="20.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="624" width="410.66666666666669" height="20.333333333333371"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" name="headLineColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OMJ-7H-9EG">
-                                                <rect key="frame" x="0.0" y="660.33333333333337" width="396" height="274.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="660.33333333333337" width="410.66666666666669" height="274.66666666666663"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5gg-ay-8sC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="396" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="410.66666666666669" height="20.333333333333332"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Pace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7X-iw-yns">
-                                                                <rect key="frame" x="0.0" y="0.0" width="190" height="20.333333333333332"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="197.33333333333334" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="titleColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cos-Km-otv">
-                                                                <rect key="frame" x="206" y="0.0" width="190" height="20.333333333333332"/>
+                                                                <rect key="frame" x="213.33333333333331" y="0.0" width="197.33333333333331" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="descriptionColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -509,20 +509,20 @@
                                                         </subviews>
                                                     </stackView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zex-zz-Chs">
-                                                        <rect key="frame" x="0.0" y="36.333333333333258" width="396" height="20.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="36.333333333333258" width="410.66666666666669" height="20.333333333333329"/>
                                                         <color key="tintColor" name="primaryColor"/>
                                                     </progressView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eZV-vJ-1uc">
-                                                        <rect key="frame" x="0.0" y="72.666666666666629" width="396" height="20.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="72.666666666666629" width="410.66666666666669" height="20.333333333333329"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shooting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXz-QA-uW8">
-                                                                <rect key="frame" x="0.0" y="0.0" width="190" height="20.333333333333332"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="197.33333333333334" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="titleColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4k-Pp-aH4">
-                                                                <rect key="frame" x="206" y="0.0" width="190" height="20.333333333333332"/>
+                                                                <rect key="frame" x="213.33333333333331" y="0.0" width="197.33333333333331" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="descriptionColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -530,20 +530,20 @@
                                                         </subviews>
                                                     </stackView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fLJ-6w-WAM">
-                                                        <rect key="frame" x="0.0" y="109" width="396" height="20.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="109" width="410.66666666666669" height="20.333333333333343"/>
                                                         <color key="tintColor" name="primaryColor"/>
                                                     </progressView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wHK-Yj-sBF">
-                                                        <rect key="frame" x="0.0" y="145.33333333333326" width="396" height="20.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="145.33333333333326" width="410.66666666666669" height="20.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Passing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGB-Bv-NV4">
-                                                                <rect key="frame" x="0.0" y="0.0" width="190" height="20.333333333333332"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="197.33333333333334" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="titleColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiG-3m-m9z">
-                                                                <rect key="frame" x="206" y="0.0" width="190" height="20.333333333333332"/>
+                                                                <rect key="frame" x="213.33333333333331" y="0.0" width="197.33333333333331" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="descriptionColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -551,20 +551,20 @@
                                                         </subviews>
                                                     </stackView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XsQ-WV-2cp">
-                                                        <rect key="frame" x="0.0" y="181.66666666666663" width="396" height="20.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="181.66666666666663" width="410.66666666666669" height="20.333333333333343"/>
                                                         <color key="tintColor" name="primaryColor"/>
                                                     </progressView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vAy-UA-dUZ">
-                                                        <rect key="frame" x="0.0" y="218" width="396" height="20.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="218" width="410.66666666666669" height="20.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Dribbling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8L-kD-jHn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="190" height="20.333333333333332"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="197.33333333333334" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="titleColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="194-vw-xno">
-                                                                <rect key="frame" x="206" y="0.0" width="190" height="20.333333333333332"/>
+                                                                <rect key="frame" x="213.33333333333331" y="0.0" width="197.33333333333331" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="descriptionColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -572,7 +572,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IxW-by-XCQ">
-                                                        <rect key="frame" x="0.0" y="254.33333333333329" width="396" height="20.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="254.33333333333329" width="410.66666666666669" height="20.333333333333343"/>
                                                         <color key="tintColor" name="primaryColor"/>
                                                     </progressView>
                                                 </subviews>

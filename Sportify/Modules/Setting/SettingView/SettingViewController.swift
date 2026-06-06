@@ -27,7 +27,7 @@ class SettingViewController: UIViewController, SettingViewProtocol {
     
     func setupLanguageMenu() {
         let englishAction = UIAction(title: "  English (US)", image: nil) { [weak self] _ in
-            self?.presenter.languageChanged(to: .english)
+            self?.presenter.languageChanged(to: .base)
         }
         
         let arabicAction = UIAction(title: "  العربية", image: nil) { [weak self] _ in
@@ -56,7 +56,7 @@ class SettingViewController: UIViewController, SettingViewProtocol {
         guard let menu = languageButton.menu else { return }
         
         for case let action as UIAction in menu.children {
-            if language == .english && action.title == "  English (US)" {
+            if language == .base && action.title == "  English (US)" {
                 action.state = .on
             } else if language == .arabic && action.title == "  العربية" {
                 action.state = .on

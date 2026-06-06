@@ -6,33 +6,46 @@
 //
 
 import UIKit
+import Foundation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-            
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
+
+        guard let windowScene = scene as? UIWindowScene else {
+            return
+        }
+
         let savedTheme = UserDefaultsManager.shared.appTheme
-        
-        let style: UIUserInterfaceStyle = (savedTheme == .dark) ? .dark : .light
-        
+
         let savedLanguage = UserDefaultsManager.shared.appLanguage.rawValue
-        
-         Bundle.setLanguage(savedLanguage)
-        
-        let semanticContent: UISemanticContentAttribute = (savedLanguage == "ar") ? .forceRightToLeft : .forceLeftToRight
-        UIView.appearance().semanticContentAttribute = semanticContent
-        
+
+        Bundle.setLanguage(savedLanguage)
+
+        UIView.appearance().semanticContentAttribute =
+            savedLanguage == "ar"
+            ? .forceRightToLeft
+            : .forceLeftToRight
+
         let window = UIWindow(windowScene: windowScene)
-        window.overrideUserInterfaceStyle = style
-        
+
+        window.overrideUserInterfaceStyle =
+            savedTheme == .dark ? .dark : .light
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let rootViewController = storyboard.instantiateInitialViewController()
-        
-        window.rootViewController = rootViewController
+
+        let rootVC = storyboard.instantiateViewController(
+            withIdentifier: "HomeNavigationWrapper"
+        )
+
+        window.rootViewController = rootVC
         self.window = window
         window.makeKeyAndVisible()
     }
