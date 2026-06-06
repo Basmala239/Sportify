@@ -11,6 +11,8 @@ class PlayersRowTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var onPlayerTapped: ((Player) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
@@ -60,4 +62,8 @@ extension PlayersRowTableViewCell : UICollectionViewDataSource , UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 140, height: 220)
     }
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let selectedPlayer = rowPlayers[indexPath.item]
+            onPlayerTapped?(selectedPlayer)
+        }
 }

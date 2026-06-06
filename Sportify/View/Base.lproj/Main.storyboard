@@ -145,7 +145,7 @@
         <!--Player Details View Controller-->
         <scene sceneID="fox-ge-Cl2">
             <objects>
-                <viewController id="adN-Hl-Gz1" customClass="PlayerDetailsViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="adN-Hl-Gz1" customClass="PlayerDetailsViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="94f-19-aaS">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -403,7 +403,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5gg-ay-8sC">
                                                         <rect key="frame" x="0.0" y="0.0" width="428" height="20.333333333333332"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7X-iw-yns">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Pace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7X-iw-yns">
                                                                 <rect key="frame" x="0.0" y="0.0" width="206" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.14389854669999999" green="0.61964040990000002" blue="0.77374696730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -424,7 +424,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eZV-vJ-1uc">
                                                         <rect key="frame" x="0.0" y="72.666666666666629" width="428" height="20.333333333333329"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXz-QA-uW8">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shooting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXz-QA-uW8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="206" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.14389854669999999" green="0.61964040990000002" blue="0.77374696730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -445,7 +445,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wHK-Yj-sBF">
                                                         <rect key="frame" x="0.0" y="145.33333333333326" width="428" height="20.333333333333343"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGB-Bv-NV4">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Passing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGB-Bv-NV4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="206" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.14389854669999999" green="0.61964040990000002" blue="0.77374696730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -466,7 +466,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vAy-UA-dUZ">
                                                         <rect key="frame" x="0.0" y="218" width="428" height="20.333333333333343"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8L-kD-jHn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Dribbling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8L-kD-jHn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="206" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.14389854669999999" green="0.61964040990000002" blue="0.77374696730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -513,11 +513,19 @@
                         <outlet property="ageLabel" destination="dZE-wK-nFQ" id="J7o-Pl-ZeB"/>
                         <outlet property="assistsLabel" destination="9NC-Cs-oxT" id="r4O-a3-yKr"/>
                         <outlet property="cardsLabel" destination="qiH-31-8jJ" id="k3G-3a-3hb"/>
+                        <outlet property="dribblingProgressView" destination="IxW-by-XCQ" id="Muc-od-F7K"/>
+                        <outlet property="dribblingValueLabel" destination="194-vw-xno" id="Trf-S8-Ys4"/>
                         <outlet property="goalsLabel" destination="4ay-wV-hRz" id="vWz-dN-7gN"/>
                         <outlet property="matchesLabel" destination="fFZ-rK-rrL" id="DOe-jA-fCN"/>
+                        <outlet property="paceProgressView" destination="Zex-zz-Chs" id="BQx-XV-MUT"/>
+                        <outlet property="paceValueLabel" destination="cos-Km-otv" id="YzF-kO-sAD"/>
+                        <outlet property="passingProgressView" destination="XsQ-WV-2cp" id="b5D-zH-mlo"/>
+                        <outlet property="passingValueLabel" destination="SiG-3m-m9z" id="oqI-rj-KyN"/>
                         <outlet property="playerImageView" destination="51z-l4-hgw" id="csQ-TI-X1v"/>
                         <outlet property="playerNameLabel" destination="Hni-sO-Nmf" id="td3-iM-hXC"/>
                         <outlet property="playerTeamAndPositionLabel" destination="5NV-qP-a3N" id="jIR-Bx-OPW"/>
+                        <outlet property="shootingProgressView" destination="fLJ-6w-WAM" id="Kss-QD-pjh"/>
+                        <outlet property="shootingValueLabel" destination="F4k-Pp-aH4" id="Zk5-Rz-JtD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jN5-TE-64c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
