@@ -13,6 +13,7 @@
 		CA453C812FCBB11100C9F8A1 /* TeamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA453C802FCBB11100C9F8A1 /* TeamHeaderView.swift */; };
 		CA453C832FCBB16D00C9F8A1 /* TeamHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA453C822FCBB16D00C9F8A1 /* TeamHeaderView.xib */; };
 		CA453C852FCBBD6300C9F8A1 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA453C842FCBBD6300C9F8A1 /* TeamDetailsViewController.swift */; };
+		CA592FE62FD4BE0D00064F7D /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA592FE52FD4BE0D00064F7D /* LanguageManager.swift */; };
 		CA5A24142FBF8B1500E532EE /* SplashProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A24132FBF8B1500E532EE /* SplashProtocols.swift */; };
 		CA5A24162FBF8B2400E532EE /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A24152FBF8B2400E532EE /* SplashPresenter.swift */; };
 		CA5A24182FBF8D5400E532EE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A24172FBF8D5400E532EE /* SplashViewController.swift */; };
@@ -105,6 +106,9 @@
 		CA453C802FCBB11100C9F8A1 /* TeamHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamHeaderView.swift; sourceTree = "<group>"; };
 		CA453C822FCBB16D00C9F8A1 /* TeamHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamHeaderView.xib; sourceTree = "<group>"; };
 		CA453C842FCBBD6300C9F8A1 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
+		CA592FE32FD4B72400064F7D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CA592FE42FD4B72600064F7D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		CA592FE52FD4BE0D00064F7D /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		CA5A24132FBF8B1500E532EE /* SplashProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashProtocols.swift; sourceTree = "<group>"; };
 		CA5A24152FBF8B2400E532EE /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		CA5A24172FBF8D5400E532EE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -539,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				FC917E8D2FCC6F0D00FFD12C /* DateFormate.swift */,
+				CA592FE52FD4BE0D00064F7D /* LanguageManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = FC2A2F422FBC8A93008A39E3;
 			packageReferences = (
@@ -811,6 +817,7 @@
 				CA34A1A42FCF31070081B487 /* TeamDetailsProtocol.swift in Sources */,
 				FC2A2F592FBC8A93008A39E3 /* Sportify.xcdatamodeld in Sources */,
 				FC92ACBE2FD20E6800899F72 /* UserDefaultsManager.swift in Sources */,
+				CA592FE62FD4BE0D00064F7D /* LanguageManager.swift in Sources */,
 				FC3A14442FD0D0B400A1D729 /* PlayerProfile.swift in Sources */,
 				FC926D202FCEC21C00C8C204 /* OnboardingDataViewController.swift in Sources */,
 				CA840ED02FD398F8003B0B6B /* PlayerDetailsViewController.swift in Sources */,
@@ -877,6 +884,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FC2A2F552FBC8A93008A39E3 /* Base */,
+				CA592FE42FD4B72600064F7D /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -885,6 +893,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FC2A2F5D2FBC8A95008A39E3 /* Base */,
+				CA592FE32FD4B72400064F7D /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -896,6 +905,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -957,6 +967,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
