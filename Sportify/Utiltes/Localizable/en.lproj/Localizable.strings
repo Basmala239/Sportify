@@ -29,3 +29,8 @@
 "players_count_text" = "Players: %d";
 "coach_name" = "Coach: %@";
 "unknown_text" = "Unknown";
+
+//team details
+"players_count_text" = "عدد اللعبين: %d";
+"coach name" = "المدرب: %@";
+"unknown_text" = "غير معروف";
