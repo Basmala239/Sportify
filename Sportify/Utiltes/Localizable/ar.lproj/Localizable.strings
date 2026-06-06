@@ -1,26 +1,40 @@
-/* 
+/*
   Localizable.strings
   Sportify
 
   Created by Esraa Ehab on 06/06/2026.
   
 */
+
 // Settings Screen
-"settings_title" = "الاعدادات";
-"theme_label" = "الثيم";
-"language_label" = "اللغه";
-"theme_light" = "فاتح";
-"theme_dark" = "داكن";
-"language_english" = "English (US)";
-"language_arabic" = "العربية";
+"Settings" = "الاعدادات";
+"Theme" = "الثيم";
+"Language" = "اللغه";
+"Light" = "فاتح";
+"Dark" = "داكن";
+"English" = "English (US)";
+"Arabic" = "العربية";
 
 // Alerts
-"language_change_title" = "تغيير اللغه";
-"language_change_message" = "لغه التطبيق سوف تتغير الان";
-"ok_button" = "موافق";
+"Language change" = "تغيير اللغه";
+"App language will change now" = "لغه التطبيق سوف تتغير الان";
+"OK" = "موافق";
 
-//
-//team details
-"players_count_text" = "عدد اللاعبين: %d";
-"coach name" = "المدرب: %@";
-"unknown" = "غير معروف";
+// Sports
+"Football" = "كرة القدم";
+"Basketball" = "كرة السلة";
+"Tennis" = "التنس";
+"Cricket" = "الكريكيت";  // تم التصحيح
+
+"Error" = "خطأ";
+"No Internet Connection" = "لا يوجد اتصال بالإنترنت";
+"Please check your network settings and try again to view league details." = "يرجى التحقق من إعدادات الشبكة الخاصة بك والمحاولة مرة أخرى لعرض تفاصيل الدوري.";
+"Dismiss" = "رفض";
+"No Country name" = "بدون اسم دولة";
+"Cancel" = "الغاء";
+"Delete Favorite" = "حذف المفضلة";
+"Are you sure you want to remove this leagues from your favorites?" = "هل أنت متأكد من رغبتك في إزالة هذه الدوريات من مفضلاتك؟";
+"Delete" = "حذف";
+"Invalid league ID" = "معرف الدوري غير صالح";
+"Players" = "اللاعبون";
+"Teams" = "الفرق";

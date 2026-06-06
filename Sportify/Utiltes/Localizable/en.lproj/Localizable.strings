@@ -17,7 +17,7 @@
 // Alerts
 "language_change_title" = "Language Changed";
 "language_change_message" = "App language will change now";
-"ok_button" = "OK";
+"OK" = "OK";
 
 //sports screen
 "football" = "Foot Ball";

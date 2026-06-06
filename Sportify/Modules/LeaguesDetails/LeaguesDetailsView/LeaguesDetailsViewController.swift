@@ -40,7 +40,7 @@ class LeaguesDetailsViewController: UITableViewController{
     }
     
     private func updateSectionTitle() {
-        thirdSectionTitle.text = presenter.sportType == .tennis ? "Players" : "Teams"
+        thirdSectionTitle.text = presenter.sportType == .tennis ? "Players".localized : "Teams".localized
     }
 
     
@@ -95,9 +95,9 @@ class LeaguesDetailsViewController: UITableViewController{
    // MARK: - Setup Methods
     private func setupCollectionViews() {
         if (sportEndpoint == APIEndpoints.tennis ){
-            thirdSectionTitle.text = "Players"
+            thirdSectionTitle.text = "Players".localized
         }else{
-            thirdSectionTitle.text = "Teams"
+            thirdSectionTitle.text = "Teams".localized
         }
         upcomingCollectionView.delegate = self
         upcomingCollectionView.dataSource = self
@@ -241,11 +241,11 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
     func showError(_ message: String) {
         DispatchQueue.main.async { [weak self] in
             let alert = UIAlertController(
-                title: "Error",
+                title: "Error".localized,
                 message: message,
                 preferredStyle: .alert
             )
-            let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { [weak self] _ in
+            let okAction = UIAlertAction(title: NSLocalizedString("OK".localized, comment: ""), style: .default) { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
             }
             
@@ -257,11 +257,11 @@ extension LeaguesDetailsViewController: LeaguesDetailsView {
     func showNoInternetConnection() {
         DispatchQueue.main.async { [weak self] in
             let alert = UIAlertController(
-                title: "No Internet Connection",
-                message: "Please check your internet connection and try again.",
+                title: "No Internet Connection".localized,
+                message: "Please check your network settings and try again to view league details.".localized,
                 preferredStyle: .alert
             )
-            let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { [weak self] _ in
+            let okAction = UIAlertAction(title: NSLocalizedString("OK".localized, comment: ""), style: .default) { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
             }
             

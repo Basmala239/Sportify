@@ -68,12 +68,12 @@ class FavoriteViewController: UIViewController, FavoriteView {
     
     func showNoConnectionAlert() {
         let alert = UIAlertController(
-            title: "No Internet Connection",
-            message: "Please check your network settings and try again to view league details.",
+            title: "No Internet Connection".localized,
+            message: "Please check your network settings and try again to view league details.".localized,
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dismiss".localized, style: .default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }

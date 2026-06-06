@@ -47,7 +47,7 @@ class LeaguesDetailspresenter: LeaguesDetailspresenterProtocol{
 
     func fetchLeagueDetails(leagueId: String?, endpoint: String) {
         guard let leagueId = leagueId, !leagueId.isEmpty else {
-            view?.showError("Invalid league ID")
+            view?.showError("Invalid league ID".localized)
             return
         }
         
