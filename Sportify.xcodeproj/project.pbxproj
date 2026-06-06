@@ -17,6 +17,8 @@
 		CA5A24162FBF8B2400E532EE /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A24152FBF8B2400E532EE /* SplashPresenter.swift */; };
 		CA5A24182FBF8D5400E532EE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A24172FBF8D5400E532EE /* SplashViewController.swift */; };
 		CA840EC92FD38B60003B0B6B /* PlayerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA840EC82FD38B60003B0B6B /* PlayerDetails.swift */; };
+		CA840ECE2FD390BC003B0B6B /* NeonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA840ECD2FD390BC003B0B6B /* NeonCardView.swift */; };
+		CA840ED02FD398F8003B0B6B /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA840ECF2FD398F8003B0B6B /* PlayerDetailsViewController.swift */; };
 		CAB51B052FD1D3D00048ADAA /* MockFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB51B042FD1D3D00048ADAA /* MockFavoriteView.swift */; };
 		CAB51B072FD1D7540048ADAA /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB51B062FD1D7540048ADAA /* MockNetworkService.swift */; };
 		CAB51B092FD1D92B0048ADAA /* MockFavoriteLocalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB51B082FD1D92B0048ADAA /* MockFavoriteLocalManager.swift */; };
@@ -105,6 +107,8 @@
 		CA5A24152FBF8B2400E532EE /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		CA5A24172FBF8D5400E532EE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CA840EC82FD38B60003B0B6B /* PlayerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetails.swift; sourceTree = "<group>"; };
+		CA840ECD2FD390BC003B0B6B /* NeonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonCardView.swift; sourceTree = "<group>"; };
+		CA840ECF2FD398F8003B0B6B /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		CAB51B042FD1D3D00048ADAA /* MockFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoriteView.swift; sourceTree = "<group>"; };
 		CAB51B062FD1D7540048ADAA /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		CAB51B082FD1D92B0048ADAA /* MockFavoriteLocalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoriteLocalManager.swift; sourceTree = "<group>"; };
@@ -218,6 +222,31 @@
 				CA5A24172FBF8D5400E532EE /* SplashViewController.swift */,
 			);
 			path = SplashView;
+			sourceTree = "<group>";
+		};
+		CA840ECA2FD38FEC003B0B6B /* PlayerDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CA840ECC2FD39038003B0B6B /* PlayerDetailsPresenter */,
+				CA840ECB2FD39007003B0B6B /* PlayerDetailsView */,
+			);
+			path = PlayerDetails;
+			sourceTree = "<group>";
+		};
+		CA840ECB2FD39007003B0B6B /* PlayerDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				CA840ECD2FD390BC003B0B6B /* NeonCardView.swift */,
+				CA840ECF2FD398F8003B0B6B /* PlayerDetailsViewController.swift */,
+			);
+			path = PlayerDetailsView;
+			sourceTree = "<group>";
+		};
+		CA840ECC2FD39038003B0B6B /* PlayerDetailsPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PlayerDetailsPresenter;
 			sourceTree = "<group>";
 		};
 		CAB51B032FD1D39C0048ADAA /* Mocks */ = {
@@ -368,6 +397,7 @@
 		FC8FA17E2FBE390300C867CD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CA840ECA2FD38FEC003B0B6B /* PlayerDetails */,
 				FCD80B242FCE325000C04C3D /* Onboarding */,
 				CACE82182FCBAA770044CC97 /* TeamDetails */,
 				CAE3F7A32FC4CC84002251C3 /* Sports */,
@@ -751,6 +781,7 @@
 				FC92ACBE2FD20E6800899F72 /* UserDefaultsManager.swift in Sources */,
 				FC3A14442FD0D0B400A1D729 /* PlayerProfile.swift in Sources */,
 				FC926D202FCEC21C00C8C204 /* OnboardingDataViewController.swift in Sources */,
+				CA840ED02FD398F8003B0B6B /* PlayerDetailsViewController.swift in Sources */,
 				FC8CEB2C2FC2054800ED5EFD /* LatestEventCell.swift in Sources */,
 				CAE3F7A22FC4CC69002251C3 /* SportItem.swift in Sources */,
 				FC8CEB322FC205C300ED5EFD /* TeamCell.swift in Sources */,
@@ -764,6 +795,7 @@
 				CA453C852FCBBD6300C9F8A1 /* TeamDetailsViewController.swift in Sources */,
 				FC8FA19E2FBE8E9C00C867CD /* LeaguesPresenter.swift in Sources */,
 				CA840EC92FD38B60003B0B6B /* PlayerDetails.swift in Sources */,
+				CA840ECE2FD390BC003B0B6B /* NeonCardView.swift in Sources */,
 				FC8CEB282FC2052A00ED5EFD /* UpcomingEventCell.swift in Sources */,
 				FC926D222FCEC25B00C8C204 /* OnboardingContainerViewController.swift in Sources */,
 				FCA2EC212FC097400087873C /* LeaguesDetailsPresenter.swift in Sources */,
