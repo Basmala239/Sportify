@@ -51,14 +51,6 @@ An advanced, multi-sectioned view tracking everything happening within a specifi
 
 ---
 
-## 📸 Screenshots
-
-| Sports Directory | Leagues List | League Details |
-| --- | --- | --- |
-| *[Insert Sports Tab Screenshot]* | *[Insert Leagues Screenshot]* | *[Insert League Details Screenshot]* |
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -78,3 +70,10 @@ git clone https://github.com/Basmala239/Sportify.git
 
 2. Open `SportsHub.xcodeproj` in Xcode.
 3. Build and run the project on your preferred simulator or iOS device.
+
+---
+
+## Developed by:
+[Esraa Ehab](https://github.com/EsraaEhab153)
+[Basmala Abuzied](https://github.com/Basmala239)
+
