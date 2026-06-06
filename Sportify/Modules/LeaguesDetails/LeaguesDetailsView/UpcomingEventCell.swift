@@ -27,10 +27,18 @@ class UpcomingEventCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 20.0
         containerView.clipsToBounds = true
         
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowRadius = 8.0
-        self.layer.shadowOpacity = 0.3
-        self.layer.masksToBounds = false
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        contentView.layer.shadowRadius = 4.0
+        contentView.layer.shadowOpacity = 0.05
+        contentView.layer.masksToBounds = false
+        
+       backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .appBackground
+        backgroundView.layer.cornerRadius = 20.0
+        self.backgroundView = backgroundView
     }
     
     override func layoutSubviews() {
@@ -45,19 +53,37 @@ class UpcomingEventCell: UICollectionViewCell {
         awayTeamLogo.layer.cornerRadius = awayTeamLogo.frame.size.width / 2
         awayTeamLogo.clipsToBounds = true
         
-        let neonCyan = UIColor(red: 0.0/255.0, green: 220.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        containerView.addCustomCardBorders(color: neonCyan, thickness: 3.0, radius: 20.0)
+        let shadowRect = contentView.bounds.insetBy(dx: 4, dy: 2)
+        contentView.layer.shadowPath = UIBezierPath(roundedRect: shadowRect, cornerRadius: 20.0).cgPath
+        containerView.addCustomCardBorders(color: .appPrimary, thickness: 3.0, radius: 20.0)
     }
+    func configure(with event: SportEvent) {
+            if let teamEvent = event as? TeamSportEvent {
+                configureTeamEvent(teamEvent)
+            } else if let tennisEvent = event as? TennisEvent {
+                configureTennisEvent(tennisEvent)
+            }
+        }
     
     // MARK: - Configure Method
-    func configure(with event: Event) {
-        eventHomeTeam.text = (event.HomeTeamName ?? event.eventFirstPlayer) ?? "Home Team"
-        eventAwayTeam.text = (event.AwayTeamName ?? event.eventSecondPlayer) ?? "Away Team"
-        eventDate.text = DateFormate.formatDate((event.eventDate ?? event.eventDateStart) ?? "Nov 23")
-        eventTime.text = event.eventTime ?? "TBD"
+    private func configureTeamEvent(_ event: TeamSportEvent) {
+        eventHomeTeam.text = event.homeTeam
+        eventAwayTeam.text = event.awayTeam
+        eventDate.text = DateFormate.formatDate(event.date)
+        eventTime.text = event.time.isEmpty ? "TBD" : event.time
         
-        loadImage(from: (event.homeTeamLogo ?? event.event_home_team_logo) ?? event.eventFirstPlayerLogo, into: homeTeamLogo)
-        loadImage(from: (event.awayTeamLogo ?? event.event_away_team_logo) ?? event.eventSecondPlayerLogo, into: awayTeamLogo)
+        loadImage(from: event.homeTeamLogo, into: homeTeamLogo)
+        loadImage(from: event.awayTeamLogo, into: awayTeamLogo)
+    }
+    
+    private func configureTennisEvent(_ event: TennisEvent) {
+        eventHomeTeam.text = event.firstPlayer
+        eventAwayTeam.text = event.secondPlayer
+        eventDate.text = DateFormate.formatDate(event.date)
+        eventTime.text = event.time.isEmpty ? "TBD" : event.time
+        
+        loadImage(from: event.firstPlayerLogo, into: homeTeamLogo)
+        loadImage(from: event.secondPlayerLogo, into: awayTeamLogo)
     }
     
     private func loadImage(from urlString: String?, into imageView: UIImageView) {
@@ -73,7 +99,7 @@ class UpcomingEventCell: UICollectionViewCell {
         }
         
         let placeholder = UIImage(systemName: "sportscourt.fill")
-        imageView.sd_setImage(with: url, placeholderImage: placeholder) { [weak self] (image, error, cacheType, url) in
+        imageView.sd_setImage(with: url, placeholderImage: placeholder) {(image, error, cacheType, url) in
             if error != nil {
                 imageView.image = UIImage(systemName: "sportscourt.fill")
                 imageView.tintColor = .systemGray3

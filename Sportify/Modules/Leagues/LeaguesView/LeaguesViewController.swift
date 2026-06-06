@@ -13,8 +13,8 @@ protocol LeaguesView: AnyObject {
     func renderLeague(_ leagues: [League])
     func navigateToDetails(sportEndpoint: String, league: League)
     func noConnectionViewVisibility()
+    func showError(_ message: String)
 }
-
 
 class LeaguesViewController: UIViewController, LeaguesView {
 
@@ -27,7 +27,6 @@ class LeaguesViewController: UIViewController, LeaguesView {
     let indicator = UIActivityIndicatorView(style: .large)
     
     var leagues: [League] = []
-    var allLeagues: [League] = []
     var sportEndpoint: String?
     
     override func viewDidLoad() {
@@ -36,6 +35,7 @@ class LeaguesViewController: UIViewController, LeaguesView {
         setupSearchBar()
         
         noLeaguesView.isHidden = true
+        noConnection.isHidden = true
         
         presenter.attachView(self)
         presenter.fetchData(for: sportEndpoint ?? APIEndpoints.football)
@@ -49,13 +49,15 @@ class LeaguesViewController: UIViewController, LeaguesView {
     
     private func setupSearchBar() {
         searchBar.delegate = self
-        searchBar.searchTextField.textColor = .white
-        searchBar.searchTextField.leftView?.tintColor = .white
+        searchBar.backgroundColor = .appSecondary
+        searchBar.barTintColor = .appBackground
+        searchBar.searchTextField.textColor = .appTitle
+        searchBar.searchTextField.leftView?.tintColor = .appPrimary
     }
     
     func startLoading() {
         indicator.center = view.center
-        indicator.color = .white
+        indicator.color = .appLoadingColor
         view.addSubview(indicator)
         indicator.startAnimating()
     }
@@ -66,9 +68,7 @@ class LeaguesViewController: UIViewController, LeaguesView {
     }
     
     func renderLeague(_ leagues: [League]) {
-        self.allLeagues = leagues
         self.leagues = leagues
-       
         updateViewVisibility()
     }
     
@@ -85,11 +85,21 @@ class LeaguesViewController: UIViewController, LeaguesView {
         leaguesTableView.reloadData()
     }
     
-    func noConnectionViewVisibility(){
+    func noConnectionViewVisibility() {
         leaguesTableView.isHidden = true
         noLeaguesView.isHidden = true
         noConnection.isHidden = false
         leaguesTableView.reloadData()
+    }
+    
+    func showError(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
     
     func navigateToDetails(sportEndpoint: String, league: League) {
@@ -100,24 +110,15 @@ class LeaguesViewController: UIViewController, LeaguesView {
             detailsVC.league = league
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }
-        
     }
-    
 }
+
 // MARK: - UISearchBarDelegate
 
 extension LeaguesViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            leagues = allLeagues
-        } else {
-            leagues = allLeagues.filter { league in
-                league.leagueName.lowercased().contains(searchText.lowercased())
-            }
-        }
-        updateViewVisibility()
+        presenter.filterLeagues(with: searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -126,8 +127,7 @@ extension LeaguesViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-        leagues = allLeagues
-        updateViewVisibility()
+        presenter.filterLeagues(with: "")
         searchBar.resignFirstResponder()
     }
 }

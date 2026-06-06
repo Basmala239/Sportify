@@ -17,13 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor(red: 10/255.0, green: 19/255.0, blue: 35/255.0, alpha: 1.0)
+        appearance.backgroundColor = .appBackground
         appearance.backgroundEffect = nil
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.appPrimary]
         
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().tintColor = .appPrimary
         
         return true
     }
