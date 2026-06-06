@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DT7-Eo-36L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="adN-Hl-Gz1">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -170,7 +170,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aor-6C-G81" customClass="NeonCardView" customModule="Sportify" customModuleProvider="target">
-                                                <rect key="frame" x="69" y="240" width="292" height="36"/>
+                                                <rect key="frame" x="60" y="240" width="292" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NV-qP-a3N">
                                                         <rect key="frame" x="121" y="6" width="50" height="24"/>
@@ -187,14 +187,42 @@
                                                     <constraint firstAttribute="width" constant="292" id="bR2-qa-aVF"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xg0-LD-4Ph" customClass="NeonCardView" customModule="Sportify" customModuleProvider="target">
+                                                <rect key="frame" x="77" y="333" width="292" height="36"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x1-p9-Mzi">
+                                                        <rect key="frame" x="8" y="6.9999999999999982" width="34.333333333333336" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <color key="textColor" red="0.14389854669999999" green="0.61964040990000002" blue="0.77374696730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZE-wK-nFQ">
+                                                        <rect key="frame" x="228.66666666666669" y="6.9999999999999982" width="41.333333333333314" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.059638462959999999" green="0.089373908939999996" blue="0.1652922332" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="6x1-p9-Mzi" firstAttribute="leading" secondItem="xg0-LD-4Ph" secondAttribute="leading" constant="8" id="37y-fh-ZMP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dZE-wK-nFQ" secondAttribute="trailing" constant="22" id="4hw-96-8Yc"/>
+                                                    <constraint firstItem="6x1-p9-Mzi" firstAttribute="top" secondItem="xg0-LD-4Ph" secondAttribute="top" constant="7" id="EqZ-xr-cGu"/>
+                                                    <constraint firstItem="dZE-wK-nFQ" firstAttribute="top" secondItem="xg0-LD-4Ph" secondAttribute="top" constant="7" id="FaC-1n-tDc"/>
+                                                    <constraint firstAttribute="width" constant="292" id="SjQ-iH-AGf"/>
+                                                    <constraint firstAttribute="height" constant="36" id="dqB-gI-f9o"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.059638462959999999" green="0.089373908939999996" blue="0.1652922332" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="51z-l4-hgw" firstAttribute="top" secondItem="nTe-5e-AYI" secondAttribute="top" constant="44" id="6pu-gZ-Jso"/>
-                                            <constraint firstItem="aor-6C-G81" firstAttribute="leading" secondItem="nTe-5e-AYI" secondAttribute="leading" constant="69" id="QUf-gY-Nz9"/>
+                                            <constraint firstItem="aor-6C-G81" firstAttribute="leading" secondItem="nTe-5e-AYI" secondAttribute="leading" constant="60" id="QUf-gY-Nz9"/>
                                             <constraint firstItem="aor-6C-G81" firstAttribute="top" secondItem="Hni-sO-Nmf" secondAttribute="top" constant="39" id="RnN-KV-KSf"/>
+                                            <constraint firstItem="xg0-LD-4Ph" firstAttribute="centerY" secondItem="nTe-5e-AYI" secondAttribute="centerY" constant="-71.5" id="SEj-Pn-yNC"/>
                                             <constraint firstItem="Hni-sO-Nmf" firstAttribute="top" secondItem="51z-l4-hgw" secondAttribute="bottom" constant="17" id="WN0-5y-Kjf"/>
                                             <constraint firstItem="Hni-sO-Nmf" firstAttribute="centerX" secondItem="nTe-5e-AYI" secondAttribute="centerX" constant="1.5" id="b3O-Ie-qDd"/>
+                                            <constraint firstItem="xg0-LD-4Ph" firstAttribute="centerX" secondItem="nTe-5e-AYI" secondAttribute="centerX" constant="9" id="yPg-Ov-Yal"/>
                                             <constraint firstItem="51z-l4-hgw" firstAttribute="centerX" secondItem="nTe-5e-AYI" secondAttribute="centerX" id="zde-j5-mQA"/>
                                         </constraints>
                                     </view>
@@ -211,6 +239,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ageLabel" destination="dZE-wK-nFQ" id="J7o-Pl-ZeB"/>
                         <outlet property="playerImageView" destination="51z-l4-hgw" id="csQ-TI-X1v"/>
                         <outlet property="playerNameLabel" destination="Hni-sO-Nmf" id="td3-iM-hXC"/>
                         <outlet property="playerTeamAndPositionLabel" destination="5NV-qP-a3N" id="jIR-Bx-OPW"/>

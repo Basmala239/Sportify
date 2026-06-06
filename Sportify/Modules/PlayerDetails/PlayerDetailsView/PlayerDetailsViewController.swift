@@ -14,12 +14,15 @@ class PlayerDetailsViewController: UIViewController {
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var playerTeamAndPositionLabel: UILabel!
     
+    @IBOutlet weak var ageLabel: UILabel!
+    
     var playerDetails: PlayerDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHeaderUI()
         populateHeaderData()
+        populatePhysicalStats()
         // Do any additional setup after loading the view.
     }
     
@@ -46,4 +49,14 @@ class PlayerDetailsViewController: UIViewController {
            
         }
    
+    private func populatePhysicalStats() {
+            guard let player = playerDetails else { return }
+            
+            if let age = player.playerAge {
+                ageLabel.text = "\(age) YRS"
+            } else {
+                ageLabel.text = "N/A"
+            }
+          
+        }
 }
