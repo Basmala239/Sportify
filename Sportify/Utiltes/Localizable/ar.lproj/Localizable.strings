@@ -20,4 +20,7 @@
 "ok_button" = "موافق";
 
 //
-
+//team details
+"players_count_text" = "عدد اللاعبين: %d";
+"coach name" = "المدرب: %@";
+"unknown" = "غير معروف";
