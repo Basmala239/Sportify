@@ -38,3 +38,11 @@
 "Invalid league ID" = "معرف الدوري غير صالح";
 "Players" = "اللاعبون";
 "Teams" = "الفرق";
+"players count %d" = "عدد اللعبين: %d";
+"Coach: %@ " = "المدرب: %@";
+"Unknown" = "غير معروف";
+"Defenders" = "المدافعون";
+"Goalkeepers" = "حراس المرمى";
+"Midfielders" = "لاعبو خط الوسط";
+"Fixtures" = "المباريات";
+"Forwards" = "المهاجمون";

@@ -47,14 +47,14 @@ class FixtureTableViewCell: UITableViewCell {
             
             if let homeLogoString = event.homeTeamLogo, let homeLogoUrl = URL(string: homeLogoString) {
                         homeTeamLogo.sd_setImage(with: homeLogoUrl, placeholderImage: UIImage(named: "team_logo"))
-                    } else {
-                        homeTeamLogo.image = UIImage(named: "team_logo")
-                    }
-                    
-                    if let awayLogoString = event.awayTeamLogo, let awayLogoUrl = URL(string: awayLogoString) {
-                        awayTeamLogo.sd_setImage(with: awayLogoUrl, placeholderImage: UIImage(named: "team_logo"))
-                    } else {
-                        awayTeamLogo.image = UIImage(named: "team_logo")
-                    }
+            } else {
+                homeTeamLogo.image = UIImage(named: "team_logo")
+            }
+            
+            if let awayLogoString = event.awayTeamLogo, let awayLogoUrl = URL(string: awayLogoString) {
+                awayTeamLogo.sd_setImage(with: awayLogoUrl, placeholderImage: UIImage(named: "team_logo"))
+            } else {
+                awayTeamLogo.image = UIImage(named: "team_logo")
+            }
         }
 }

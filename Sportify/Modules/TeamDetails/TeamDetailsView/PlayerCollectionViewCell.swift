@@ -48,7 +48,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     
     func configure(with player: Player) {
             playerNameLabel.text = player.playerName
-            positionLabel.text = player.playerType ?? "Unknown"
+        positionLabel.text = player.playerType ?? "Unknown".localized
             
             if let age = player.playerAge {
                 ageLabel.text = "Age \(age)"

@@ -107,7 +107,8 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
         }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return tableSections[section]
+        print(tableSections[section])
+        return tableSections[section].localized
     }
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView{
@@ -166,7 +167,7 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
     
     private func filterPlayers(players: [Player]) {
         let groupedDictionary = Dictionary(grouping: players) { player in
-            return player.playerType ?? "Players"
+            return player.playerType ?? "Players".localized
         }
         tableSections = groupedDictionary.keys.sorted()
         playersBySection = tableSections.map { groupedDictionary[$0]! }
@@ -182,8 +183,8 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
     
     func showError(message: String) {
         DispatchQueue.main.async { [weak self] in
-            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            let alert = UIAlertController(title: "Error".localized, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK".localized, style: .default))
             self?.present(alert, animated: true)
         }
     }

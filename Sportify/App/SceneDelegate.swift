@@ -41,9 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        let rootVC = storyboard.instantiateViewController(
-            withIdentifier: "HomeNavigationWrapper"
-        )
+        let rootVC = storyboard.instantiateInitialViewController()
 
         window.rootViewController = rootVC
         self.window = window

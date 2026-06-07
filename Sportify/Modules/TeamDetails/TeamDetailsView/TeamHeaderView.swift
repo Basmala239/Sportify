@@ -58,13 +58,13 @@ class TeamHeaderView: UIView {
                 
                 if let coach = team.coaches?.first {
                     coachNameLabel.isHidden = false
-                    coachNameLabel.text = String(format: "coach name".localized, coach.coachName ?? "unknown".localized)
+                    coachNameLabel.text = String(format: "Coach: %@ ".localized, coach.coachName ?? "unknown".localized)
                 } else {
                     coachNameLabel.isHidden = true 
                 }
                 
                 let count = team.players?.count ?? 0
-        playersCountLabel.text = String(format: "players_count_text".localized, count)
+        playersCountLabel.text = String(format: "players count %d".localized, count)
                 
                 if let logoString = team.teamLogo, let logoUrl = URL(string: logoString) {
                     teamLogoImageView.sd_setImage(with: logoUrl, placeholderImage: UIImage(named: "team_logo"))
