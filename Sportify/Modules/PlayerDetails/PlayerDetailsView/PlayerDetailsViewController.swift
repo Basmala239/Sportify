@@ -88,7 +88,7 @@ class PlayerDetailsViewController: UIViewController {
             matchesLabel.text = player.playerMatchPlayed ?? "0"
             let yellowCards = player.playerYellowCards ?? "0"
             let redCards = player.playerRedCards ?? "0"
-            cardsLabel.text = "\(yellowCards) / \(redCards)"
+            cardsLabel.text = "R: \(yellowCards) \nY: \(redCards)"
         }
     
     private func populateSkillProfile() {

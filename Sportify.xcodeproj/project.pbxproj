@@ -247,7 +247,6 @@
 		CA840ECA2FD38FEC003B0B6B /* PlayerDetails */ = {
 			isa = PBXGroup;
 			children = (
-				CA840ECC2FD39038003B0B6B /* PlayerDetailsPresenter */,
 				CA840ECB2FD39007003B0B6B /* PlayerDetailsView */,
 			);
 			path = PlayerDetails;
@@ -260,13 +259,6 @@
 				CA840ECF2FD398F8003B0B6B /* PlayerDetailsViewController.swift */,
 			);
 			path = PlayerDetailsView;
-			sourceTree = "<group>";
-		};
-		CA840ECC2FD39038003B0B6B /* PlayerDetailsPresenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PlayerDetailsPresenter;
 			sourceTree = "<group>";
 		};
 		CAB51B032FD1D39C0048ADAA /* Mocks */ = {

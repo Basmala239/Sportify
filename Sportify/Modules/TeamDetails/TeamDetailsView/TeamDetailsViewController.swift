@@ -206,7 +206,11 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
     func showError(message: String) {
         DispatchQueue.main.async { [weak self] in
             let alert = UIAlertController(title: "Error".localized, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK".localized, style: .default))
+            let okAction = UIAlertAction(title: NSLocalizedString("OK".localized, comment: ""), style: .default) { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            
+            alert.addAction(okAction)
             self?.present(alert, animated: true)
         }
     }

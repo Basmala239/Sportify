@@ -137,7 +137,7 @@
 "pod-px-chM.text" = "اضغط على أيقونة القلب على أي دوري أو فريق لإضافته إلى مفضلتك";
 
 /* Class = "UILabel"; text = "CARDS (Y/R)"; ObjectID = "qWV-YV-KHM"; */
-"qWV-YV-KHM.text" = "البطاقات (ص/ح)";
+"qWV-YV-KHM.text" = "البطاقات";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "qiH-31-8jJ"; */
 "qiH-31-8jJ.text" = "Label";

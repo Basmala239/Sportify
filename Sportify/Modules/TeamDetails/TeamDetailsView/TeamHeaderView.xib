@@ -85,13 +85,13 @@
     </objects>
     <resources>
         <namedColor name="backgroundColor">
-            <color red="0.95233069525824654" green="0.95233069525824654" blue="0.95233069525824654" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.95200002193450928" green="0.95200002193450928" blue="0.95200002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="descriptionColor">
-            <color red="0.081524319949999993" green="0.1169075295" blue="0.19147703050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.082000002264976501" green="0.11699999868869781" blue="0.19099999964237213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="headLineColor">
-            <color red="0.32611554860000003" green="0.73539859060000001" blue="0.8948398232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.32600000500679016" green="0.73500001430511475" blue="0.89499998092651367" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="headlineShadowColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

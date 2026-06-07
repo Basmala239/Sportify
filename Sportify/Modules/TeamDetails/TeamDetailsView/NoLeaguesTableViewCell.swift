@@ -9,9 +9,10 @@ import UIKit
 
 class NoLeaguesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var noFixtureLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        noFixtureLabel.text = "No Fixture".localized
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

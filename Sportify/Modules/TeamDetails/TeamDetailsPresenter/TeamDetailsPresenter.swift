@@ -34,6 +34,10 @@ class TeamDetailsPresenter: TeamDetailsPresenterProtocol {
     }
     
     private func fetchTeamData() {
+        guard networkService.isInternetConnected() else {
+            view?.showError(message: "No Internet Connection".localized)
+            return
+        }
         view?.showLoading()
         Task {
             do {
