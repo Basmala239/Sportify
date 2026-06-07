@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="NoLeaguesTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoLeaguesTableViewCell" rowHeight="256" id="KGk-i7-Jjw" customClass="NoLeaguesTableViewCell" customModule="Sportify" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="256"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="336" height="256"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0D-mU-a6m">
+                        <rect key="frame" x="0.0" y="0.0" width="336" height="256"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_leagues" translatesAutoresizingMaskIntoConstraints="NO" id="rLj-kH-H8M">
+                                <rect key="frame" x="48" y="32" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Vpi-c5-cfQ"/>
+                                    <constraint firstAttribute="width" constant="240" id="xhJ-Uh-sKK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Fixture" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gik-RC-cr3">
+                                <rect key="frame" x="111" y="176" width="114.5" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="jEw-ze-ucv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" name="titleColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="-2" height="-2"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gik-RC-cr3" firstAttribute="centerX" secondItem="K0D-mU-a6m" secondAttribute="centerX" id="2xq-vo-7Cj"/>
+                            <constraint firstItem="rLj-kH-H8M" firstAttribute="top" secondItem="K0D-mU-a6m" secondAttribute="top" constant="32" id="4QS-vP-tQY"/>
+                            <constraint firstItem="Gik-RC-cr3" firstAttribute="top" secondItem="rLj-kH-H8M" secondAttribute="bottom" constant="16" id="huu-xH-XGU"/>
+                            <constraint firstItem="rLj-kH-H8M" firstAttribute="centerX" secondItem="K0D-mU-a6m" secondAttribute="centerX" id="jl5-42-lFt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="backgroundColor"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="K0D-mU-a6m" secondAttribute="trailing" id="QeI-Hs-uOe"/>
+                    <constraint firstItem="K0D-mU-a6m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Tvm-2J-iJZ"/>
+                    <constraint firstItem="K0D-mU-a6m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e6t-Gk-63Z"/>
+                    <constraint firstAttribute="bottom" secondItem="K0D-mU-a6m" secondAttribute="bottom" id="kNo-Oh-spO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="143.47826086956522" y="126.5625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="no_leagues" width="419" height="264"/>
+        <namedColor name="backgroundColor">
+            <color red="0.95200002193450928" green="0.95200002193450928" blue="0.95200002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="titleColor">
+            <color red="0.057999998331069946" green="0.090000003576278687" blue="0.164000004529953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

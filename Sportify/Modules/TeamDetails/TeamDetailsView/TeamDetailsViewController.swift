@@ -18,7 +18,7 @@ class TeamDetailsViewController: UIViewController {
         
         private let indicator = UIActivityIndicatorView(style: .large)
     
-    var tableSections: [String] = []
+    var tableSections: [String] = ["Fixtures"]
     var playersBySection: [[Player]] = []
     
     override func viewDidLoad() {
@@ -40,6 +40,9 @@ class TeamDetailsViewController: UIViewController {
         
         let fixtureNib = UINib(nibName: "FixtureTableViewCell", bundle: nil)
         teamTableView.register(fixtureNib, forCellReuseIdentifier: "FixtureTableViewCell")
+        
+        let noLeaguesNib = UINib(nibName: "NoLeaguesTableViewCell", bundle: nil)
+        teamTableView.register(noLeaguesNib, forCellReuseIdentifier: "NoLeaguesTableViewCell")
         
         teamTableView.dataSource = self
         teamTableView.delegate = self
@@ -64,7 +67,12 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionTitle = tableSections[section]
             if sectionTitle == "Fixtures" {
-                return fixtures.count
+                if(fixtures.isEmpty){
+                    return 1
+                } else {
+                    return fixtures.count
+                }
+                
             }
             return 1
     }
@@ -72,10 +80,18 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
             
             let sectionTitle = tableSections[indexPath.section]
             if sectionTitle == "Fixtures" {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "FixtureTableViewCell", for: indexPath) as! FixtureTableViewCell
-                let match = fixtures[indexPath.row]
-                cell.configure(with: match)
-                return cell
+                
+                
+                if(fixtures.isEmpty){
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "NoLeaguesTableViewCell", for: indexPath) as! NoLeaguesTableViewCell
+                    print("No leagues")
+                    return cell
+                }else{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "FixtureTableViewCell", for: indexPath) as! FixtureTableViewCell
+                    let match = fixtures[indexPath.row]
+                    cell.configure(with: match)
+                    return cell
+                }
             }
             else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PlayersRowTableViewCell", for: indexPath) as! PlayersRowTableViewCell
@@ -124,7 +140,11 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let sectionTitle = tableSections[indexPath.section]
             if sectionTitle == "Fixtures" {
-                return 130
+                if(fixtures.isEmpty){
+                    return 256
+                }else{
+                    return 130
+                }
             }
             return 260
 
@@ -169,9 +189,11 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
         let groupedDictionary = Dictionary(grouping: players) { player in
             return player.playerType ?? "Players".localized
         }
-        tableSections = groupedDictionary.keys.sorted()
-        playersBySection = tableSections.map { groupedDictionary[$0]! }
-        tableSections.append("Fixtures")
+        
+        let playerSections = groupedDictionary.keys.sorted()
+        
+        tableSections = playerSections + ["Fixtures"]
+        playersBySection = playerSections.map { groupedDictionary[$0]! } + [[]]
     }
     
     func displayFixtures(fixtures: [Event]) {
