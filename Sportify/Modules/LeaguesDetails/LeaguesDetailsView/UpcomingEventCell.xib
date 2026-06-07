@@ -105,7 +105,7 @@
                                     <constraint firstAttribute="width" constant="150" id="YqZ-SE-mVJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P85-dw-rgg">
@@ -114,7 +114,7 @@
                                     <constraint firstAttribute="width" constant="150" id="eMn-xh-edS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3Z-J4-e0H">
@@ -183,16 +183,19 @@
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <namedColor name="backgroundColor">
-            <color red="0.95233069525824654" green="0.95233069525824654" blue="0.95233069525824654" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.95200002193450928" green="0.95200002193450928" blue="0.95200002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grayTextColor">
-            <color red="0.57149487730000004" green="0.63782256839999996" blue="0.73210459949999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.57099997997283936" green="0.6380000114440918" blue="0.73199999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primaryColor">
-            <color red="0.32516887779999998" green="0.73539173599999996" blue="0.89483731990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.32499998807907104" green="0.73500001430511475" blue="0.89499998092651367" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="secondaryColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="titleColor">
+            <color red="0.057999998331069946" green="0.090000003576278687" blue="0.164000004529953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

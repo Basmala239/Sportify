@@ -85,6 +85,7 @@ extension TeamDetailsViewController : UITableViewDataSource , UITableViewDelegat
                 if(fixtures.isEmpty){
                     let cell = tableView.dequeueReusableCell(withIdentifier: "NoLeaguesTableViewCell", for: indexPath) as! NoLeaguesTableViewCell
                     print("No leagues")
+                    cell.noleaguesView.isHidden = false
                     return cell
                 }else{
                     let cell = tableView.dequeueReusableCell(withIdentifier: "FixtureTableViewCell", for: indexPath) as! FixtureTableViewCell
